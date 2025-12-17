@@ -664,7 +664,7 @@
         </div>
 
         <!-- Board Tab 🆕 -->
-        <div id="admin-board-tab" class="admin-tab-content" style="display: none;">
+        <div id="admin-board-tab" class="admin-tab-content hidden">
             <div id="board-content"></div>
         </div>
 
@@ -3099,11 +3099,9 @@
             
             <form id="boardCreateForm" onsubmit="submitBoardPost(event)">
                 <div class="space-y-5">
-                    <!-- 대분류 -->
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">대분류 *</label>
-                        <select id="board-main-category" required
-                                class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                        <select id="board-main-category" required class="w-full border border-gray-300 rounded-lg px-4 py-2">
                             <option value="">선택하세요</option>
                             <option value="오아시스">오아시스</option>
                             <option value="GMS">GMS</option>
@@ -3114,8 +3112,6 @@
                             <option value="기타">기타</option>
                         </select>
                     </div>
-
-                    <!-- 구분 -->
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">구분 *</label>
                         <div class="grid grid-cols-2 gap-3">
@@ -3129,32 +3125,21 @@
                             </label>
                         </div>
                     </div>
-
-                    <!-- 제목 -->
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">제목 *</label>
-                        <input type="text" id="board-title" required
-                               placeholder="게시글 제목을 입력하세요"
+                        <input type="text" id="board-title" required placeholder="게시글 제목을 입력하세요"
                                class="w-full border border-gray-300 rounded-lg px-4 py-2">
                     </div>
-
-                    <!-- 내용 -->
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">내용 *</label>
-                        <textarea id="board-content" rows="8" required
-                                  placeholder="상세 내용을 입력하세요"
+                        <textarea id="board-content" rows="8" required placeholder="상세 내용을 입력하세요"
                                   class="w-full border border-gray-300 rounded-lg px-4 py-3"></textarea>
                     </div>
-
-                    <!-- URL -->
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">URL (선택)</label>
-                        <input type="url" id="board-url"
-                               placeholder="https://example.com/download"
+                        <input type="url" id="board-url" placeholder="https://example.com/download"
                                class="w-full border border-gray-300 rounded-lg px-4 py-2">
                     </div>
-
-                    <!-- 파일 첨부 -->
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">파일 첨부 (선택, 최대 5개)</label>
                         <input type="file" id="board-files" multiple
@@ -3164,7 +3149,6 @@
                         </p>
                     </div>
                 </div>
-
                 <div class="mt-6 flex justify-end space-x-3">
                     <button type="button" onclick="closeModal('boardCreateModal')" 
                             class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition font-semibold">
@@ -3190,10 +3174,7 @@
                     <i class="fas fa-times text-2xl"></i>
                 </button>
             </div>
-            
-            <div id="board-detail-content">
-                <!-- JavaScript로 동적 생성 -->
-            </div>
+            <div id="board-detail-content"></div>
         </div>
     </div>
 
@@ -3385,7 +3366,7 @@
         
         // 🏢 IT 자산 데이터
         let assets = [];
-        let boardPosts = []; // 게시판 게시글 🆕
+        let boardPosts = []; // 게시판 🆕
         let boardPostIdCounter = 1;
         let assetIdCounter = 1;
         
@@ -6239,6 +6220,7 @@
             else if (tab === 'workload') renderWorkload();
             else if (tab === 'projects') renderProjects();
             else if (tab === 'assets') renderAssetManagement();
+            else if (tab === 'board') renderAdminBoard(); // 🆕
             else if (tab === 'account') {
                 renderRatesDisplay();
                 renderStaffList();
@@ -11093,7 +11075,6 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
         // 🆕 게시판 함수들
         // ==========================================
         
-        // 사용자 게시판 열기
         function openUserBoardView() {
             document.getElementById('user-board-section').style.display = 'block';
             document.querySelectorAll('.grid.grid-cols-4').forEach(el => el.style.display = 'none');
@@ -11102,11 +11083,9 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
             renderUserBoard();
         }
         
-        // 사용자 게시판 렌더링
         function renderUserBoard() {
             const container = document.getElementById('user-board-content');
-            
-            const html = `
+            container.innerHTML = `
                 <div class="mb-6 flex items-center justify-between">
                     <h2 class="text-2xl font-bold text-gray-800">
                         <i class="fas fa-clipboard-list text-teal-500 mr-2"></i>게시판
@@ -11115,14 +11094,10 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
                         <i class="fas fa-arrow-left mr-2"></i>돌아가기
                     </button>
                 </div>
-                
                 ${renderBoardList(false)}
             `;
-            
-            container.innerHTML = html;
         }
         
-        // 사용자 게시판 닫기
         function closeUserBoard() {
             document.getElementById('user-board-section').style.display = 'none';
             document.querySelectorAll('.grid.grid-cols-4').forEach(el => el.style.display = 'grid');
@@ -11130,31 +11105,23 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
             document.querySelector('.bg-white.rounded-xl.shadow-sm.border.overflow-hidden').style.display = 'block';
         }
         
-        // Admin 게시판 렌더링
         function renderAdminBoard() {
             const container = document.getElementById('board-content');
             container.innerHTML = renderBoardList(true);
         }
         
-        // 게시판 목록 렌더링
         function renderBoardList(isAdmin) {
             const categories = ['오아시스', 'GMS', '부동산', '인프라', 'ERP', 'HR', '기타'];
-            
-            let html = `
-                ${isAdmin ? `
+            let html = isAdmin ? `
                 <div class="mb-6 flex justify-end">
                     <button onclick="openModal('boardCreateModal')" class="px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition font-semibold">
                         <i class="fas fa-plus mr-2"></i>게시글 등록
                     </button>
-                </div>
-                ` : ''}
-                
-                <div class="space-y-6">
-            `;
+                </div>` : '';
             
+            html += '<div class="space-y-6">';
             categories.forEach(category => {
                 const categoryPosts = boardPosts.filter(p => p.mainCategory === category);
-                
                 if (categoryPosts.length > 0) {
                     html += `
                         <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
@@ -11163,7 +11130,6 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
                                     <i class="fas fa-folder text-teal-600 mr-2"></i>${category}
                                 </h3>
                             </div>
-                            
                             <div class="overflow-x-auto">
                                 <table class="w-full">
                                     <thead class="bg-gray-50 border-b">
@@ -11175,8 +11141,7 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
                                             <th class="px-6 py-3 text-center text-xs font-semibold text-gray-600 uppercase">액션</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="divide-y divide-gray-200">
-                `;
+                                    <tbody class="divide-y divide-gray-200">`;
                     
                     categoryPosts.forEach(post => {
                         html += `
@@ -11201,27 +11166,17 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
                                     ${post.files.length > 0 ? `
                                     <button onclick="downloadAllFiles(${post.id})" class="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition">
                                         <i class="fas fa-download mr-1"></i>다운로드
-                                    </button>
-                                    ` : ''}
+                                    </button>` : ''}
                                     ${isAdmin ? `
                                     <button onclick="deleteBoardPost(${post.id})" class="px-3 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200 transition ml-2">
                                         <i class="fas fa-trash mr-1"></i>삭제
-                                    </button>
-                                    ` : ''}
+                                    </button>` : ''}
                                 </td>
-                            </tr>
-                        `;
+                            </tr>`;
                     });
-                    
-                    html += `
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    `;
+                    html += '</tbody></table></div></div>';
                 }
             });
-            
             html += '</div>';
             
             if (boardPosts.length === 0) {
@@ -11230,24 +11185,18 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
                         <i class="fas fa-clipboard-list text-gray-300 text-6xl mb-4"></i>
                         <p class="text-gray-500 text-lg">등록된 게시글이 없습니다</p>
                         ${isAdmin ? '<p class="text-gray-400 text-sm mt-2">상단의 [게시글 등록] 버튼을 클릭하여 첫 게시글을 등록하세요</p>' : ''}
-                    </div>
-                `;
+                    </div>`;
             }
-            
             return html;
         }
         
-        // 게시글 상세보기
         function viewBoardPost(postId) {
             const post = boardPosts.find(p => p.id === postId);
             if (!post) return;
-            
-            // 조회수 증가
             post.views++;
             
             const html = `
                 <div class="space-y-6">
-                    <!-- 헤더 -->
                     <div class="border-b pb-4">
                         <div class="flex items-center justify-between mb-2">
                             <span class="px-3 py-1 text-sm font-semibold rounded-full ${post.type === '매뉴얼' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}">
@@ -11263,13 +11212,9 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
                             <span><i class="fas fa-eye mr-1"></i>${post.views} 조회</span>
                         </div>
                     </div>
-                    
-                    <!-- 내용 -->
                     <div class="prose max-w-none">
                         <div class="text-gray-700 whitespace-pre-wrap">${post.content}</div>
                     </div>
-                    
-                    <!-- URL -->
                     ${post.url ? `
                     <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
                         <div class="text-sm font-semibold text-blue-800 mb-2">
@@ -11278,10 +11223,7 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
                         <a href="${post.url}" target="_blank" class="text-blue-600 hover:text-blue-800 underline break-all">
                             ${post.url}
                         </a>
-                    </div>
-                    ` : ''}
-                    
-                    <!-- 첨부파일 -->
+                    </div>` : ''}
                     ${post.files.length > 0 ? `
                     <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
                         <div class="text-sm font-semibold text-gray-800 mb-3">
@@ -11305,33 +11247,21 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
                                 <i class="fas fa-download mr-2"></i>전체 파일 다운로드
                             </button>
                         </div>
-                    </div>
-                    ` : ''}
+                    </div>` : ''}
                 </div>
             `;
             
             document.getElementById('board-detail-content').innerHTML = html;
             openModal('boardDetailModal');
             
-            // 게시판 목록 업데이트 (조회수 반영)
-            if (currentRole === 'admin' || currentRole === 'master') {
-                renderAdminBoard();
-            } else {
-                renderUserBoard();
-            }
+            if (currentRole === 'admin' || currentRole === 'master') renderAdminBoard();
+            else renderUserBoard();
         }
         
-        // 게시글 등록
         function submitBoardPost(event) {
             event.preventDefault();
             
-            const mainCategory = document.getElementById('board-main-category').value;
-            const type = document.querySelector('input[name="boardType"]:checked').value;
-            const title = document.getElementById('board-title').value.trim();
-            const content = document.getElementById('board-content').value.trim();
-            const url = document.getElementById('board-url').value.trim();
             const fileInput = document.getElementById('board-files');
-            
             const files = [];
             for (let i = 0; i < fileInput.files.length && i < 5; i++) {
                 files.push(fileInput.files[i].name);
@@ -11339,11 +11269,11 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
             
             const post = {
                 id: boardPostIdCounter++,
-                mainCategory: mainCategory,
-                type: type,
-                title: title,
-                content: content,
-                url: url,
+                mainCategory: document.getElementById('board-main-category').value,
+                type: document.querySelector('input[name="boardType"]:checked').value,
+                title: document.getElementById('board-title').value.trim(),
+                content: document.getElementById('board-content').value.trim(),
+                url: document.getElementById('board-url').value.trim(),
                 files: files,
                 views: 0,
                 createdAt: new Date().toLocaleString('ko-KR'),
@@ -11351,19 +11281,14 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
             };
             
             boardPosts.unshift(post);
-            
             closeModal('boardCreateModal');
             document.getElementById('boardCreateForm').reset();
-            
             alert('✅ 게시글이 등록되었습니다!');
-            
             renderAdminBoard();
         }
         
-        // 게시글 삭제
         function deleteBoardPost(postId) {
             if (!confirm('정말 이 게시글을 삭제하시겠습니까?')) return;
-            
             const index = boardPosts.findIndex(p => p.id === postId);
             if (index !== -1) {
                 boardPosts.splice(index, 1);
@@ -11372,34 +11297,16 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
             }
         }
         
-        // 파일 다운로드
         function downloadFile(postId, fileIndex) {
             const post = boardPosts.find(p => p.id === postId);
             if (!post) return;
-            
             alert(`📥 "${post.files[fileIndex]}" 다운로드를 시작합니다.`);
         }
         
-        // 전체 파일 다운로드
         function downloadAllFiles(postId) {
             const post = boardPosts.find(p => p.id === postId);
             if (!post) return;
-            
             alert(`📥 ${post.files.length}개 파일 다운로드를 시작합니다.`);
-        }
-        
-        // Admin 탭 전환 (기존 함수 수정 필요)
-        const originalSwitchAdminTab = switchAdminTab;
-        function switchAdminTab(tab) {
-            if (tab === 'board') {
-                document.querySelectorAll('.admin-tab-content').forEach(t => t.style.display = 'none');
-                document.getElementById('admin-board-tab').style.display = 'block';
-                document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
-                event.target.classList.add('active');
-                renderAdminBoard();
-            } else {
-                originalSwitchAdminTab(tab);
-            }
         }
         
         window.addEventListener('DOMContentLoaded', function() {
