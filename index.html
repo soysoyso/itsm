@@ -7,118 +7,188 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', sans-serif;
+        /* ==========================================
+           Modern Enterprise ITSM Design System
+           Linear/Jira/Asana Style for 30-40 Males
+           ========================================== */
+        
+        :root {
+            /* Primary Colors */
+            --primary: #0052CC;
+            --primary-hover: #0065FF;
+            --primary-active: #003884;
+            
+            /* Text Colors */
+            --text-primary: #172B4D;
+            --text-secondary: #5E6C84;
+            --text-tertiary: #8993A4;
+            --text-disabled: #A5ADBA;
+            
+            /* Background Colors */
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F7F8F9;
+            --bg-tertiary: #EBECF0;
+            
+            /* Border Colors */
+            --border: #DFE1E6;
+            --border-light: #F4F5F7;
+            --border-focus: #4C9AFF;
+            
+            /* Semantic Colors */
+            --success: #00875A;
+            --success-bg: #E3FCEF;
+            --success-dark: #006644;
+            --warning: #FF8B00;
+            --warning-bg: #FFF0B3;
+            --warning-dark: #FF8B00;
+            --danger: #DE350B;
+            --danger-bg: #FFEBE6;
+            --danger-dark: #BF2600;
+            --info: #0065FF;
+            --info-bg: #DEEBFF;
+            
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 12px;
+            --space-lg: 16px;
+            --space-xl: 24px;
+            --space-2xl: 32px;
+            
+            /* Border Radius - Minimal */
+            --radius-sm: 3px;
+            --radius-md: 3px;
+            --radius-lg: 4px;
+            
+            /* Shadows - Subtle */
+            --shadow-sm: 0 1px 1px rgba(9, 30, 66, 0.13);
+            --shadow-md: 0 2px 4px rgba(9, 30, 66, 0.13);
+            --shadow-lg: 0 4px 8px rgba(9, 30, 66, 0.13);
         }
         
-        /* Status Badges */
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Noto Sans KR', sans-serif;
+        }
+        
+        /* Status Badges - Clean & Minimal */
         .status-badge {
             display: inline-flex;
             align-items: center;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+            font-size: 11px;
             font-weight: 600;
-            letter-spacing: -0.3px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
         }
-        .status-요청 { background: #FEF3C7; color: #92400E; }
-        .status-접수 { background: #DBEAFE; color: #1E40AF; }
-        .status-견적확인 { background: #CFFAFE; color: #155E75; }
-        .status-승인대기 { background: #CCFBF1; color: #115E59; }
-        .status-처리중 { background: #E0E7FF; color: #4338CA; }
-        .status-재검수중 { background: #FCE7F3; color: #9F1239; }
+        
+        /* Remove ALL pastel gradients, use solid colors */
+        .status-요청 { background: #F4F5F7; color: #5E6C84; }
+        .status-접수 { background: #DEEBFF; color: #0052CC; }
+        .status-견적확인 { background: #DEEBFF; color: #0052CC; }
+        .status-승인대기 { background: #EAE6FF; color: #6554C0; }
+        .status-처리중 { background: #DEEBFF; color: #0052CC; }
+        .status-재검수중 { background: #FFF0B3; color: #FF8B00; }
         .status-검수대기,
-        .status-검수\ 대기 { background: #F3E8FF; color: #6B21A8; }
-        .status-완료 { background: #D1FAE5; color: #065F46; }
-        .status-보류 { background: #FEE2E2; color: #991B1B; }
-        .status-반려 { background: #F3F4F6; color: #374151; }
-        .status-취소 { background: #FEE2E2; color: #7F1D1D; }
+        .status-검수\ 대기 { background: #EAE6FF; color: #6554C0; }
+        .status-완료 { background: #E3FCEF; color: #006644; }
+        .status-보류 { background: #FFEBE6; color: #BF2600; }
+        .status-반려 { background: #F4F5F7; color: #5E6C84; }
+        .status-취소 { background: #FFEBE6; color: #BF2600; }
         
         /* Priority */
-        .priority-high { color: #DC2626; }
-        .priority-medium { color: #F59E0B; }
-        .priority-low { color: #6B7280; }
+        .priority-high { color: #DE350B; }
+        .priority-medium { color: #FF8B00; }
+        .priority-low { color: #5E6C84; }
         
-        /* Tabs */
+        /* Tabs - Clean */
         .nav-tab {
-            padding: 12px 24px;
-            border-bottom: 3px solid transparent;
+            padding: 10px 16px;
+            border-bottom: 2px solid transparent;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.15s;
             font-weight: 500;
-            color: #6B7280;
+            font-size: 14px;
+            color: var(--text-secondary);
+            background: none;
         }
         .nav-tab:hover {
-            color: #3B82F6;
-            background: #F3F4F6;
+            color: var(--text-primary);
         }
         .nav-tab.active {
-            border-bottom-color: #3B82F6;
-            color: #3B82F6;
+            border-bottom-color: var(--primary);
+            color: var(--primary);
         }
         
-        /* User Role Toggle */
+        /* Role Toggle - Clean */
         .role-toggle {
-            background: #F3F4F6;
-            border-radius: 12px;
-            padding: 4px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-sm);
+            padding: 2px;
             display: inline-flex;
+            gap: 2px;
         }
         .role-btn {
-            padding: 8px 20px;
-            border-radius: 8px;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
             cursor: pointer;
-            transition: all 0.2s;
-            font-weight: 600;
+            transition: all 0.15s;
+            font-weight: 500;
             font-size: 14px;
+            color: var(--text-secondary);
+            background: transparent;
+            border: none;
         }
         .role-btn.active {
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            color: #3B82F6;
+            background: var(--bg-primary);
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
         }
         
-        /* Table Styles */
+        /* Table - Professional */
         .data-table {
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
         }
         .data-table thead {
-            background: #F9FAFB;
+            background: var(--bg-primary);
             position: sticky;
             top: 0;
             z-index: 10;
         }
         .data-table th {
-            padding: 12px 16px;
+            padding: 8px 12px;
             text-align: left;
             font-weight: 600;
-            font-size: 13px;
-            color: #374151;
-            border-bottom: 2px solid #E5E7EB;
+            font-size: 11px;
+            color: var(--text-secondary);
+            border-bottom: 2px solid var(--border);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .data-table td {
-            padding: 14px 16px;
-            border-bottom: 1px solid #F3F4F6;
+            padding: 12px;
+            border-bottom: 1px solid var(--border-light);
             font-size: 14px;
+            color: var(--text-primary);
         }
         .data-table tbody tr {
-            transition: all 0.15s;
+            transition: background 0.1s;
             cursor: pointer;
         }
         .data-table tbody tr:hover {
-            background: #F9FAFB;
+            background: var(--bg-secondary);
         }
         
-        /* Gantt Chart */
+        /* Gantt Chart - Clean */
         .gantt-container {
             overflow-x: auto;
             position: relative;
         }
         .gantt-row {
             display: flex;
-            border-bottom: 1px solid #E5E7EB;
+            border-bottom: 1px solid var(--border-light);
             min-height: 48px;
             align-items: center;
         }
@@ -126,8 +196,8 @@
             width: 280px;
             min-width: 280px;
             padding: 12px;
-            border-right: 2px solid #E5E7EB;
-            background: #FAFAFA;
+            border-right: 2px solid var(--border);
+            background: var(--bg-secondary);
             font-weight: 500;
         }
         .gantt-timeline {
@@ -136,12 +206,12 @@
             min-height: 48px;
             display: flex;
             align-items: center;
-            background: white;
+            background: var(--bg-primary);
         }
         .gantt-bar {
             position: absolute;
             height: 28px;
-            border-radius: 6px;
+            border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             padding: 0 12px;
@@ -149,32 +219,29 @@
             font-weight: 600;
             color: white;
             cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.15s;
+            box-shadow: var(--shadow-sm);
         }
         .gantt-bar:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: var(--shadow-md);
         }
         .gantt-bar-main {
-            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            background: var(--primary);
             position: relative;
         }
         .gantt-bar-main:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+            background: var(--primary-hover);
             z-index: 20;
         }
         .gantt-bar-sub {
-            background: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);
+            background: var(--text-secondary);
             height: 24px;
         }
         .gantt-bar-assignee {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: var(--text-secondary);
             font-size: 12px;
             font-weight: 600;
-            box-shadow: 0 2px 8px rgba(240, 147, 251, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--shadow-sm);
             height: 32px;
         }
         .gantt-today {
@@ -182,7 +249,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: #EF4444;
+            background: var(--danger);
             z-index: 5;
         }
         .gantt-date-cell {
@@ -190,29 +257,30 @@
             padding: 8px 4px;
             text-align: center;
             font-size: 11px;
-            border-right: 1px solid #F3F4F6;
+            border-right: 1px solid var(--border-light);
         }
         
-        /* Kanban Board */
+        /* Kanban Board - Minimal */
         .kanban-column {
-            background: #F9FAFB;
-            border-radius: 12px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
             padding: 16px;
             min-width: 280px;
             max-width: 320px;
         }
         .kanban-card {
-            background: white;
-            border-radius: 8px;
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
             padding: 16px;
             margin-bottom: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-sm);
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.15s;
+            border: 1px solid var(--border);
         }
         .kanban-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
         }
         
         /* Modal */
@@ -224,8 +292,8 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            backdrop-filter: blur(4px);
+            background-color: rgba(9, 30, 66, 0.54);
+            backdrop-filter: blur(2px);
         }
         .modal.active {
             display: flex;
@@ -245,7 +313,7 @@
             }
         }
         .animate-slide-in {
-            animation: slideIn 0.3s ease-out;
+            animation: slideIn 0.2s ease-out;
         }
         
         /* Custom Scrollbar */
@@ -254,14 +322,14 @@
             height: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #F3F4F6;
+            background: var(--bg-tertiary);
         }
         ::-webkit-scrollbar-thumb {
-            background: #D1D5DB;
-            border-radius: 4px;
+            background: var(--border);
+            border-radius: var(--radius-sm);
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #9CA3AF;
+            background: var(--text-secondary);
         }
         
         /* Collapse */
@@ -274,6 +342,92 @@
         }
         .collapsed-content {
             display: none;
+        }
+        
+        /* Override Tailwind gradients with flat colors */
+        .bg-gradient-to-br,
+        .bg-gradient-to-r {
+            background-image: none !important;
+        }
+        
+        /* Login screen - minimal */
+        #loginScreen {
+            background: var(--bg-secondary) !important;
+        }
+        
+        /* Category cards - icon-based, NO pastel backgrounds */
+        [onclick*="openCategoryModal"],
+        [onclick*="quickAssetRequest"],
+        [onclick*="openUserBoardView"] {
+            background: var(--bg-primary) !important;
+            border: 2px solid var(--border) !important;
+            border-radius: var(--radius-sm) !important;
+            transition: all 0.15s;
+        }
+        
+        [onclick*="openCategoryModal"]:hover,
+        [onclick*="quickAssetRequest"]:hover,
+        [onclick*="openUserBoardView"]:hover {
+            border-color: var(--primary) !important;
+            box-shadow: var(--shadow-md) !important;
+            transform: none !important;
+        }
+        
+        /* Remove transform scale on hover */
+        .hover\:scale-105:hover {
+            transform: none !important;
+        }
+        
+        /* Buttons - flat design */
+        button[class*="bg-gradient"] {
+            background: var(--primary) !important;
+            background-image: none !important;
+        }
+        
+        button[class*="bg-gradient"]:hover {
+            background: var(--primary-hover) !important;
+        }
+        
+        /* Stats cards - minimal */
+        .bg-blue-100,
+        .bg-purple-100,
+        .bg-green-100,
+        .bg-orange-100,
+        .bg-red-100 {
+            background: var(--bg-secondary) !important;
+        }
+        
+        /* Border radius override */
+        .rounded-2xl,
+        .rounded-xl,
+        .rounded-lg {
+            border-radius: var(--radius-sm) !important;
+        }
+        
+        .rounded-full {
+            border-radius: 50% !important;
+        }
+        
+        /* Shadow override */
+        .shadow-2xl,
+        .shadow-xl,
+        .shadow-lg,
+        .shadow-md {
+            box-shadow: var(--shadow-sm) !important;
+        }
+        
+        /* 자산 등록/수정 모달 스타일 */
+        .register-type-btn, .edit-type-btn {
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .register-type-btn.active, .edit-type-btn.active {
+            transform: scale(1.02);
+        }
+        
+        .register-type-btn i, .edit-type-btn i {
+            display: block;
         }
     </style>
 </head>
@@ -374,6 +528,10 @@
                     <div class="text-right">
                         <p class="text-sm font-semibold text-gray-800" id="current-user-name">홍길동</p>
                         <p class="text-xs text-gray-500" id="current-user-role">운영팀</p>
+                        <p class="text-xs font-semibold text-blue-600 mt-1" id="current-datetime">
+                            <i class="fas fa-clock mr-1"></i>
+                            <span id="current-date"></span> <span id="current-time"></span>
+                        </p>
                     </div>
                     <button onclick="generateBulkDemoTickets()" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition font-semibold shadow-md text-sm" title="시연용 티켓 5개 자동 생성">
                         <i class="fas fa-magic mr-2"></i>데모 티켓 생성
@@ -455,7 +613,7 @@
                 </h2>
                 <p class="text-sm text-gray-600">시스템을 선택하고 요청하세요</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="grid grid-cols-3 gap-4">
                 <!-- 오아시스 -->
                 <div onclick="openCategoryModal('오아시스')" class="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
                     <div class="flex items-start justify-between mb-3">
@@ -633,7 +791,10 @@
         <!-- Navigation Tabs -->
         <div class="bg-white rounded-xl shadow-sm border mb-6">
             <div class="flex border-b">
-                <button class="nav-tab active" onclick="switchAdminTab('kanban')">
+                <button class="nav-tab active" onclick="switchAdminTab('dashboard')">
+                    <i class="fas fa-tachometer-alt mr-2"></i>내 대시보드
+                </button>
+                <button class="nav-tab" onclick="switchAdminTab('kanban')">
                     <i class="fas fa-th mr-2"></i>칸반 보드
                 </button>
                 <button class="nav-tab" onclick="switchAdminTab('list')">
@@ -663,13 +824,247 @@
             </div>
         </div>
 
+        <!-- Personal Dashboard Tab 🆕 -->
+        <div id="admin-dashboard-tab" class="admin-tab-content">
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-4 gap-4 mb-6">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-sm border border-blue-200 p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-clipboard-list text-white text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-bold text-blue-900" id="my-total-tickets">0</span>
+                    </div>
+                    <h3 class="text-sm font-semibold text-blue-800">전체 담당 티켓</h3>
+                </div>
+                
+                <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-sm border border-yellow-200 p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-clock text-white text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-bold text-yellow-900" id="my-pending-tickets">0</span>
+                    </div>
+                    <h3 class="text-sm font-semibold text-yellow-800">대기 중</h3>
+                </div>
+                
+                <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl shadow-sm border border-indigo-200 p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-spinner text-white text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-bold text-indigo-900" id="my-processing-tickets">0</span>
+                    </div>
+                    <h3 class="text-sm font-semibold text-indigo-800">처리 중</h3>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-sm border border-green-200 p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-check-circle text-white text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-bold text-green-900" id="my-completed-tickets">0</span>
+                    </div>
+                    <h3 class="text-sm font-semibold text-green-800">완료</h3>
+                </div>
+            </div>
+
+            <!-- 주요 성과 지표 (오늘/이번 주/이번 달) -->
+            <div class="grid grid-cols-3 gap-6 mb-6">
+                <!-- 오늘 성과 -->
+                <div class="bg-white rounded-xl shadow-sm border p-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-calendar-day text-blue-600 mr-2"></i>오늘 성과
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between py-2 border-b">
+                            <span class="text-sm text-gray-600">요청받음</span>
+                            <span class="text-lg font-bold text-blue-600" id="daily-requested">0</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b">
+                            <span class="text-sm text-gray-600">완료함</span>
+                            <span class="text-lg font-bold text-green-600" id="daily-completed">0</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b">
+                            <span class="text-sm text-gray-600">보류함</span>
+                            <span class="text-lg font-bold text-orange-600" id="daily-held">0</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-sm text-gray-600">반려함</span>
+                            <span class="text-lg font-bold text-red-600" id="daily-rejected">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 이번 주 성과 -->
+                <div class="bg-white rounded-xl shadow-sm border p-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-calendar-week text-purple-600 mr-2"></i>이번 주 성과
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between py-2 border-b">
+                            <span class="text-sm text-gray-600">요청받음</span>
+                            <span class="text-lg font-bold text-blue-600" id="weekly-requested">0</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b">
+                            <span class="text-sm text-gray-600">완료함</span>
+                            <span class="text-lg font-bold text-green-600" id="weekly-completed">0</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b">
+                            <span class="text-sm text-gray-600">보류함</span>
+                            <span class="text-lg font-bold text-orange-600" id="weekly-held">0</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-sm text-gray-600">반려함</span>
+                            <span class="text-lg font-bold text-red-600" id="weekly-rejected">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 이번 달 성과 -->
+                <div class="bg-white rounded-xl shadow-sm border p-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-calendar-alt text-orange-600 mr-2"></i>이번 달 성과
+                    </h3>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between py-2 border-b">
+                            <span class="text-sm text-gray-600">요청받음</span>
+                            <span class="text-lg font-bold text-blue-600" id="monthly-requested">0</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b">
+                            <span class="text-sm text-gray-600">완료함</span>
+                            <span class="text-lg font-bold text-green-600" id="monthly-completed">0</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b">
+                            <span class="text-sm text-gray-600">보류함</span>
+                            <span class="text-lg font-bold text-orange-600" id="monthly-held">0</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-sm text-gray-600">반려함</span>
+                            <span class="text-lg font-bold text-red-600" id="monthly-rejected">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 업무 품질 지표 -->
+            <div class="grid grid-cols-2 gap-6 mb-6">
+                <!-- 반응 속도 -->
+                <div class="bg-white rounded-xl shadow-sm border p-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-tachometer-alt text-blue-600 mr-2"></i>반응 속도
+                        <span class="ml-2 text-xs text-gray-500">(요청 → 접수까지)</span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600">평균 반응 시간</span>
+                            <span class="text-2xl font-bold text-blue-600" id="avg-response-time">-</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600">가장 빠른 반응</span>
+                            <span class="text-lg font-semibold text-green-600" id="fastest-response">-</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600">24시간 내 반응률</span>
+                            <span class="text-lg font-semibold text-purple-600" id="response-rate-24h">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 처리 품질 -->
+                <div class="bg-white rounded-xl shadow-sm border p-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-award text-purple-600 mr-2"></i>처리 품질
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600">1회 완료율</span>
+                            <span class="text-2xl font-bold text-green-600" id="first-time-fix-rate">-</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600">재검수 비율</span>
+                            <span class="text-lg font-semibold text-orange-600" id="rework-rate">-</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600">평균 완료 시간</span>
+                            <span class="text-lg font-semibold text-blue-600" id="avg-completion-time">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 프로세스별 현황 -->
+            <div class="bg-white rounded-xl shadow-sm border p-6 mb-6">
+                <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-stream text-teal-600 mr-2"></i>프로세스별 담당 티켓
+                </h3>
+                <div id="my-status-breakdown" class="grid grid-cols-6 gap-3"></div>
+            </div>
+
+            <!-- 평균 처리 시간 & 인사이트 -->
+            <div class="grid grid-cols-2 gap-6 mb-6">
+                <div class="bg-white rounded-xl shadow-sm border p-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-hourglass-half text-blue-600 mr-2"></i>평균 처리 시간
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                            <span class="text-sm font-semibold text-gray-700">티켓당 평균</span>
+                            <span class="text-xl font-bold text-blue-600" id="avg-processing-time">0일</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                            <span class="text-sm font-semibold text-gray-700">이번 주 평균</span>
+                            <span class="text-xl font-bold text-purple-600" id="weekly-avg-time">0일</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                            <span class="text-sm font-semibold text-gray-700">가장 빠른 처리</span>
+                            <span class="text-lg font-bold text-green-600" id="fastest-time">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border p-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-lightbulb text-yellow-600 mr-2"></i>업무 인사이트
+                    </h3>
+                    <div id="work-insights" class="space-y-3"></div>
+                </div>
+            </div>
+
+            <!-- 현재 처리 중인 업무 목록 -->
+            <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                <div class="px-6 py-4 bg-gradient-to-r from-gray-50 to-white border-b">
+                    <h3 class="text-lg font-bold text-gray-800 flex items-center">
+                        <i class="fas fa-tasks text-indigo-600 mr-2"></i>현재 처리 중인 업무
+                    </h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gray-50 border-b">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">티켓번호</th>
+                                <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">제목</th>
+                                <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">상태</th>
+                                <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">우선순위</th>
+                                <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">진행일</th>
+                                <th class="px-6 py-3 text-center text-xs font-semibold text-gray-600 uppercase">액션</th>
+                            </tr>
+                        </thead>
+                        <tbody id="my-current-tasks" class="divide-y divide-gray-200">
+                            <!-- JavaScript로 동적 생성 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
         <!-- Board Tab 🆕 -->
         <div id="admin-board-tab" class="admin-tab-content hidden">
             <div id="board-content"></div>
         </div>
 
         <!-- Kanban Board Tab -->
-        <div id="admin-kanban-tab" class="admin-tab-content">
+        <div id="admin-kanban-tab" class="admin-tab-content hidden">
             <!-- 필터 추가 🆕 -->
             <div class="mb-6 flex items-center justify-between">
                 <div class="flex items-center space-x-2">
@@ -821,40 +1216,40 @@
         <!-- Analytics Tab -->
         <div id="admin-analytics-tab" class="admin-tab-content hidden">
             <div class="grid grid-cols-4 gap-6 mb-6">
-                <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg p-6 text-white">
+                <div class="bg-gradient-to-br from-blue-700 to-blue-800 rounded-xl shadow-lg p-6 text-white">
                     <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                        <div class="w-12 h-12 bg-white bg-opacity-30 rounded-lg flex items-center justify-center">
                             <i class="fas fa-ticket-alt text-2xl"></i>
                         </div>
                     </div>
-                    <p class="text-sm opacity-90 mb-1">전체 티켓</p>
+                    <p class="text-sm opacity-95 mb-1 font-semibold">전체 티켓</p>
                     <p class="text-3xl font-bold" id="admin-stat-total">0</p>
                 </div>
-                <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl shadow-lg p-6 text-white">
+                <div class="bg-gradient-to-br from-orange-600 to-orange-700 rounded-xl shadow-lg p-6 text-white">
                     <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                        <div class="w-12 h-12 bg-white bg-opacity-30 rounded-lg flex items-center justify-center">
                             <i class="fas fa-hourglass-half text-2xl"></i>
                         </div>
                     </div>
-                    <p class="text-sm opacity-90 mb-1">대기 중</p>
+                    <p class="text-sm opacity-95 mb-1 font-semibold">대기 중</p>
                     <p class="text-3xl font-bold" id="admin-stat-waiting">0</p>
                 </div>
-                <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl shadow-lg p-6 text-white">
+                <div class="bg-gradient-to-br from-purple-700 to-purple-800 rounded-xl shadow-lg p-6 text-white">
                     <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                        <div class="w-12 h-12 bg-white bg-opacity-30 rounded-lg flex items-center justify-center">
                             <i class="fas fa-tasks text-2xl"></i>
                         </div>
                     </div>
-                    <p class="text-sm opacity-90 mb-1">진행 중</p>
+                    <p class="text-sm opacity-95 mb-1 font-semibold">진행 중</p>
                     <p class="text-3xl font-bold" id="admin-stat-progress">0</p>
                 </div>
-                <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg p-6 text-white">
+                <div class="bg-gradient-to-br from-green-700 to-green-800 rounded-xl shadow-lg p-6 text-white">
                     <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                        <div class="w-12 h-12 bg-white bg-opacity-30 rounded-lg flex items-center justify-center">
                             <i class="fas fa-check-double text-2xl"></i>
                         </div>
                     </div>
-                    <p class="text-sm opacity-90 mb-1">완료</p>
+                    <p class="text-sm opacity-95 mb-1 font-semibold">완료</p>
                     <p class="text-3xl font-bold" id="admin-stat-done">0</p>
                 </div>
             </div>
@@ -1086,6 +1481,7 @@
                             <thead>
                                 <tr>
                                     <th style="width: 100px;">자산코드</th>
+                                    <th style="width: 70px;">구분</th>
                                     <th style="width: 80px;">카테고리</th>
                                     <th style="width: 150px;">자산명</th>
                                     <th style="width: 120px;">제조사/개발사</th>
@@ -1953,6 +2349,40 @@
                         <option value="부동산">부동산</option>
                         <option value="기타">기타</option>
                     </select>
+                </div>
+
+                <!-- 계정 유형 선택 🆕 -->
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <h4 class="font-semibold text-gray-800 mb-3">
+                        <i class="fas fa-user-shield text-blue-600 mr-2"></i>계정 권한 설정
+                    </h4>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                계정 유형 <span class="text-red-500">*</span>
+                            </label>
+                            <select id="add-staff-account-type" onchange="toggleApprovalPermission()"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500">
+                                <option value="user">일반 사용자 (신청만 가능)</option>
+                                <option value="admin" selected>실무자 (작업 처리 가능)</option>
+                                <option value="master">마스터 (전체 관리 가능)</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 승인 권한 체크박스 (실무자만) -->
+                        <div id="approval-permission-container" style="display: block;">
+                            <label class="flex items-start cursor-pointer">
+                                <input type="checkbox" id="add-staff-can-approve" 
+                                    class="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <div class="ml-3">
+                                    <span class="text-sm font-semibold text-gray-700">승인 권한 부여</span>
+                                    <p class="text-xs text-gray-600 mt-1">
+                                        체크 시 이 실무자는 티켓을 승인/반려할 수 있습니다 (마스터 역할과 유사)
+                                    </p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 요율 미리보기 -->
@@ -3178,6 +3608,359 @@
         </div>
     </div>
 
+    <!-- 자산 등록 모달 🆕 -->
+    <div id="assetRegisterModal" class="modal">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-5xl w-full mx-4 p-8 animate-slide-in max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-box text-purple-600 mr-2"></i>자산 등록
+                </h3>
+                <button onclick="closeModal('assetRegisterModal')" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- 등록 방식 선택 -->
+            <div class="mb-6">
+                <div class="grid grid-cols-2 gap-4">
+                    <button onclick="selectRegisterType('manual')" id="register-type-manual" 
+                            class="register-type-btn active px-6 py-4 border-2 border-purple-500 bg-purple-50 rounded-xl transition hover:shadow-md">
+                        <i class="fas fa-keyboard text-purple-600 text-2xl mb-2"></i>
+                        <div class="font-bold text-gray-800">수기 등록</div>
+                        <div class="text-sm text-gray-600 mt-1">기존 자산 검색 또는 신규 입력</div>
+                    </button>
+                    <button onclick="selectRegisterType('api')" id="register-type-api"
+                            class="register-type-btn px-6 py-4 border-2 border-gray-300 bg-white rounded-xl transition hover:shadow-md">
+                        <i class="fas fa-sync text-blue-600 text-2xl mb-2"></i>
+                        <div class="font-bold text-gray-800">API 동기화</div>
+                        <div class="text-sm text-gray-600 mt-1">최신 데이터 가져오기</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 수기 등록 폼 -->
+            <div id="manual-register-form">
+                <!-- 자산 검색 (기존 자산) -->
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+                    <h4 class="font-bold text-gray-800 mb-3">
+                        <i class="fas fa-search text-blue-600 mr-2"></i>기존 자산 검색 (상태 변경/사용자 지정)
+                    </h4>
+                    <div class="flex gap-3">
+                        <input type="text" id="asset-search-code" placeholder="자산코드 또는 자산명 입력..."
+                               class="flex-1 border border-gray-300 rounded-lg px-4 py-2">
+                        <button onclick="searchExistingAsset()" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold">
+                            <i class="fas fa-search mr-2"></i>검색
+                        </button>
+                    </div>
+                    <div id="search-result" class="mt-3"></div>
+                </div>
+
+                <!-- 신규 자산 등록 폼 -->
+                <form id="manualAssetForm" onsubmit="return submitManualAsset(event);">
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">자산코드 *</label>
+                            <input type="text" id="manual-asset-code" required
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2"
+                                   placeholder="예: HW-2025-001">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">구분 *</label>
+                            <select id="manual-acquisition-type" required class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                                <option value="">선택하세요</option>
+                                <option value="구매">구매</option>
+                                <option value="렌탈">렌탈</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">카테고리 *</label>
+                            <select id="manual-category" required class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                                <option value="">선택하세요</option>
+                                <option value="하드웨어">하드웨어</option>
+                                <option value="소프트웨어">소프트웨어</option>
+                                <option value="클라우드">클라우드</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">자산명 *</label>
+                            <input type="text" id="manual-asset-name" required
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2"
+                                   placeholder="예: MacBook Pro 16">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">제조사/개발사</label>
+                            <input type="text" id="manual-manufacturer"
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2"
+                                   placeholder="예: Apple">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">구매년도</label>
+                            <input type="number" id="manual-purchase-year" min="2000" max="2099"
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2"
+                                   placeholder="예: 2025">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">금액 (원)</label>
+                            <input type="number" id="manual-price" min="0"
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2"
+                                   placeholder="예: 3500000">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">상태 *</label>
+                            <select id="manual-status" required class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                                <option value="대기">보유(대기)</option>
+                                <option value="사용중">사용중</option>
+                                <option value="고장">고장</option>
+                                <option value="수리중">수리중</option>
+                                <option value="반납">반납</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">사용자</label>
+                            <input type="text" id="manual-user"
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2"
+                                   placeholder="예: 홍길동">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">비고</label>
+                        <textarea id="manual-note" rows="3"
+                                  class="w-full border border-gray-300 rounded-lg px-4 py-2"
+                                  placeholder="추가 정보 입력..."></textarea>
+                    </div>
+                    <div class="flex justify-end gap-3">
+                        <button type="button" onclick="closeModal('assetRegisterModal')" 
+                                class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                            취소
+                        </button>
+                        <button type="submit" 
+                                class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition font-semibold">
+                            <i class="fas fa-check mr-2"></i>등록
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- API 동기화 폼 -->
+            <div id="api-sync-form" class="hidden">
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-xl p-6 mb-6">
+                    <h4 class="font-bold text-gray-800 mb-3">
+                        <i class="fas fa-cloud text-blue-600 mr-2"></i>API 연동 설정
+                    </h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">API 엔드포인트</label>
+                            <input type="text" id="api-endpoint" 
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2"
+                                   placeholder="https://api.example.com/assets"
+                                   value="https://api.example.com/assets">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">API 키</label>
+                            <input type="password" id="api-key" 
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2"
+                                   placeholder="API 키 입력...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-xl p-6 mb-6">
+                    <h4 class="font-bold text-gray-800 mb-3">
+                        <i class="fas fa-cog text-purple-600 mr-2"></i>동기화 옵션
+                    </h4>
+                    <div class="space-y-3">
+                        <label class="flex items-center">
+                            <input type="checkbox" id="sync-new" checked class="mr-3">
+                            <span class="text-sm text-gray-700">신규 자산 추가</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" id="sync-update" checked class="mr-3">
+                            <span class="text-sm text-gray-700">기존 자산 정보 업데이트</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" id="sync-status" class="mr-3">
+                            <span class="text-sm text-gray-700">상태 정보 동기화</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="api-sync-result" class="hidden mb-6"></div>
+
+                <div class="flex justify-end gap-3">
+                    <button type="button" onclick="closeModal('assetRegisterModal')" 
+                            class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                        취소
+                    </button>
+                    <button onclick="syncAssetsFromAPI()" 
+                            class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold">
+                        <i class="fas fa-sync mr-2"></i>동기화 시작
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 자산 수정 모달 🆕 -->
+    <div id="assetEditModal" class="modal">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-5xl w-full mx-4 p-8 animate-slide-in max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-edit text-blue-600 mr-2"></i>자산 수정
+                </h3>
+                <button onclick="closeModal('assetEditModal')" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- 수정 옵션 선택 -->
+            <div class="mb-6">
+                <div class="grid grid-cols-2 gap-4">
+                    <button onclick="selectEditType('manual')" id="edit-type-manual" 
+                            class="edit-type-btn active px-6 py-4 border-2 border-blue-500 bg-blue-50 rounded-xl transition hover:shadow-md">
+                        <i class="fas fa-keyboard text-blue-600 text-2xl mb-2"></i>
+                        <div class="font-bold text-gray-800">수기 수정</div>
+                        <div class="text-sm text-gray-600 mt-1">직접 정보 수정</div>
+                    </button>
+                    <button onclick="selectEditType('api')" id="edit-type-api"
+                            class="edit-type-btn px-6 py-4 border-2 border-gray-300 bg-white rounded-xl transition hover:shadow-md">
+                        <i class="fas fa-sync text-purple-600 text-2xl mb-2"></i>
+                        <div class="font-bold text-gray-800">API 최신화</div>
+                        <div class="text-sm text-gray-600 mt-1">최신 데이터 불러오기</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 수기 수정 폼 -->
+            <div id="manual-edit-form">
+                <form id="editAssetForm" onsubmit="return submitEditAsset(event);">
+                    <input type="hidden" id="edit-asset-id">
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">자산코드</label>
+                            <input type="text" id="edit-asset-code" readonly
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-gray-100">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">카테고리</label>
+                            <input type="text" id="edit-category" readonly
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-gray-100">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">자산명</label>
+                            <input type="text" id="edit-asset-name"
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">제조사/개발사</label>
+                            <input type="text" id="edit-manufacturer"
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">구매년도</label>
+                            <input type="number" id="edit-purchase-year" min="2000" max="2099"
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">금액 (원)</label>
+                            <input type="number" id="edit-price" min="0"
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">상태 *</label>
+                            <select id="edit-status" required class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                                <option value="대기">보유(대기)</option>
+                                <option value="사용중">사용중</option>
+                                <option value="고장">고장</option>
+                                <option value="수리중">수리중</option>
+                                <option value="반납">반납</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">사용자 변경/연결</label>
+                            <input type="text" id="edit-user"
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2"
+                                   placeholder="사용자명 입력">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">비고</label>
+                        <textarea id="edit-note" rows="3"
+                                  class="w-full border border-gray-300 rounded-lg px-4 py-2"></textarea>
+                    </div>
+                    <div class="flex justify-end gap-3">
+                        <button type="button" onclick="closeModal('assetEditModal')" 
+                                class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                            취소
+                        </button>
+                        <button type="submit" 
+                                class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold">
+                            <i class="fas fa-save mr-2"></i>저장
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- API 최신화 폼 -->
+            <div id="api-update-form" class="hidden">
+                <div class="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-xl p-6 mb-6">
+                    <h4 class="font-bold text-gray-800 mb-3">
+                        <i class="fas fa-info-circle text-purple-600 mr-2"></i>현재 자산 정보
+                    </h4>
+                    <div class="grid grid-cols-3 gap-4 text-sm">
+                        <div>
+                            <span class="text-gray-600">자산코드:</span>
+                            <span class="font-semibold ml-2" id="api-update-code"></span>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">자산명:</span>
+                            <span class="font-semibold ml-2" id="api-update-name"></span>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">상태:</span>
+                            <span class="font-semibold ml-2" id="api-update-status"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-xl p-6 mb-6">
+                    <h4 class="font-bold text-gray-800 mb-3">
+                        <i class="fas fa-cloud-download-alt text-blue-600 mr-2"></i>최신 데이터 가져오기
+                    </h4>
+                    <p class="text-sm text-gray-600 mb-4">
+                        API에서 이 자산의 최신 정보를 불러와 업데이트합니다.
+                    </p>
+                    <div class="space-y-3">
+                        <label class="flex items-center">
+                            <input type="checkbox" id="api-update-spec" checked class="mr-3">
+                            <span class="text-sm text-gray-700">사양/스펙 정보</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" id="api-update-price" checked class="mr-3">
+                            <span class="text-sm text-gray-700">가격 정보</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" id="api-update-warranty" class="mr-3">
+                            <span class="text-sm text-gray-700">보증 기간</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="api-update-result" class="hidden mb-6"></div>
+
+                <div class="flex justify-end gap-3">
+                    <button type="button" onclick="closeModal('assetEditModal')" 
+                            class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                        취소
+                    </button>
+                    <button onclick="updateAssetFromAPI()" 
+                            class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition font-semibold">
+                        <i class="fas fa-download mr-2"></i>최신 데이터 가져오기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Demo Accounts
         const demoAccounts = {
@@ -3200,6 +3983,35 @@
                 role: 'admin'
             }
         };
+
+        // 🕐 날짜/시간 업데이트 함수
+        function updateDateTime() {
+            const now = new Date();
+            
+            // 날짜 포맷: 2025년 12월 23일 (월)
+            const year = now.getFullYear();
+            const month = now.getMonth() + 1;
+            const date = now.getDate();
+            const days = ['일', '월', '화', '수', '목', '금', '토'];
+            const day = days[now.getDay()];
+            
+            const dateStr = `${year}년 ${month}월 ${date}일 (${day})`;
+            
+            // 시간 포맷: 오후 3:45:30
+            const hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const ampm = hours >= 12 ? '오후' : '오전';
+            const displayHours = hours > 12 ? hours - 12 : (hours === 0 ? 12 : hours);
+            
+            const timeStr = `${ampm} ${displayHours}:${minutes}:${seconds}`;
+            
+            // DOM 업데이트
+            const dateEl = document.getElementById('current-date');
+            const timeEl = document.getElementById('current-time');
+            if (dateEl) dateEl.textContent = dateStr;
+            if (timeEl) timeEl.textContent = timeStr;
+        }
 
         // Handle Login
         function handleLogin(event) {
@@ -3244,6 +4056,10 @@
             // Update UI
             document.getElementById('current-user-name').textContent = currentUser.name;
             document.getElementById('current-user-role').textContent = currentUser.department;
+            
+            // 🕐 날짜/시간 업데이트 시작
+            updateDateTime();
+            setInterval(updateDateTime, 1000); // 1초마다 업데이트
             
             // Show main app
             document.getElementById('loginScreen').classList.add('hidden');
@@ -3456,6 +4272,7 @@
                     model: '14Z90Q',
                     specs: 'i5-1240P / 16GB / 512GB SSD',
                     status: '대기',
+                    acquisitionType: '구매', // 🆕 구매/렌탈 구분
                     purchaseDate: '2024-01-15',
                     purchasePrice: 1890000,
                     currentUser: null,
@@ -3471,8 +4288,10 @@
                     model: '15Z90Q',
                     specs: 'i7-1260P / 16GB / 1TB SSD',
                     status: '대기',
+                    acquisitionType: '렌탈', // 🆕 렌탈
                     purchaseDate: '2024-02-20',
                     purchasePrice: 2190000,
+                    rentalMonthly: 80000, // 🆕 월 렌탈비
                     currentUser: null,
                     recommendedGrade: '대리'
                 },
@@ -3486,6 +4305,7 @@
                     model: 'DB400T',
                     specs: 'i5-12400 / 16GB / 512GB SSD',
                     status: '사용중',
+                    acquisitionType: '구매', // 🆕 구매
                     purchaseDate: '2024-01-10',
                     purchasePrice: 1200000,
                     currentUser: '홍길동',
@@ -3503,6 +4323,7 @@
                     model: 'MKGR3KH/A',
                     specs: 'M2 Pro / 16GB / 512GB SSD',
                     status: '사용중',
+                    acquisitionType: '구매', // 🆕 구매
                     purchaseDate: '2024-03-01',
                     purchasePrice: 3200000,
                     currentUser: 'IT 마스터',
@@ -3519,6 +4340,7 @@
                     model: 'S27A600',
                     specs: '27" FHD IPS',
                     status: '사용중',
+                    acquisitionType: '렌탈', // 🆕 렌탈
                     purchaseDate: '2024-02-15',
                     purchasePrice: 350000,
                     currentUser: '홍길동',
@@ -4419,6 +5241,967 @@
                         }
                     ],
                     subtasks: []
+                },
+                // 🆕 추가 데모 티켓 (개인 대시보드 테스트용)
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-014',
+                    title: 'GMS 시스템 로그인 오류',
+                    description: 'GMS 시스템에 로그인할 때 "세션 만료" 에러가 발생합니다.',
+                    requester: '이영희',
+                    department: '영업팀',
+                    category: 'ITSM',
+                    categoryMain: 'GMS',
+                    categoryMiddle: '장애',
+                    categorySub: '로그인',
+                    status: '처리중',
+                    priority: '긴급',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-12-16',
+                    acceptedAt: '2024-12-16 09:30',
+                    dueDate: '2024-12-18',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-16 09:00',
+                    comments: [{
+                        id: 'cmt-014-1',
+                        author: 'IT 관리자',
+                        content: '세션 타임아웃 설정 확인 중입니다.',
+                        createdAt: '2024-12-16 10:00'
+                    }],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-015',
+                    title: '오아시스 보고서 출력 기능 개선',
+                    description: '보고서를 PDF로 출력할 때 이미지가 깨지는 문제가 있습니다.',
+                    requester: '박과장',
+                    department: '기획팀',
+                    category: 'ITSM',
+                    categoryMain: '오아시스',
+                    categoryMiddle: '개발요청',
+                    categorySub: '기능개선',
+                    status: '접수',
+                    priority: '높음',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-17',
+                    acceptedAt: '2024-12-17 14:00',
+                    dueDate: '2024-12-25',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-17 14:30',
+                    comments: [],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-016',
+                    title: 'ERP 결재 라인 수정 요청',
+                    description: '결재 라인에서 중간 결재자를 추가하고 싶습니다.',
+                    requester: '김대리',
+                    department: '총무팀',
+                    category: 'ITSM',
+                    categoryMain: 'ERP',
+                    categoryMiddle: '운영관리',
+                    categorySub: '권한요청',
+                    status: '검수 대기',
+                    priority: '보통',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-12-15',
+                    acceptedAt: '2024-12-15 10:00',
+                    dueDate: '2024-12-22',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-15 11:00',
+                    comments: [{
+                        id: 'cmt-016-1',
+                        author: 'IT 관리자',
+                        content: '결재 라인 수정 완료했습니다. 검수 부탁드립니다.',
+                        createdAt: '2024-12-17 16:00'
+                    }],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-017',
+                    title: 'HR 시스템 연차 신청 오류',
+                    description: '연차를 신청할 때 "잔여 연차 없음" 메시지가 잘못 표시됩니다.',
+                    requester: '최사원',
+                    department: '인사팀',
+                    category: 'ITSM',
+                    categoryMain: 'HR',
+                    categoryMiddle: '장애',
+                    categorySub: '데이터오류',
+                    status: '재검수중',
+                    priority: '긴급',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-14',
+                    acceptedAt: '2024-12-14 09:00',
+                    dueDate: '2024-12-18',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-14 09:30',
+                    comments: [{
+                        id: 'cmt-017-1',
+                        author: 'IT 마스터',
+                        content: '연차 계산 로직 수정했습니다. 재검수 중입니다.',
+                        createdAt: '2024-12-16 11:00'
+                    }],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-018',
+                    title: '부동산 시스템 계약서 업로드 기능',
+                    description: '계약서 파일을 업로드할 수 있는 기능이 필요합니다.',
+                    requester: '정부장',
+                    department: '부동산팀',
+                    category: 'ITSM',
+                    categoryMain: '부동산',
+                    categoryMiddle: '개발요청',
+                    categorySub: '신규개발',
+                    status: '완료',
+                    priority: '높음',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-12-10',
+                    acceptedAt: '2024-12-10 10:00',
+                    completedAt: '2024-12-15 17:00',
+                    dueDate: '2024-12-20',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-10 11:00',
+                    comments: [{
+                        id: 'cmt-018-1',
+                        author: 'IT 관리자',
+                        content: '파일 업로드 기능 개발 완료했습니다.',
+                        createdAt: '2024-12-15 17:00'
+                    }],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-019',
+                    title: '인프라 서버 디스크 용량 증설',
+                    description: '데이터베이스 서버의 디스크 사용률이 90%를 넘었습니다.',
+                    requester: '강팀장',
+                    department: 'IT팀',
+                    category: 'ITSM',
+                    categoryMain: '인프라',
+                    categoryMiddle: '운영관리',
+                    categorySub: '용량증설',
+                    status: '처리중',
+                    priority: '긴급',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-17',
+                    acceptedAt: '2024-12-17 09:00',
+                    dueDate: '2024-12-19',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-17 09:15',
+                    comments: [{
+                        id: 'cmt-019-1',
+                        author: 'IT 마스터',
+                        content: '증설 작업 진행 중입니다. 내일 오전 완료 예정입니다.',
+                        createdAt: '2024-12-17 14:00'
+                    }],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-020',
+                    title: 'GMS 대시보드 차트 개선',
+                    description: '대시보드의 차트가 모바일에서 잘 보이지 않습니다.',
+                    requester: '송과장',
+                    department: '영업팀',
+                    category: 'ITSM',
+                    categoryMain: 'GMS',
+                    categoryMiddle: '개발요청',
+                    categorySub: '기능개선',
+                    status: '접수',
+                    priority: '보통',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-12-18',
+                    acceptedAt: '2024-12-18 10:00',
+                    dueDate: '2024-12-28',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-18 10:30',
+                    comments: [],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-021',
+                    title: '오아시스 사용자 매뉴얼 업데이트',
+                    description: '최근 업데이트된 기능들이 매뉴얼에 반영되지 않았습니다.',
+                    requester: '윤대리',
+                    department: '교육팀',
+                    category: 'ITSM',
+                    categoryMain: '오아시스',
+                    categoryMiddle: '운영관리',
+                    categorySub: '문서요청',
+                    status: '완료',
+                    priority: '낮음',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-12',
+                    acceptedAt: '2024-12-12 14:00',
+                    completedAt: '2024-12-16 18:00',
+                    dueDate: '2024-12-25',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-12 14:30',
+                    comments: [{
+                        id: 'cmt-021-1',
+                        author: 'IT 마스터',
+                        content: '매뉴얼 업데이트 완료했습니다. 게시판에서 확인 가능합니다.',
+                        createdAt: '2024-12-16 18:00'
+                    }],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-022',
+                    title: 'ERP 재무 모듈 권한 설정',
+                    description: '재무팀 직원들에게 예산 조회 권한을 부여해주세요.',
+                    requester: '한팀장',
+                    department: '재무팀',
+                    category: 'ITSM',
+                    categoryMain: 'ERP',
+                    categoryMiddle: '운영관리',
+                    categorySub: '권한요청',
+                    status: '처리중',
+                    priority: '보통',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-12-18',
+                    acceptedAt: '2024-12-18 09:00',
+                    dueDate: '2024-12-20',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-18 09:30',
+                    comments: [{
+                        id: 'cmt-022-1',
+                        author: 'IT 관리자',
+                        content: '권한 설정 진행 중입니다.',
+                        createdAt: '2024-12-18 11:00'
+                    }],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-023',
+                    title: 'HR 급여 명세서 이메일 발송 오류',
+                    description: '급여 명세서가 일부 직원에게 발송되지 않았습니다.',
+                    requester: '조과장',
+                    department: '인사팀',
+                    category: 'ITSM',
+                    categoryMain: 'HR',
+                    categoryMiddle: '장애',
+                    categorySub: '데이터오류',
+                    status: '완료',
+                    priority: '긴급',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-13',
+                    acceptedAt: '2024-12-13 08:00',
+                    completedAt: '2024-12-13 12:00',
+                    dueDate: '2024-12-13',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-13 08:15',
+                    comments: [{
+                        id: 'cmt-023-1',
+                        author: 'IT 마스터',
+                        content: '이메일 발송 오류 수정 완료. 누락된 직원들에게 재발송했습니다.',
+                        createdAt: '2024-12-13 12:00'
+                    }],
+                    subtasks: []
+                },
+                // 🆕 자산 요청 티켓 (개인 대시보드 테스트용)
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'AST-2024-001',
+                    title: '노트북 신규 지급 요청',
+                    description: '신입 사원 입사로 인한 업무용 노트북이 필요합니다.\n\n- 모델: 맥북 프로 16인치\n- 용도: 개발 업무\n- 필요 시기: 2024-12-20',
+                    requester: '박신입',
+                    department: '개발팀',
+                    category: '자산',
+                    categoryMain: '자산',
+                    categoryMiddle: 'HW',
+                    categorySub: '신규지급',
+                    assetType: 'hardware',
+                    assetCategory: 'IT자산',
+                    assetDetails: {
+                        type: '신규',
+                        items: [
+                            { name: '맥북 프로 16인치', quantity: 1, specs: 'M3 Pro, 36GB RAM, 1TB SSD' }
+                        ]
+                    },
+                    status: '처리중',
+                    priority: '높음',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-12-17',
+                    acceptedAt: '2024-12-17 10:00',
+                    dueDate: '2024-12-20',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-17 11:00',
+                    comments: [{
+                        id: 'cmt-ast001-1',
+                        author: 'IT 관리자',
+                        content: '발주 진행 중입니다. 12/19 입고 예정입니다.',
+                        createdAt: '2024-12-17 15:00'
+                    }],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'AST-2024-002',
+                    title: 'Adobe Creative Cloud 라이선스 신청',
+                    description: '디자인 작업을 위해 Adobe CC 라이선스가 필요합니다.\n\n- 필요 프로그램: Photoshop, Illustrator, Premiere Pro\n- 사용 인원: 3명',
+                    requester: '김디자인',
+                    department: '마케팅팀',
+                    category: '자산',
+                    categoryMain: '자산',
+                    categoryMiddle: 'SW',
+                    categorySub: '신규지급',
+                    assetType: 'software',
+                    assetCategory: 'SW자산',
+                    assetDetails: {
+                        type: '신규',
+                        items: [
+                            { name: 'Adobe Creative Cloud', quantity: 3, licenseType: 'Subscription' }
+                        ]
+                    },
+                    status: '검수 대기',
+                    priority: '보통',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-16',
+                    acceptedAt: '2024-12-16 09:00',
+                    dueDate: '2024-12-23',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-16 10:00',
+                    comments: [{
+                        id: 'cmt-ast002-1',
+                        author: 'IT 마스터',
+                        content: '라이선스 발급 완료했습니다. 계정 정보를 이메일로 전달드렸습니다.',
+                        createdAt: '2024-12-17 14:00'
+                    }],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'AST-2024-003',
+                    title: 'AWS 클라우드 리소스 증설',
+                    description: '서비스 사용자 증가로 인한 클라우드 리소스 증설이 필요합니다.\n\n- 현재: EC2 t3.medium 2대\n- 증설: EC2 t3.large 2대 추가\n- RDS 스토리지: 100GB → 200GB',
+                    requester: '이서버',
+                    department: 'IT팀',
+                    category: '자산',
+                    categoryMain: '자산',
+                    categoryMiddle: '클라우드',
+                    categorySub: '용량증설',
+                    assetType: 'cloud',
+                    assetCategory: '클라우드',
+                    assetDetails: {
+                        type: '증설',
+                        items: [
+                            { name: 'AWS EC2 t3.large', quantity: 2, specs: '2vCPU, 8GB RAM' },
+                            { name: 'AWS RDS 스토리지', quantity: 1, specs: '100GB 증설' }
+                        ]
+                    },
+                    status: '완료',
+                    priority: '긴급',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-15',
+                    acceptedAt: '2024-12-15 08:00',
+                    completedAt: '2024-12-16 18:00',
+                    dueDate: '2024-12-17',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-15 08:30',
+                    comments: [
+                        {
+                            id: 'cmt-ast003-1',
+                            author: 'IT 마스터',
+                            content: '긴급 건으로 우선 처리하겠습니다.',
+                            createdAt: '2024-12-15 09:00'
+                        },
+                        {
+                            id: 'cmt-ast003-2',
+                            author: 'IT 마스터',
+                            content: '클라우드 리소스 증설 완료했습니다. 로드밸런서 설정도 업데이트했습니다.',
+                            createdAt: '2024-12-16 18:00'
+                        }
+                    ],
+                    subtasks: []
+                },
+                // 🆕 추가 더미 데이터 (개인 대시보드 풍성하게)
+                // 11월 완료 티켓들 (이번 달 통계용)
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-024',
+                    title: 'GMS 월별 리포트 자동화',
+                    description: '매월 초 자동으로 리포트가 생성되도록 배치 작업 설정',
+                    requester: '김부장',
+                    department: '영업팀',
+                    category: 'ITSM',
+                    categoryMain: 'GMS',
+                    categoryMiddle: '개발요청',
+                    categorySub: '자동화',
+                    status: '완료',
+                    priority: '보통',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-11-20',
+                    acceptedAt: '2024-11-20 09:00',
+                    completedAt: '2024-11-28 17:00',
+                    dueDate: '2024-12-05',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-11-20 10:00',
+                    comments: [],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-025',
+                    title: '오아시스 데이터 백업 정책 수립',
+                    description: '일일 백업 및 주간 풀백업 정책 설정',
+                    requester: '최차장',
+                    department: 'IT팀',
+                    category: 'ITSM',
+                    categoryMain: '오아시스',
+                    categoryMiddle: '운영관리',
+                    categorySub: '정책수립',
+                    status: '완료',
+                    priority: '높음',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-11-18',
+                    acceptedAt: '2024-11-18 10:00',
+                    completedAt: '2024-11-25 16:00',
+                    dueDate: '2024-11-30',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-11-18 11:00',
+                    comments: [],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-026',
+                    title: 'HR 시스템 사용자 교육 자료 제작',
+                    description: '신규 입사자를 위한 HR 시스템 매뉴얼',
+                    requester: '박대리',
+                    department: '인사팀',
+                    category: 'ITSM',
+                    categoryMain: 'HR',
+                    categoryMiddle: '운영관리',
+                    categorySub: '문서요청',
+                    status: '완료',
+                    priority: '낮음',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-11-22',
+                    acceptedAt: '2024-11-22 14:00',
+                    completedAt: '2024-11-30 18:00',
+                    dueDate: '2024-12-10',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-11-22 15:00',
+                    comments: [],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-027',
+                    title: 'ERP 월마감 프로세스 개선',
+                    description: '월마감 시 소요 시간을 단축하기 위한 프로세스 최적화',
+                    requester: '정팀장',
+                    department: '재무팀',
+                    category: 'ITSM',
+                    categoryMain: 'ERP',
+                    categoryMiddle: '개발요청',
+                    categorySub: '기능개선',
+                    status: '완료',
+                    priority: '높음',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-11-15',
+                    acceptedAt: '2024-11-15 09:00',
+                    completedAt: '2024-11-27 17:00',
+                    dueDate: '2024-11-30',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-11-15 10:00',
+                    comments: [],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-028',
+                    title: '부동산 시스템 모바일 앱 연동',
+                    description: '모바일에서도 부동산 정보를 조회할 수 있도록 API 개발',
+                    requester: '강과장',
+                    department: '부동산팀',
+                    category: 'ITSM',
+                    categoryMain: '부동산',
+                    categoryMiddle: '개발요청',
+                    categorySub: '신규개발',
+                    status: '완료',
+                    priority: '보통',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-11-10',
+                    acceptedAt: '2024-11-10 10:00',
+                    completedAt: '2024-11-26 18:00',
+                    dueDate: '2024-12-01',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-11-10 11:00',
+                    comments: [],
+                    subtasks: []
+                },
+                // 12월 완료 티켓들 (최근 완료)
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-029',
+                    title: '인프라 VPN 접속 속도 개선',
+                    description: 'VPN 연결 시 속도 저하 문제 해결',
+                    requester: '윤대리',
+                    department: 'IT팀',
+                    category: 'ITSM',
+                    categoryMain: '인프라',
+                    categoryMiddle: '장애',
+                    categorySub: '성능저하',
+                    status: '완료',
+                    priority: '긴급',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-11',
+                    acceptedAt: '2024-12-11 08:00',
+                    completedAt: '2024-12-12 14:00',
+                    dueDate: '2024-12-12',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-11 08:30',
+                    comments: [],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-030',
+                    title: 'GMS 엑셀 다운로드 기능 오류',
+                    description: '대용량 데이터 다운로드 시 타임아웃 발생',
+                    requester: '조과장',
+                    department: '영업팀',
+                    category: 'ITSM',
+                    categoryMain: 'GMS',
+                    categoryMiddle: '장애',
+                    categorySub: '기능오류',
+                    status: '완료',
+                    priority: '높음',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-12-09',
+                    acceptedAt: '2024-12-09 09:00',
+                    completedAt: '2024-12-11 17:00',
+                    dueDate: '2024-12-13',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-09 10:00',
+                    comments: [],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-031',
+                    title: '오아시스 사용자 비밀번호 정책 변경',
+                    description: '보안 강화를 위한 비밀번호 복잡도 정책 적용',
+                    requester: '보안팀',
+                    department: '보안팀',
+                    category: 'ITSM',
+                    categoryMain: '오아시스',
+                    categoryMiddle: '운영관리',
+                    categorySub: '보안강화',
+                    status: '완료',
+                    priority: '높음',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-05',
+                    acceptedAt: '2024-12-05 10:00',
+                    completedAt: '2024-12-10 18:00',
+                    dueDate: '2024-12-15',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-05 11:00',
+                    comments: [],
+                    subtasks: []
+                },
+                // 오늘 완료 티켓들 (오늘 달성률용)
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-032',
+                    title: 'HR 급여 명세서 양식 수정',
+                    description: '2025년 세법 개정에 따른 급여 명세서 양식 변경',
+                    requester: '이팀장',
+                    department: '인사팀',
+                    category: 'ITSM',
+                    categoryMain: 'HR',
+                    categoryMiddle: '개발요청',
+                    categorySub: '기능개선',
+                    status: '완료',
+                    priority: '보통',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-12-17',
+                    acceptedAt: '2024-12-17 09:00',
+                    completedAt: '2024-12-19 10:00',
+                    dueDate: '2024-12-20',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-17 10:00',
+                    comments: [],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-033',
+                    title: 'ERP 코드 마스터 데이터 정리',
+                    description: '사용하지 않는 코드 정리 및 신규 코드 추가',
+                    requester: '박과장',
+                    department: '재무팀',
+                    category: 'ITSM',
+                    categoryMain: 'ERP',
+                    categoryMiddle: '운영관리',
+                    categorySub: '데이터정리',
+                    status: '완료',
+                    priority: '낮음',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-18',
+                    acceptedAt: '2024-12-18 08:00',
+                    completedAt: '2024-12-19 11:00',
+                    dueDate: '2024-12-22',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-18 09:00',
+                    comments: [],
+                    subtasks: []
+                },
+                // 처리 중 티켓들 (더 추가)
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-034',
+                    title: 'GMS 영업 대시보드 위젯 추가',
+                    description: '실시간 영업 현황을 볼 수 있는 대시보드 위젯 개발',
+                    requester: '송팀장',
+                    department: '영업팀',
+                    category: 'ITSM',
+                    categoryMain: 'GMS',
+                    categoryMiddle: '개발요청',
+                    categorySub: '신규개발',
+                    status: '처리중',
+                    priority: '보통',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-12-16',
+                    acceptedAt: '2024-12-16 10:00',
+                    dueDate: '2024-12-25',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-16 11:00',
+                    comments: [{
+                        id: 'cmt-034-1',
+                        author: 'IT 관리자',
+                        content: '위젯 디자인 작업 중입니다. 내일 초안 공유드리겠습니다.',
+                        createdAt: '2024-12-17 16:00'
+                    }],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-035',
+                    title: '인프라 SSL 인증서 갱신',
+                    description: '2025년 1월 만료 예정인 SSL 인증서 갱신',
+                    requester: '보안팀',
+                    department: '보안팀',
+                    category: 'ITSM',
+                    categoryMain: '인프라',
+                    categoryMiddle: '운영관리',
+                    categorySub: '인증서관리',
+                    status: '처리중',
+                    priority: '높음',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-17',
+                    acceptedAt: '2024-12-17 09:00',
+                    dueDate: '2024-12-27',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-17 10:00',
+                    comments: [{
+                        id: 'cmt-035-1',
+                        author: 'IT 마스터',
+                        content: '인증서 발급 신청 완료했습니다. 발급까지 3-5일 소요됩니다.',
+                        createdAt: '2024-12-18 14:00'
+                    }],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-036',
+                    title: '오아시스 알림 기능 추가',
+                    description: '중요 공지사항 발생 시 푸시 알림 기능',
+                    requester: '김대리',
+                    department: '기획팀',
+                    category: 'ITSM',
+                    categoryMain: '오아시스',
+                    categoryMiddle: '개발요청',
+                    categorySub: '신규개발',
+                    status: '처리중',
+                    priority: '보통',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-12-18',
+                    acceptedAt: '2024-12-18 10:00',
+                    dueDate: '2024-12-30',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-18 11:00',
+                    comments: [],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-037',
+                    title: 'HR 연차 이월 배치 작업',
+                    description: '2024년 잔여 연차를 2025년으로 이월하는 배치 작업',
+                    requester: '조과장',
+                    department: '인사팀',
+                    category: 'ITSM',
+                    categoryMain: 'HR',
+                    categoryMiddle: '개발요청',
+                    categorySub: '자동화',
+                    status: '처리중',
+                    priority: '높음',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-18',
+                    acceptedAt: '2024-12-18 09:00',
+                    dueDate: '2024-12-28',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-18 10:00',
+                    comments: [{
+                        id: 'cmt-037-1',
+                        author: 'IT 마스터',
+                        content: '배치 스크립트 개발 중입니다. 테스트 서버에서 검증 후 적용 예정입니다.',
+                        createdAt: '2024-12-19 09:00'
+                    }],
+                    subtasks: []
+                },
+                // 접수 상태 티켓들
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-038',
+                    title: 'ERP 구매 발주 양식 변경',
+                    description: '구매팀 요청으로 발주 양식에 추가 항목 반영',
+                    requester: '한과장',
+                    department: '구매팀',
+                    category: 'ITSM',
+                    categoryMain: 'ERP',
+                    categoryMiddle: '개발요청',
+                    categorySub: '기능개선',
+                    status: '접수',
+                    priority: '보통',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-12-19',
+                    acceptedAt: '2024-12-19 09:00',
+                    dueDate: '2024-12-26',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-19 09:30',
+                    comments: [],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'TKT-2024-039',
+                    title: '부동산 시스템 검색 기능 고도화',
+                    description: '다중 조건 검색 및 필터 기능 추가',
+                    requester: '정대리',
+                    department: '부동산팀',
+                    category: 'ITSM',
+                    categoryMain: '부동산',
+                    categoryMiddle: '개발요청',
+                    categorySub: '기능개선',
+                    status: '접수',
+                    priority: '낮음',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-19',
+                    acceptedAt: '2024-12-19 10:00',
+                    dueDate: '2025-01-05',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-19 10:30',
+                    comments: [],
+                    subtasks: []
+                },
+                // 자산 티켓 추가
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'AST-2024-004',
+                    title: '모니터 추가 구매',
+                    description: '듀얼 모니터 작업 환경 구축을 위한 모니터 2대 추가 구매',
+                    requester: '최사원',
+                    department: '디자인팀',
+                    category: '자산',
+                    categoryMain: '자산',
+                    categoryMiddle: 'HW',
+                    categorySub: '신규지급',
+                    assetType: 'hardware',
+                    assetCategory: 'IT자산',
+                    assetDetails: {
+                        type: '신규',
+                        items: [
+                            { name: 'LG 27인치 모니터', quantity: 2, specs: '4K UHD, IPS' }
+                        ]
+                    },
+                    status: '처리중',
+                    priority: '보통',
+                    assignee: 'IT 관리자',
+                    assignees: ['IT 관리자'],
+                    createdAt: '2024-12-18',
+                    acceptedAt: '2024-12-18 10:00',
+                    dueDate: '2024-12-23',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-18 11:00',
+                    comments: [{
+                        id: 'cmt-ast004-1',
+                        author: 'IT 관리자',
+                        content: '구매 승인 완료. 내일 발주 예정입니다.',
+                        createdAt: '2024-12-18 15:00'
+                    }],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'AST-2024-005',
+                    title: 'MS Office 365 라이선스 갱신',
+                    description: '2025년 1월 만료 예정 Office 365 라이선스 50개 갱신',
+                    requester: 'IT팀',
+                    department: 'IT팀',
+                    category: '자산',
+                    categoryMain: '자산',
+                    categoryMiddle: 'SW',
+                    categorySub: '갱신',
+                    assetType: 'software',
+                    assetCategory: 'SW자산',
+                    assetDetails: {
+                        type: '갱신',
+                        items: [
+                            { name: 'MS Office 365', quantity: 50, licenseType: 'Annual Subscription' }
+                        ]
+                    },
+                    status: '완료',
+                    priority: '높음',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-10',
+                    acceptedAt: '2024-12-10 09:00',
+                    completedAt: '2024-12-14 18:00',
+                    dueDate: '2024-12-20',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-10 10:00',
+                    comments: [{
+                        id: 'cmt-ast005-1',
+                        author: 'IT 마스터',
+                        content: '라이선스 갱신 완료. 2025년 12월까지 유효합니다.',
+                        createdAt: '2024-12-14 18:00'
+                    }],
+                    subtasks: []
+                },
+                {
+                    id: ticketIdCounter++,
+                    ticketNumber: 'AST-2024-006',
+                    title: '개발 서버 메모리 증설',
+                    description: '개발 환경 성능 향상을 위한 서버 메모리 64GB → 128GB 증설',
+                    requester: '개발팀',
+                    department: '개발팀',
+                    category: '자산',
+                    categoryMain: '자산',
+                    categoryMiddle: 'HW',
+                    categorySub: '용량증설',
+                    assetType: 'hardware',
+                    assetCategory: 'IT자산',
+                    assetDetails: {
+                        type: '증설',
+                        items: [
+                            { name: 'DDR4 32GB RAM', quantity: 2, specs: '3200MHz ECC' }
+                        ]
+                    },
+                    status: '접수',
+                    priority: '보통',
+                    assignee: 'IT 마스터',
+                    assignees: ['IT 마스터'],
+                    createdAt: '2024-12-19',
+                    acceptedAt: '2024-12-19 09:00',
+                    dueDate: '2024-12-26',
+                    linkedTickets: [],
+                    approved: true,
+                    approvedBy: 'IT 마스터',
+                    approvedAt: '2024-12-19 10:00',
+                    comments: [],
+                    subtasks: []
                 }
             ];
             tickets = demoTickets;
@@ -5065,8 +6848,12 @@
                 if (toggle) toggle.style.display = 'block';
             }
             
-            renderKanban();
+            // 🆕 통계 데이터 미리 업데이트 (탭 클릭 전에도 데이터 준비)
             updateAdminStats();
+            renderWorkload();
+            
+            // 개인 대시보드를 첫 화면으로 표시 🆕
+            renderPersonalDashboard();
         }
         
         // 칸반 필터 🆕
@@ -5731,18 +7518,18 @@
             
             container.innerHTML = `
                 <!-- 전체 요약 -->
-                <div class="bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl p-6 mb-4">
+                <div class="bg-gradient-to-r from-purple-800 to-blue-800 text-white rounded-xl p-6 mb-4 shadow-lg">
                     <div class="grid grid-cols-3 gap-4">
                         <div>
-                            <div class="text-sm opacity-90">총 투입 시간</div>
+                            <div class="text-sm opacity-95 font-semibold mb-1">총 투입 시간</div>
                             <div class="text-3xl font-bold">${totalHours.toLocaleString()}h</div>
                         </div>
                         <div>
-                            <div class="text-sm opacity-90">총 예상 비용</div>
+                            <div class="text-sm opacity-95 font-semibold mb-1">총 예상 비용</div>
                             <div class="text-3xl font-bold">₩${totalCost.toLocaleString()}</div>
                         </div>
                         <div>
-                            <div class="text-sm opacity-90">평균 시간당 비용</div>
+                            <div class="text-sm opacity-95 font-semibold mb-1">평균 시간당 비용</div>
                             <div class="text-3xl font-bold">₩${totalHours > 0 ? Math.round(totalCost / totalHours).toLocaleString() : 0}</div>
                         </div>
                     </div>
@@ -6213,14 +8000,15 @@
             document.querySelectorAll('.admin-tab-content').forEach(content => content.classList.add('hidden'));
             document.getElementById(`admin-${tab}-tab`).classList.remove('hidden');
             
-            if (tab === 'kanban') renderKanban();
+            if (tab === 'dashboard') renderPersonalDashboard(); // 🆕
+            else if (tab === 'kanban') renderKanban();
             else if (tab === 'list') renderAdminTickets();
             else if (tab === 'gantt') renderGantt();
             else if (tab === 'analytics') updateAdminStats();
             else if (tab === 'workload') renderWorkload();
             else if (tab === 'projects') renderProjects();
             else if (tab === 'assets') renderAssetManagement();
-            else if (tab === 'board') renderAdminBoard(); // 🆕
+            else if (tab === 'board') renderAdminBoard();
             else if (tab === 'account') {
                 renderRatesDisplay();
                 renderStaffList();
@@ -6894,21 +8682,31 @@
         function renderRealtimeStatus() {
             const container = document.getElementById('realtime-status');
             const statuses = ['요청', '접수', '처리중', '검수 대기', '완료', '보류', '반려'];
-            const colors = ['yellow', 'blue', 'indigo', 'purple', 'green', 'orange', 'red'];
             
-            container.innerHTML = statuses.map((status, index) => {
+            // 🎨 진하고 명확한 상태별 컬러
+            const statusColors = {
+                '요청': { bg: '#FFA500', text: '#CC6600', bar: '#FF8C00' },      // 주황
+                '접수': { bg: '#2196F3', text: '#0D47A1', bar: '#1976D2' },      // 파랑
+                '처리중': { bg: '#9C27B0', text: '#4A148C', bar: '#7B1FA2' },    // 보라
+                '검수 대기': { bg: '#FF9800', text: '#E65100', bar: '#F57C00' }, // 진한 주황
+                '완료': { bg: '#4CAF50', text: '#1B5E20', bar: '#388E3C' },      // 초록
+                '보류': { bg: '#FF5722', text: '#BF360C', bar: '#E64A19' },      // 빨강-주황
+                '반려': { bg: '#F44336', text: '#B71C1C', bar: '#D32F2F' }       // 빨강
+            };
+            
+            container.innerHTML = statuses.map(status => {
                 const count = tickets.filter(t => t.status === status).length;
                 const percentage = tickets.length > 0 ? Math.round((count / tickets.length) * 100) : 0;
-                const color = colors[index];
+                const colors = statusColors[status];
                 
                 return `
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-sm font-semibold text-gray-700">${status}</span>
-                            <span class="text-sm font-bold text-${color}-600">${count}건 (${percentage}%)</span>
+                            <span class="text-sm font-bold" style="color: ${colors.text}">${status}</span>
+                            <span class="text-sm font-bold" style="color: ${colors.text}">${count}건 (${percentage}%)</span>
                         </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5">
-                            <div class="bg-${color}-500 h-2.5 rounded-full transition-all" style="width: ${percentage}%"></div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="h-3 rounded-full transition-all" style="width: ${percentage}%; background: ${colors.bar}"></div>
                         </div>
                     </div>
                 `;
@@ -6942,19 +8740,30 @@
             }
             
             container.innerHTML = monthsData.map(data => {
-                const colorClass = data.rate >= 90 ? 'green' : data.rate >= 70 ? 'blue' : 'yellow';
+                // 🎨 진한 완료율 컬러
+                let barColor, textColor;
+                if (data.rate >= 90) {
+                    barColor = '#4CAF50';  // 진한 초록
+                    textColor = '#1B5E20';
+                } else if (data.rate >= 70) {
+                    barColor = '#2196F3';  // 진한 파랑
+                    textColor = '#0D47A1';
+                } else {
+                    barColor = '#FF9800';  // 진한 주황
+                    textColor = '#E65100';
+                }
                 
                 return `
                     <div class="bg-gray-50 rounded-lg p-4">
                         <div class="flex items-center justify-between mb-2">
-                            <span class="font-semibold text-gray-700">${data.month}</span>
-                            <span class="text-2xl font-bold text-${colorClass}-600">${data.rate}%</span>
+                            <span class="font-bold text-gray-800">${data.month}</span>
+                            <span class="text-2xl font-bold" style="color: ${textColor}">${data.rate}%</span>
                         </div>
                         <div class="text-sm text-gray-600 mb-2">
                             완료: ${data.completed}건 / 전체: ${data.total}건
                         </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2">
-                            <div class="bg-${colorClass}-500 h-2 rounded-full transition-all" style="width: ${data.rate}%"></div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="h-3 rounded-full transition-all" style="width: ${data.rate}%; background: ${barColor}"></div>
                         </div>
                     </div>
                 `;
@@ -7798,9 +9607,14 @@
                                     </div>
                                 ` : ''}
                                 ${ticket.status === '요청' && !ticket.ticketType && (currentRole === 'admin' || currentRole === 'master') ? `
-                                    <button onclick="openAcceptModal(${ticket.id}); closeModal('ticketDetailModal');" class="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-lg hover:from-blue-700 hover:to-green-700 transition font-semibold shadow-md">
-                                        <i class="fas fa-clipboard-check mr-2"></i>처리하기
-                                    </button>
+                                    <div class="flex items-center space-x-3">
+                                        <button onclick="openAcceptModal(${ticket.id}); closeModal('ticketDetailModal');" class="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-lg hover:from-blue-700 hover:to-green-700 transition font-semibold shadow-md">
+                                            <i class="fas fa-clipboard-check mr-2"></i>처리하기
+                                        </button>
+                                        <button onclick="confirmReject(${ticket.id}); closeModal('ticketDetailModal');" class="px-5 py-2.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-semibold shadow-md">
+                                            <i class="fas fa-times-circle mr-2"></i>반려하기
+                                        </button>
+                                    </div>
                                 ` : ''}
                                 ${ticket.status === '견적확인' && (currentRole === 'admin' || currentRole === 'master') ? `
                                     <span class="text-sm text-cyan-600 px-4 font-semibold">
@@ -8862,6 +10676,8 @@ ${grades.map(grade => {
             const years = parseInt(document.getElementById('add-staff-years').value);
             const grade = document.getElementById('add-staff-grade').value;
             const category = document.getElementById('add-staff-category').value;
+            const accountType = document.getElementById('add-staff-account-type').value;
+            const canApprove = document.getElementById('add-staff-can-approve').checked;
             
             if (!name || !role) {
                 alert('⚠️ 이름과 역할은 필수 입력 항목입니다.');
@@ -8875,6 +10691,8 @@ ${grades.map(grade => {
                 yearsOfExperience: years,
                 category: category,
                 grade: grade,
+                accountType: accountType, // 🆕 계정 유형
+                canApprove: accountType === 'master' || (accountType === 'admin' && canApprove), // 🆕 승인 권한
                 get hourlyRate() { return gradeRates[this.grade].hourlyRate; },
                 get dailyRate() { return gradeRates[this.grade].dailyRate; },
                 get monthlyRate() { return gradeRates[this.grade].monthlyRate; }
@@ -8885,7 +10703,22 @@ ${grades.map(grade => {
             closeModal('addStaffModal');
             renderStaffList();
             
-            alert(`✅ 새 직원이 추가되었습니다!\n이름: ${name}\n역할: ${role}\n등급: ${grade}\n대분류: ${category}`);
+            const accountTypeText = accountType === 'master' ? '마스터' : accountType === 'admin' ? '실무자' : '일반 사용자';
+            const approvalText = newStaff.canApprove ? ' (승인권한 있음)' : '';
+            alert(`✅ 새 직원이 추가되었습니다!\n이름: ${name}\n역할: ${role}\n등급: ${grade}\n대분류: ${category}\n계정: ${accountTypeText}${approvalText}`);
+        }
+        
+        // 계정 유형에 따라 승인 권한 체크박스 표시/숨김 🆕
+        function toggleApprovalPermission() {
+            const accountType = document.getElementById('add-staff-account-type').value;
+            const container = document.getElementById('approval-permission-container');
+            
+            if (accountType === 'admin') {
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+                document.getElementById('add-staff-can-approve').checked = false;
+            }
         }
 
         // Delete Staff
@@ -10400,7 +12233,7 @@ ${grades.map(grade => {
             if (filteredAssets.length === 0) {
                 tbody.innerHTML = `
                     <tr>
-                        <td colspan="9" class="text-center py-8 text-gray-500">
+                        <td colspan="10" class="text-center py-8 text-gray-500">
                             <i class="fas fa-inbox text-4xl mb-2"></i>
                             <p>등록된 자산이 없습니다</p>
                         </td>
@@ -10421,9 +12254,14 @@ ${grades.map(grade => {
                 const categoryColor = asset.category === '하드웨어' ? 'purple' :
                                     asset.category === '소프트웨어' ? 'blue' : 'cyan';
                 
+                // 🆕 구분 배지 색상
+                const acquisitionColor = asset.acquisitionType === '구매' ? 'green' : 'orange';
+                
                 // 금액 정보
                 let priceInfo = '';
-                if (asset.purchasePrice) {
+                if (asset.acquisitionType === '렌탈' && asset.rentalMonthly) {
+                    priceInfo = `₩${asset.rentalMonthly.toLocaleString()}/월`;
+                } else if (asset.purchasePrice) {
                     priceInfo = `₩${asset.purchasePrice.toLocaleString()}`;
                 } else if (asset.monthlyFee) {
                     priceInfo = `₩${asset.monthlyFee.toLocaleString()}/월`;
@@ -10433,9 +12271,26 @@ ${grades.map(grade => {
                 const year = asset.purchaseDate ? new Date(asset.purchaseDate).getFullYear() : 
                             asset.startDate ? new Date(asset.startDate).getFullYear() : '-';
                 
+                // 🆕 삭제 가능 여부 (사용자 배정 시 삭제 불가)
+                const canDelete = !asset.currentUser;
+                const deleteButton = canDelete ? 
+                    `<button onclick="confirmDeleteAsset(${asset.id})" 
+                            class="text-red-600 hover:text-red-700 text-sm font-semibold">
+                        <i class="fas fa-trash mr-1"></i>삭제
+                    </button>` :
+                    `<button disabled title="사용자 배정된 자산은 삭제할 수 없습니다"
+                            class="text-gray-400 text-sm font-semibold cursor-not-allowed">
+                        <i class="fas fa-lock mr-1"></i>삭제불가
+                    </button>`;
+                
                 return `
                     <tr>
                         <td class="font-mono text-sm font-semibold">${asset.code}</td>
+                        <td>
+                            <span class="inline-flex items-center px-2 py-1 bg-${acquisitionColor}-100 text-${acquisitionColor}-700 text-xs rounded-full font-semibold">
+                                ${asset.acquisitionType || '구매'}
+                            </span>
+                        </td>
                         <td>
                             <span class="inline-flex items-center px-2 py-1 bg-${categoryColor}-100 text-${categoryColor}-700 text-xs rounded-full font-semibold">
                                 <i class="fas fa-${categoryIcon} mr-1"></i>${asset.category}
@@ -10457,10 +12312,7 @@ ${grades.map(grade => {
                                         class="text-blue-600 hover:text-blue-700 text-sm font-semibold">
                                     <i class="fas fa-edit mr-1"></i>수정
                                 </button>
-                                <button onclick="confirmDeleteAsset(${asset.id})" 
-                                        class="text-red-600 hover:text-red-700 text-sm font-semibold">
-                                    <i class="fas fa-trash mr-1"></i>삭제
-                                </button>
+                                ${deleteButton}
                             </div>
                         </td>
                     </tr>
@@ -10494,12 +12346,436 @@ ${grades.map(grade => {
         
         // 자산 등록 모달 열기
         function openAddAssetModal() {
-            alert('🔧 자산 등록 모달은 다음 단계에서 구현됩니다!\n\n현재는 테스트 데이터로 자산 관리 화면을 확인할 수 있습니다.');
+            openModal('assetRegisterModal'); // ✅ 수정
+            selectRegisterType('manual'); // 기본: 수기 등록
+            document.getElementById('manualAssetForm').reset();
+            document.getElementById('search-result').innerHTML = '';
+        }
+        
+        // 등록 방식 선택
+        function selectRegisterType(type) {
+            // 버튼 스타일 변경
+            const manualBtn = document.getElementById('register-type-manual');
+            const apiBtn = document.getElementById('register-type-api');
+            
+            if (type === 'manual') {
+                manualBtn.classList.add('active', 'border-purple-500', 'bg-purple-50');
+                manualBtn.classList.remove('border-gray-300', 'bg-white');
+                apiBtn.classList.remove('active', 'border-purple-500', 'bg-purple-50');
+                apiBtn.classList.add('border-gray-300', 'bg-white');
+                
+                document.getElementById('manual-register-form').classList.remove('hidden');
+                document.getElementById('api-sync-form').classList.add('hidden');
+            } else {
+                apiBtn.classList.add('active', 'border-purple-500', 'bg-purple-50');
+                apiBtn.classList.remove('border-gray-300', 'bg-white');
+                manualBtn.classList.remove('active', 'border-purple-500', 'bg-purple-50');
+                manualBtn.classList.add('border-gray-300', 'bg-white');
+                
+                document.getElementById('manual-register-form').classList.add('hidden');
+                document.getElementById('api-sync-form').classList.remove('hidden');
+            }
+        }
+        
+        // 기존 자산 검색
+        function searchExistingAsset() {
+            const searchTerm = document.getElementById('asset-search-code').value.trim().toLowerCase();
+            const resultDiv = document.getElementById('search-result');
+            
+            if (!searchTerm) {
+                resultDiv.innerHTML = '<p class="text-sm text-red-600">검색어를 입력해주세요.</p>';
+                return;
+            }
+            
+            const foundAssets = assets.filter(a => 
+                a.code.toLowerCase().includes(searchTerm) ||
+                a.name.toLowerCase().includes(searchTerm)
+            );
+            
+            if (foundAssets.length === 0) {
+                resultDiv.innerHTML = '<p class="text-sm text-gray-600">검색 결과가 없습니다.</p>';
+                return;
+            }
+            
+            resultDiv.innerHTML = `
+                <div class="border-t border-blue-200 pt-3 mt-3">
+                    <p class="text-sm font-semibold text-gray-700 mb-2">검색 결과 (${foundAssets.length}건)</p>
+                    <div class="space-y-2 max-h-60 overflow-y-auto">
+                        ${foundAssets.map(asset => `
+                            <div class="bg-white border border-gray-200 rounded-lg p-3 hover:border-blue-400 transition">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="font-semibold text-gray-800">${asset.code}: ${asset.name}</div>
+                                        <div class="text-sm text-gray-600">
+                                            ${asset.category} | 상태: ${asset.status} | 사용자: ${asset.currentUser || '없음'}
+                                        </div>
+                                    </div>
+                                    <button onclick="loadAssetToForm(${asset.id})" 
+                                            class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-semibold">
+                                        불러오기
+                                    </button>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        
+        // 자산 정보를 폼에 불러오기
+        function loadAssetToForm(assetId) {
+            const asset = assets.find(a => a.id === assetId);
+            if (!asset) return;
+            
+            // 폼에 데이터 채우기
+            document.getElementById('manual-asset-code').value = asset.code;
+            document.getElementById('manual-acquisition-type').value = asset.acquisitionType || '구매'; // 🆕
+            document.getElementById('manual-category').value = asset.category;
+            document.getElementById('manual-asset-name').value = asset.name;
+            document.getElementById('manual-manufacturer').value = asset.manufacturer || '';
+            
+            if (asset.purchaseDate) {
+                document.getElementById('manual-purchase-year').value = new Date(asset.purchaseDate).getFullYear();
+            }
+            
+            document.getElementById('manual-price').value = asset.purchasePrice || asset.rentalMonthly || asset.monthlyFee || '';
+            document.getElementById('manual-status').value = asset.status;
+            document.getElementById('manual-user').value = asset.currentUser || '';
+            document.getElementById('manual-note').value = asset.note || '';
+            
+            alert('✅ 자산 정보를 불러왔습니다.\n상태 또는 사용자를 변경하여 등록하세요.');
+        }
+        
+        // 수기 자산 등록 제출
+        function submitManualAsset(event) {
+            event.preventDefault();
+            
+            const assetCode = document.getElementById('manual-asset-code').value.trim();
+            const acquisitionType = document.getElementById('manual-acquisition-type').value; // 🆕
+            const category = document.getElementById('manual-category').value;
+            const assetName = document.getElementById('manual-asset-name').value.trim();
+            const manufacturer = document.getElementById('manual-manufacturer').value.trim();
+            const purchaseYear = document.getElementById('manual-purchase-year').value;
+            const price = document.getElementById('manual-price').value;
+            const status = document.getElementById('manual-status').value;
+            const user = document.getElementById('manual-user').value.trim();
+            const note = document.getElementById('manual-note').value.trim();
+            
+            // 중복 체크
+            const isDuplicate = assets.some(a => a.code === assetCode);
+            if (isDuplicate) {
+                if (!confirm('이미 동일한 자산코드가 존재합니다.\n상태만 변경하여 새로 등록하시겠습니까?')) {
+                    return false;
+                }
+            }
+            
+            // 새 자산 객체 생성
+            const newAsset = {
+                id: assets.length + 1,
+                code: assetCode,
+                acquisitionType: acquisitionType, // 🆕 구매/렌탈
+                category: category,
+                name: assetName,
+                manufacturer: manufacturer,
+                purchaseDate: purchaseYear ? `${purchaseYear}-01-01` : null,
+                purchasePrice: price ? parseInt(price) : null,
+                rentalMonthly: acquisitionType === '렌탈' && price ? parseInt(price) : null, // 🆕 렌탈 월비용
+                status: status,
+                currentUser: user || null,
+                note: note,
+                registeredAt: new Date().toISOString().split('T')[0],
+                registeredBy: currentUser.name
+            };
+            
+            // 자산 추가
+            assets.push(newAsset);
+            
+            alert(`✅ 자산이 등록되었습니다!\n\n자산코드: ${assetCode}\n구분: ${acquisitionType}\n자산명: ${assetName}\n상태: ${status}`);
+            
+            // 모달 닫기 및 목록 갱신
+            closeModal('assetRegisterModal');
+            renderAssetsList();
+            
+            return false; // 폼 제출 완전 차단
+        }
+        
+        // API 동기화
+        function syncAssetsFromAPI() {
+            const endpoint = document.getElementById('api-endpoint').value.trim();
+            const apiKey = document.getElementById('api-key').value.trim();
+            const syncNew = document.getElementById('sync-new').checked;
+            const syncUpdate = document.getElementById('sync-update').checked;
+            const syncStatus = document.getElementById('sync-status').checked;
+            
+            if (!endpoint) {
+                alert('API 엔드포인트를 입력해주세요.');
+                return;
+            }
+            
+            if (!apiKey) {
+                alert('API 키를 입력해주세요.');
+                return;
+            }
+            
+            const resultDiv = document.getElementById('api-sync-result');
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerHTML = `
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-spinner fa-spin text-blue-600 text-xl mr-3"></i>
+                        <div>
+                            <div class="font-semibold text-gray-800">API 동기화 진행 중...</div>
+                            <div class="text-sm text-gray-600">데이터를 가져오는 중입니다.</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // 시뮬레이션: 3초 후 완료 (실제로는 API 호출)
+            setTimeout(() => {
+                // 데모 데이터 추가
+                const demoAssets = [
+                    {
+                        id: assets.length + 1,
+                        code: 'API-HW-001',
+                        category: '하드웨어',
+                        name: 'Dell XPS 15 (API 동기화)',
+                        manufacturer: 'Dell',
+                        purchaseDate: '2025-01-15',
+                        purchasePrice: 2500000,
+                        status: '대기',
+                        currentUser: null,
+                        registeredAt: new Date().toISOString().split('T')[0],
+                        registeredBy: 'API Sync'
+                    },
+                    {
+                        id: assets.length + 2,
+                        code: 'API-SW-001',
+                        category: '소프트웨어',
+                        name: 'Adobe Creative Cloud (API 동기화)',
+                        manufacturer: 'Adobe',
+                        purchaseDate: '2025-01-01',
+                        monthlyFee: 88000,
+                        status: '사용중',
+                        currentUser: '김디자인',
+                        registeredAt: new Date().toISOString().split('T')[0],
+                        registeredBy: 'API Sync'
+                    }
+                ];
+                
+                let addedCount = 0;
+                let updatedCount = 0;
+                
+                if (syncNew) {
+                    demoAssets.forEach(asset => {
+                        const exists = assets.some(a => a.code === asset.code);
+                        if (!exists) {
+                            assets.push(asset);
+                            addedCount++;
+                        } else if (syncUpdate) {
+                            const index = assets.findIndex(a => a.code === asset.code);
+                            assets[index] = { ...assets[index], ...asset };
+                            updatedCount++;
+                        }
+                    });
+                }
+                
+                resultDiv.innerHTML = `
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 text-xl mr-3 mt-1"></i>
+                            <div class="flex-1">
+                                <div class="font-semibold text-gray-800 mb-2">동기화 완료!</div>
+                                <div class="text-sm text-gray-600 space-y-1">
+                                    <div>✅ 신규 추가: ${addedCount}건</div>
+                                    <div>✅ 정보 업데이트: ${updatedCount}건</div>
+                                    <div class="text-xs text-gray-500 mt-2">※ 데모 환경에서는 샘플 데이터로 동작합니다.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // 목록 갱신
+                renderAssetsList();
+                
+                alert(`✅ API 동기화가 완료되었습니다!\n\n신규 추가: ${addedCount}건\n정보 업데이트: ${updatedCount}건`);
+            }, 3000);
         }
         
         // 자산 수정 모달 열기
         function openEditAssetModal(assetId) {
-            alert(`🔧 자산 수정 기능은 다음 단계에서 구현됩니다!\n\n자산 ID: ${assetId}`);
+            const asset = assets.find(a => a.id === assetId);
+            if (!asset) return;
+            
+            // 수정 타입 초기화
+            selectEditType('manual');
+            
+            // 폼에 데이터 채우기
+            document.getElementById('edit-asset-id').value = asset.id;
+            document.getElementById('edit-asset-code').value = asset.code;
+            document.getElementById('edit-category').value = asset.category;
+            document.getElementById('edit-asset-name').value = asset.name;
+            document.getElementById('edit-manufacturer').value = asset.manufacturer || '';
+            
+            if (asset.purchaseDate) {
+                document.getElementById('edit-purchase-year').value = new Date(asset.purchaseDate).getFullYear();
+            } else {
+                document.getElementById('edit-purchase-year').value = '';
+            }
+            
+            document.getElementById('edit-price').value = asset.purchasePrice || asset.monthlyFee || '';
+            document.getElementById('edit-status').value = asset.status;
+            document.getElementById('edit-user').value = asset.currentUser || '';
+            document.getElementById('edit-note').value = asset.note || '';
+            
+            // API 최신화용 정보 설정
+            document.getElementById('api-update-code').textContent = asset.code;
+            document.getElementById('api-update-name').textContent = asset.name;
+            document.getElementById('api-update-status').textContent = asset.status;
+            
+            // 모달 열기
+            openModal('assetEditModal'); // ✅ 수정
+        }
+        
+        
+        // 수정 타입 선택
+        function selectEditType(type) {
+            const manualBtn = document.getElementById('edit-type-manual');
+            const apiBtn = document.getElementById('edit-type-api');
+            
+            if (type === 'manual') {
+                manualBtn.classList.add('active', 'border-blue-500', 'bg-blue-50');
+                manualBtn.classList.remove('border-gray-300', 'bg-white');
+                apiBtn.classList.remove('active', 'border-blue-500', 'bg-blue-50');
+                apiBtn.classList.add('border-gray-300', 'bg-white');
+                
+                document.getElementById('manual-edit-form').classList.remove('hidden');
+                document.getElementById('api-update-form').classList.add('hidden');
+            } else {
+                apiBtn.classList.add('active', 'border-blue-500', 'bg-blue-50');
+                apiBtn.classList.remove('border-gray-300', 'bg-white');
+                manualBtn.classList.remove('active', 'border-blue-500', 'bg-blue-50');
+                manualBtn.classList.add('border-gray-300', 'bg-white');
+                
+                document.getElementById('manual-edit-form').classList.add('hidden');
+                document.getElementById('api-update-form').classList.remove('hidden');
+            }
+        }
+        
+        // 수기 자산 수정 제출
+        function submitEditAsset(event) {
+            event.preventDefault();
+            
+            const assetId = parseInt(document.getElementById('edit-asset-id').value);
+            const assetIndex = assets.findIndex(a => a.id === assetId);
+            
+            if (assetIndex === -1) {
+                alert('자산을 찾을 수 없습니다.');
+                return false;
+            }
+            
+            // 수정된 데이터 가져오기
+            const updatedData = {
+                name: document.getElementById('edit-asset-name').value.trim(),
+                manufacturer: document.getElementById('edit-manufacturer').value.trim(),
+                purchaseDate: document.getElementById('edit-purchase-year').value ? 
+                              `${document.getElementById('edit-purchase-year').value}-01-01` : null,
+                purchasePrice: document.getElementById('edit-price').value ? 
+                               parseInt(document.getElementById('edit-price').value) : null,
+                status: document.getElementById('edit-status').value,
+                currentUser: document.getElementById('edit-user').value.trim() || null,
+                note: document.getElementById('edit-note').value.trim(),
+                updatedAt: new Date().toISOString().split('T')[0],
+                updatedBy: currentUser.name
+            };
+            
+            // 자산 업데이트
+            assets[assetIndex] = { ...assets[assetIndex], ...updatedData };
+            
+            alert(`✅ 자산 정보가 수정되었습니다!\n\n자산코드: ${assets[assetIndex].code}\n자산명: ${updatedData.name}\n상태: ${updatedData.status}\n사용자: ${updatedData.currentUser || '없음'}`);
+            
+            // 모달 닫기 및 목록 갱신
+            closeModal('assetEditModal');
+            renderAssetsList();
+            
+            return false; // 폼 제출 완전 차단
+        }
+        
+        // API에서 자산 최신 데이터 가져오기
+        function updateAssetFromAPI() {
+            const assetId = parseInt(document.getElementById('edit-asset-id').value);
+            const asset = assets.find(a => a.id === assetId);
+            
+            if (!asset) {
+                alert('자산을 찾을 수 없습니다.');
+                return;
+            }
+            
+            const updateSpec = document.getElementById('api-update-spec').checked;
+            const updatePrice = document.getElementById('api-update-price').checked;
+            const updateWarranty = document.getElementById('api-update-warranty').checked;
+            
+            const resultDiv = document.getElementById('api-update-result');
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerHTML = `
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-spinner fa-spin text-blue-600 text-xl mr-3"></i>
+                        <div>
+                            <div class="font-semibold text-gray-800">API 최신 데이터 가져오는 중...</div>
+                            <div class="text-sm text-gray-600">자산코드: ${asset.code}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // 시뮬레이션: 2초 후 완료
+            setTimeout(() => {
+                const assetIndex = assets.findIndex(a => a.id === assetId);
+                let updatedFields = [];
+                
+                // 시뮬레이션 데이터
+                if (updateSpec) {
+                    assets[assetIndex].specs = '업데이트된 사양 (API)';
+                    updatedFields.push('사양/스펙');
+                }
+                if (updatePrice) {
+                    if (asset.category === '하드웨어') {
+                        assets[assetIndex].purchasePrice = Math.floor(Math.random() * 2000000) + 1000000;
+                    } else {
+                        assets[assetIndex].monthlyFee = Math.floor(Math.random() * 50000) + 30000;
+                    }
+                    updatedFields.push('가격');
+                }
+                if (updateWarranty) {
+                    assets[assetIndex].warrantyEnd = '2026-12-31';
+                    updatedFields.push('보증기간');
+                }
+                
+                assets[assetIndex].updatedAt = new Date().toISOString().split('T')[0];
+                assets[assetIndex].updatedBy = 'API Update';
+                
+                resultDiv.innerHTML = `
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 text-xl mr-3 mt-1"></i>
+                            <div class="flex-1">
+                                <div class="font-semibold text-gray-800 mb-2">최신 데이터 업데이트 완료!</div>
+                                <div class="text-sm text-gray-600 space-y-1">
+                                    <div>✅ 업데이트된 항목: ${updatedFields.join(', ')}</div>
+                                    <div class="text-xs text-gray-500 mt-2">※ 데모 환경에서는 샘플 데이터로 동작합니다.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // 목록 갱신
+                renderAssetsList();
+                
+                alert(`✅ API 최신 데이터로 업데이트되었습니다!\n\n업데이트 항목:\n${updatedFields.map(f => '- ' + f).join('\n')}`);
+            }, 2000);
         }
         
         // 자산 삭제 확인
@@ -10507,14 +12783,14 @@ ${grades.map(grade => {
             const asset = assets.find(a => a.id === assetId);
             if (!asset) return;
             
-            if (asset.status === '사용중') {
-                if (!confirm(`⚠️ 경고: 사용중인 자산입니다!\n\n자산: ${asset.name}\n사용자: ${asset.currentUser}\n\n정말 삭제하시겠습니까?`)) {
-                    return;
-                }
-            } else {
-                if (!confirm(`자산을 삭제하시겠습니까?\n\n${asset.code}: ${asset.name}`)) {
-                    return;
-                }
+            // 🆕 사용자 배정된 자산은 삭제 불가
+            if (asset.currentUser) {
+                alert(`❌ 삭제할 수 없습니다!\n\n사용자가 배정된 자산은 삭제할 수 없습니다.\n\n자산: ${asset.name}\n사용자: ${asset.currentUser}\n\n먼저 사용자를 해제한 후 삭제해주세요.`);
+                return;
+            }
+            
+            if (!confirm(`자산을 삭제하시겠습니까?\n\n${asset.code}: ${asset.name}`)) {
+                return;
             }
             
             // 자산 삭제
@@ -11072,6 +13348,419 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
 
         // Initialize on page load
         // ==========================================
+        // 🆕 개인 대시보드 함수들
+        // ==========================================
+        
+        function renderPersonalDashboard() {
+            // master는 모든 IT 담당자(admin, master) 티켓, admin은 본인 티켓만
+            let myTickets;
+            if (currentRole === 'master') {
+                // master는 admin과 master가 담당한 모든 티켓 표시
+                myTickets = tickets.filter(t => {
+                    const assignee = t.assignee || (t.assignees && t.assignees[0]);
+                    return assignee === 'IT 관리자' || assignee === 'IT 마스터';
+                });
+            } else {
+                // admin은 본인 티켓만
+                myTickets = tickets.filter(t => {
+                    const assignee = t.assignee || (t.assignees && t.assignees[0]);
+                    return assignee === currentUser.name;
+                });
+            }
+            
+            // 기본 통계
+            const totalTickets = myTickets.length;
+            const pendingTickets = myTickets.filter(t => ['요청', '견적확인', '승인대기', '접수'].includes(t.status)).length;
+            const processingTickets = myTickets.filter(t => ['처리중', '재검수중', '검수 대기'].includes(t.status)).length;
+            const completedTickets = myTickets.filter(t => t.status === '완료').length;
+            
+            document.getElementById('my-total-tickets').textContent = totalTickets;
+            document.getElementById('my-pending-tickets').textContent = pendingTickets;
+            document.getElementById('my-processing-tickets').textContent = processingTickets;
+            document.getElementById('my-completed-tickets').textContent = completedTickets;
+            
+            // 기간별 성과 계산
+            calculatePeriodStats(myTickets);
+            
+            // 업무 품질 지표 계산
+            calculateQualityMetrics(myTickets);
+            
+            // 프로세스별 현황
+            renderStatusBreakdown(myTickets);
+            
+            // 평균 처리 시간 (기존 로직 유지)
+            calculateAverageTime(myTickets);
+            
+            // 업무 인사이트
+            renderWorkInsights(myTickets);
+            
+            // 현재 처리 중인 업무 목록
+            renderCurrentTasks(myTickets);
+        }
+        
+        function calculatePeriodStats(myTickets) {
+            const now = new Date();
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const weekStart = new Date(today);
+            weekStart.setDate(today.getDate() - today.getDay());
+            const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+            
+            // 날짜 기준 설명:
+            // - 요청받음: acceptedAt 날짜가 해당 기간인 티켓
+            // - 완료함: completedAt 날짜가 해당 기간인 티켓
+            // - 보류함: status가 '보류'로 변경된 날짜가 해당 기간인 티켓 (현재는 보류 상태 체크)
+            // - 반려함: status가 '반려'로 변경된 날짜가 해당 기간인 티켓 (현재는 반려 상태 체크)
+            
+            // 오늘 성과
+            const dailyRequested = myTickets.filter(t => {
+                if (!t.acceptedAt) return false;
+                const acceptedDate = new Date(t.acceptedAt);
+                return acceptedDate >= today;
+            }).length;
+            
+            const dailyCompleted = myTickets.filter(t => {
+                if (t.status !== '완료' || !t.completedAt) return false;
+                const completedDate = new Date(t.completedAt);
+                return completedDate >= today;
+            }).length;
+            
+            const dailyHeld = myTickets.filter(t => t.status === '보류').length; // 현재 보류 상태인 티켓
+            const dailyRejected = myTickets.filter(t => t.status === '반려').length; // 현재 반려 상태인 티켓
+            
+            document.getElementById('daily-requested').textContent = dailyRequested;
+            document.getElementById('daily-completed').textContent = dailyCompleted;
+            document.getElementById('daily-held').textContent = dailyHeld;
+            document.getElementById('daily-rejected').textContent = dailyRejected;
+            
+            // 이번 주 성과
+            const weeklyRequested = myTickets.filter(t => {
+                if (!t.acceptedAt) return false;
+                const acceptedDate = new Date(t.acceptedAt);
+                return acceptedDate >= weekStart;
+            }).length;
+            
+            const weeklyCompleted = myTickets.filter(t => {
+                if (t.status !== '완료' || !t.completedAt) return false;
+                const completedDate = new Date(t.completedAt);
+                return completedDate >= weekStart;
+            }).length;
+            
+            const weeklyHeld = myTickets.filter(t => t.status === '보류').length;
+            const weeklyRejected = myTickets.filter(t => t.status === '반려').length;
+            
+            document.getElementById('weekly-requested').textContent = weeklyRequested;
+            document.getElementById('weekly-completed').textContent = weeklyCompleted;
+            document.getElementById('weekly-held').textContent = weeklyHeld;
+            document.getElementById('weekly-rejected').textContent = weeklyRejected;
+            
+            // 이번 달 성과
+            const monthlyRequested = myTickets.filter(t => {
+                if (!t.acceptedAt) return false;
+                const acceptedDate = new Date(t.acceptedAt);
+                return acceptedDate >= monthStart;
+            }).length;
+            
+            const monthlyCompleted = myTickets.filter(t => {
+                if (t.status !== '완료' || !t.completedAt) return false;
+                const completedDate = new Date(t.completedAt);
+                return completedDate >= monthStart;
+            }).length;
+            
+            const monthlyHeld = myTickets.filter(t => t.status === '보류').length;
+            const monthlyRejected = myTickets.filter(t => t.status === '반려').length;
+            
+            document.getElementById('monthly-requested').textContent = monthlyRequested;
+            document.getElementById('monthly-completed').textContent = monthlyCompleted;
+            document.getElementById('monthly-held').textContent = monthlyHeld;
+            document.getElementById('monthly-rejected').textContent = monthlyRejected;
+        }
+        
+        function calculateQualityMetrics(myTickets) {
+            // 반응 속도: 요청 → 접수까지의 시간
+            const acceptedTickets = myTickets.filter(t => t.acceptedAt && t.createdAt);
+            if (acceptedTickets.length > 0) {
+                const responseTimes = acceptedTickets.map(t => {
+                    const created = new Date(t.createdAt);
+                    const accepted = new Date(t.acceptedAt);
+                    return (accepted - created) / (1000 * 60 * 60); // 시간 단위
+                });
+                
+                const avgResponseHours = responseTimes.reduce((a, b) => a + b, 0) / responseTimes.length;
+                const fastestResponse = Math.min(...responseTimes);
+                const within24h = responseTimes.filter(t => t <= 24).length;
+                const response24hRate = Math.round((within24h / responseTimes.length) * 100);
+                
+                // 평균 반응 시간 표시
+                if (avgResponseHours < 1) {
+                    document.getElementById('avg-response-time').textContent = 
+                        Math.round(avgResponseHours * 60) + '분';
+                } else if (avgResponseHours < 24) {
+                    document.getElementById('avg-response-time').textContent = 
+                        avgResponseHours.toFixed(1) + '시간';
+                } else {
+                    document.getElementById('avg-response-time').textContent = 
+                        (avgResponseHours / 24).toFixed(1) + '일';
+                }
+                
+                // 가장 빠른 반응
+                if (fastestResponse < 1) {
+                    document.getElementById('fastest-response').textContent = 
+                        Math.round(fastestResponse * 60) + '분';
+                } else {
+                    document.getElementById('fastest-response').textContent = 
+                        fastestResponse.toFixed(1) + '시간';
+                }
+                
+                document.getElementById('response-rate-24h').textContent = response24hRate + '%';
+            } else {
+                document.getElementById('avg-response-time').textContent = '-';
+                document.getElementById('fastest-response').textContent = '-';
+                document.getElementById('response-rate-24h').textContent = '-';
+            }
+            
+            // 처리 품질
+            const completedTickets = myTickets.filter(t => t.status === '완료' && t.acceptedAt && t.completedAt);
+            if (completedTickets.length > 0) {
+                // 1회 완료율: 재검수 없이 완료된 비율
+                const reworkTickets = myTickets.filter(t => 
+                    t.comments && t.comments.some(c => c.content.includes('재검수'))
+                ).length;
+                const firstTimeFix = completedTickets.length - reworkTickets;
+                const firstTimeFixRate = Math.round((firstTimeFix / completedTickets.length) * 100);
+                document.getElementById('first-time-fix-rate').textContent = firstTimeFixRate + '%';
+                
+                // 재검수 비율
+                const reworkRate = Math.round((reworkTickets / completedTickets.length) * 100);
+                document.getElementById('rework-rate').textContent = reworkRate + '%';
+                
+                // 평균 완료 시간 (접수 → 완료)
+                const completionTimes = completedTickets.map(t => {
+                    const accepted = new Date(t.acceptedAt);
+                    const completed = new Date(t.completedAt);
+                    return (completed - accepted) / (1000 * 60 * 60 * 24); // 일 단위
+                });
+                
+                const avgCompletionDays = completionTimes.reduce((a, b) => a + b, 0) / completionTimes.length;
+                
+                if (avgCompletionDays < 1) {
+                    document.getElementById('avg-completion-time').textContent = 
+                        Math.round(avgCompletionDays * 24) + '시간';
+                } else {
+                    document.getElementById('avg-completion-time').textContent = 
+                        avgCompletionDays.toFixed(1) + '일';
+                }
+            } else {
+                document.getElementById('first-time-fix-rate').textContent = '-';
+                document.getElementById('rework-rate').textContent = '-';
+                document.getElementById('avg-completion-time').textContent = '-';
+            }
+        }
+        
+        function renderStatusBreakdown(myTickets) {
+            const statuses = ['접수', '처리중', '재검수중', '검수 대기', '완료', '보류'];
+            const container = document.getElementById('my-status-breakdown');
+            
+            const html = statuses.map(status => {
+                const count = myTickets.filter(t => t.status === status).length;
+                let colorClass = 'bg-gray-100 text-gray-700';
+                
+                if (status === '접수') colorClass = 'bg-blue-100 text-blue-700';
+                else if (status === '처리중') colorClass = 'bg-indigo-100 text-indigo-700';
+                else if (status === '재검수중') colorClass = 'bg-pink-100 text-pink-700';
+                else if (status === '검수 대기') colorClass = 'bg-purple-100 text-purple-700';
+                else if (status === '완료') colorClass = 'bg-green-100 text-green-700';
+                else if (status === '보류') colorClass = 'bg-orange-100 text-orange-700';
+                
+                return `
+                    <div class="text-center p-4 ${colorClass} rounded-lg">
+                        <div class="text-2xl font-bold mb-1">${count}</div>
+                        <div class="text-xs font-semibold">${status}</div>
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = html;
+        }
+        
+        function calculateAverageTime(myTickets) {
+            const completedTickets = myTickets.filter(t => t.status === '완료' && t.completedAt && t.acceptedAt);
+            
+            if (completedTickets.length === 0) {
+                document.getElementById('avg-processing-time').textContent = '0일';
+                document.getElementById('weekly-avg-time').textContent = '0일';
+                document.getElementById('fastest-time').textContent = '-';
+                return;
+            }
+            
+            // 평균 처리 시간 계산
+            const processingTimes = completedTickets.map(t => {
+                const accepted = new Date(t.acceptedAt);
+                const completed = new Date(t.completedAt);
+                return Math.floor((completed - accepted) / (1000 * 60 * 60 * 24));
+            });
+            
+            const avgTime = Math.round(processingTimes.reduce((a, b) => a + b, 0) / processingTimes.length);
+            document.getElementById('avg-processing-time').textContent = avgTime + '일';
+            
+            // 이번 주 평균
+            const weekStart = new Date();
+            weekStart.setDate(weekStart.getDate() - weekStart.getDay());
+            const weeklyCompleted = completedTickets.filter(t => new Date(t.completedAt) >= weekStart);
+            
+            if (weeklyCompleted.length > 0) {
+                const weeklyTimes = weeklyCompleted.map(t => {
+                    const accepted = new Date(t.acceptedAt);
+                    const completed = new Date(t.completedAt);
+                    return Math.floor((completed - accepted) / (1000 * 60 * 60 * 24));
+                });
+                const weeklyAvg = Math.round(weeklyTimes.reduce((a, b) => a + b, 0) / weeklyTimes.length);
+                document.getElementById('weekly-avg-time').textContent = weeklyAvg + '일';
+            } else {
+                document.getElementById('weekly-avg-time').textContent = '0일';
+            }
+            
+            // 가장 빠른 처리
+            const fastestTime = Math.min(...processingTimes);
+            const fastestTicket = completedTickets[processingTimes.indexOf(fastestTime)];
+            document.getElementById('fastest-time').textContent = `${fastestTicket.ticketNumber} (${fastestTime}일)`;
+        }
+        
+        function renderWorkInsights(myTickets) {
+            const container = document.getElementById('work-insights');
+            const insights = [];
+            
+            // 인사이트 1: 긴급 티켓
+            const urgentTickets = myTickets.filter(t => t.priority === '긴급' && !['완료', '취소', '반려'].includes(t.status)).length;
+            if (urgentTickets > 0) {
+                insights.push({
+                    icon: 'fa-exclamation-triangle',
+                    color: 'red',
+                    text: `긴급 티켓 ${urgentTickets}개 처리 필요`
+                });
+            }
+            
+            // 인사이트 2: 재검수 중인 티켓
+            const reworkTickets = myTickets.filter(t => t.status === '재검수중').length;
+            if (reworkTickets > 0) {
+                insights.push({
+                    icon: 'fa-redo',
+                    color: 'orange',
+                    text: `재검수 티켓 ${reworkTickets}개 확인 필요`
+                });
+            }
+            
+            // 인사이트 3: 검수 대기 중
+            const reviewTickets = myTickets.filter(t => t.status === '검수 대기').length;
+            if (reviewTickets > 0) {
+                insights.push({
+                    icon: 'fa-clipboard-check',
+                    color: 'purple',
+                    text: `검수 대기 ${reviewTickets}개`
+                });
+            }
+            
+            // 인사이트 4: 완료율
+            const completedCount = myTickets.filter(t => t.status === '완료').length;
+            const completionRate = myTickets.length > 0 ? Math.round((completedCount / myTickets.length) * 100) : 0;
+            insights.push({
+                icon: 'fa-chart-line',
+                color: 'green',
+                text: `전체 완료율 ${completionRate}%`
+            });
+            
+            // 인사이트 5: 오늘 완료한 티켓
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const todayCompleted = myTickets.filter(t => {
+                if (t.status !== '완료' || !t.completedAt) return false;
+                const completedDate = new Date(t.completedAt);
+                return completedDate >= today;
+            }).length;
+            
+            if (todayCompleted > 0) {
+                insights.push({
+                    icon: 'fa-check-circle',
+                    color: 'blue',
+                    text: `오늘 ${todayCompleted}개 완료! 🎉`
+                });
+            }
+            
+            const html = insights.map(insight => `
+                <div class="flex items-start space-x-3 p-3 bg-${insight.color}-50 border border-${insight.color}-200 rounded-lg">
+                    <i class="fas ${insight.icon} text-${insight.color}-600 mt-1"></i>
+                    <span class="text-sm text-gray-700">${insight.text}</span>
+                </div>
+            `).join('');
+            
+            container.innerHTML = html || '<p class="text-gray-500 text-sm">모든 업무가 순조롭게 진행되고 있습니다! ✨</p>';
+        }
+        
+        function renderCurrentTasks(myTickets) {
+            const activeTasks = myTickets.filter(t => ['접수', '처리중', '재검수중', '검수 대기'].includes(t.status));
+            const container = document.getElementById('my-current-tasks');
+            
+            if (activeTasks.length === 0) {
+                container.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="px-6 py-12 text-center text-gray-500">
+                            <i class="fas fa-inbox text-6xl text-gray-300 mb-4"></i>
+                            <p>현재 처리 중인 업무가 없습니다</p>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            const html = activeTasks.map(ticket => {
+                const daysInProgress = ticket.acceptedAt ? Math.floor((new Date() - new Date(ticket.acceptedAt)) / (1000 * 60 * 60 * 24)) : 0;
+                
+                let statusColor = 'bg-gray-100 text-gray-700';
+                if (ticket.status === '접수') statusColor = 'bg-blue-100 text-blue-700';
+                else if (ticket.status === '처리중') statusColor = 'bg-indigo-100 text-indigo-700';
+                else if (ticket.status === '재검수중') statusColor = 'bg-pink-100 text-pink-700';
+                else if (ticket.status === '검수 대기') statusColor = 'bg-purple-100 text-purple-700';
+                
+                let priorityColor = 'bg-gray-100 text-gray-700';
+                if (ticket.priority === '긴급') priorityColor = 'bg-red-100 text-red-700';
+                else if (ticket.priority === '높음') priorityColor = 'bg-orange-100 text-orange-700';
+                else if (ticket.priority === '보통') priorityColor = 'bg-blue-100 text-blue-700';
+                else if (ticket.priority === '낮음') priorityColor = 'bg-gray-100 text-gray-600';
+                
+                return `
+                    <tr class="hover:bg-gray-50 transition">
+                        <td class="px-6 py-4">
+                            <span class="font-mono text-sm font-semibold text-blue-600">${ticket.ticketNumber}</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="font-semibold text-gray-800">${ticket.title}</div>
+                            <div class="text-xs text-gray-500 mt-1">${ticket.categoryMain} / ${ticket.categoryMiddle}</div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 text-xs font-semibold rounded-full ${statusColor}">
+                                ${ticket.status}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 text-xs font-semibold rounded-full ${priorityColor}">
+                                ${ticket.priority}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 text-sm text-gray-600">
+                            ${daysInProgress}일째
+                        </td>
+                        <td class="px-6 py-4 text-center">
+                            <button onclick="openTicketDetail(${ticket.id})" class="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition">
+                                <i class="fas fa-eye mr-1"></i>상세
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+            
+            container.innerHTML = html;
+        }
+        
+        // ==========================================
         // 🆕 게시판 함수들
         // ==========================================
         
@@ -11083,112 +13772,245 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
             renderUserBoard();
         }
         
-        function renderUserBoard() {
-            const container = document.getElementById('user-board-content');
-            container.innerHTML = `
-                <div class="mb-6 flex items-center justify-between">
-                    <h2 class="text-2xl font-bold text-gray-800">
-                        <i class="fas fa-clipboard-list text-teal-500 mr-2"></i>게시판
-                    </h2>
-                    <button onclick="closeUserBoard()" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">
-                        <i class="fas fa-arrow-left mr-2"></i>돌아가기
-                    </button>
-                </div>
-                ${renderBoardList(false)}
-            `;
-        }
-        
-        function closeUserBoard() {
-            document.getElementById('user-board-section').style.display = 'none';
-            document.querySelectorAll('.grid.grid-cols-4').forEach(el => el.style.display = 'grid');
-            document.getElementById('active-requests-section').style.display = 'block';
-            document.querySelector('.bg-white.rounded-xl.shadow-sm.border.overflow-hidden').style.display = 'block';
-        }
-        
         function renderAdminBoard() {
             const container = document.getElementById('board-content');
-            container.innerHTML = renderBoardList(true);
+            
+            // 🆕 첫 렌더링인지 확인
+            if (!document.getElementById('board-table-body')) {
+                // 첫 렌더링: 전체 HTML 생성
+                container.innerHTML = renderBoardLayout(true);
+                
+                // 이벤트 리스너 등록 (한 번만!)
+                const searchInput = document.getElementById('board-search');
+                const categoryFilter = document.getElementById('board-category-filter');
+                const typeFilter = document.getElementById('board-type-filter');
+                
+                if (searchInput) {
+                    searchInput.addEventListener('input', () => updateBoardTable(true));
+                }
+                if (categoryFilter) {
+                    categoryFilter.addEventListener('change', () => updateBoardTable(true));
+                }
+                if (typeFilter) {
+                    typeFilter.addEventListener('change', () => updateBoardTable(true));
+                }
+            }
+            
+            // 테이블만 업데이트
+            updateBoardTable(true);
         }
         
-        function renderBoardList(isAdmin) {
-            const categories = ['오아시스', 'GMS', '부동산', '인프라', 'ERP', 'HR', '기타'];
-            let html = isAdmin ? `
-                <div class="mb-6 flex justify-end">
-                    <button onclick="openModal('boardCreateModal')" class="px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition font-semibold">
-                        <i class="fas fa-plus mr-2"></i>게시글 등록
-                    </button>
-                </div>` : '';
+        function renderUserBoard() {
+            const container = document.getElementById('user-board-content');
             
-            html += '<div class="space-y-6">';
-            categories.forEach(category => {
-                const categoryPosts = boardPosts.filter(p => p.mainCategory === category);
-                if (categoryPosts.length > 0) {
-                    html += `
-                        <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
-                            <div class="bg-gradient-to-r from-teal-50 to-teal-100 px-6 py-4 border-b">
-                                <h3 class="text-lg font-bold text-teal-900">
-                                    <i class="fas fa-folder text-teal-600 mr-2"></i>${category}
-                                </h3>
-                            </div>
-                            <div class="overflow-x-auto">
-                                <table class="w-full">
-                                    <thead class="bg-gray-50 border-b">
-                                        <tr>
-                                            <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">구분</th>
-                                            <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">제목</th>
-                                            <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">등록일</th>
-                                            <th class="px-6 py-3 text-center text-xs font-semibold text-gray-600 uppercase">조회수</th>
-                                            <th class="px-6 py-3 text-center text-xs font-semibold text-gray-600 uppercase">액션</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-gray-200">`;
-                    
-                    categoryPosts.forEach(post => {
-                        html += `
-                            <tr class="hover:bg-gray-50 transition">
-                                <td class="px-6 py-4">
-                                    <span class="px-3 py-1 text-xs font-semibold rounded-full ${post.type === '매뉴얼' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}">
-                                        ${post.type}
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="font-semibold text-gray-800">${post.title}</div>
-                                    ${post.files.length > 0 ? `<div class="text-xs text-gray-500 mt-1"><i class="fas fa-paperclip mr-1"></i>${post.files.length}개 파일</div>` : ''}
-                                </td>
-                                <td class="px-6 py-4 text-sm text-gray-600">${post.createdAt}</td>
-                                <td class="px-6 py-4 text-center text-sm text-gray-600">
-                                    <i class="fas fa-eye text-gray-400 mr-1"></i>${post.views}
-                                </td>
-                                <td class="px-6 py-4 text-center">
-                                    <button onclick="viewBoardPost(${post.id})" class="px-3 py-1 text-sm bg-teal-100 text-teal-700 rounded hover:bg-teal-200 transition mr-2">
-                                        <i class="fas fa-eye mr-1"></i>자세히
-                                    </button>
-                                    ${post.files.length > 0 ? `
-                                    <button onclick="downloadAllFiles(${post.id})" class="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition">
-                                        <i class="fas fa-download mr-1"></i>다운로드
-                                    </button>` : ''}
-                                    ${isAdmin ? `
-                                    <button onclick="deleteBoardPost(${post.id})" class="px-3 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200 transition ml-2">
-                                        <i class="fas fa-trash mr-1"></i>삭제
-                                    </button>` : ''}
-                                </td>
-                            </tr>`;
-                    });
-                    html += '</tbody></table></div></div>';
+            // 🆕 첫 렌더링인지 확인
+            if (!document.getElementById('board-table-body')) {
+                container.innerHTML = `
+                    <div class="mb-6 flex items-center justify-between">
+                        <h2 class="text-2xl font-bold text-gray-800">
+                            <i class="fas fa-clipboard-list text-teal-500 mr-2"></i>게시판
+                        </h2>
+                        <button onclick="closeUserBoard()" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">
+                            <i class="fas fa-arrow-left mr-2"></i>돌아가기
+                        </button>
+                    </div>
+                    ${renderBoardLayout(false)}
+                `;
+                
+                // 이벤트 리스너 등록 (한 번만!)
+                const searchInput = document.getElementById('board-search');
+                const categoryFilter = document.getElementById('board-category-filter');
+                const typeFilter = document.getElementById('board-type-filter');
+                
+                if (searchInput) {
+                    searchInput.addEventListener('input', () => updateBoardTable(false));
                 }
-            });
-            html += '</div>';
-            
-            if (boardPosts.length === 0) {
-                html = `
-                    <div class="bg-white rounded-xl shadow-sm border p-12 text-center">
-                        <i class="fas fa-clipboard-list text-gray-300 text-6xl mb-4"></i>
-                        <p class="text-gray-500 text-lg">등록된 게시글이 없습니다</p>
-                        ${isAdmin ? '<p class="text-gray-400 text-sm mt-2">상단의 [게시글 등록] 버튼을 클릭하여 첫 게시글을 등록하세요</p>' : ''}
-                    </div>`;
+                if (categoryFilter) {
+                    categoryFilter.addEventListener('change', () => updateBoardTable(false));
+                }
+                if (typeFilter) {
+                    typeFilter.addEventListener('change', () => updateBoardTable(false));
+                }
             }
-            return html;
+            
+            // 테이블만 업데이트
+            updateBoardTable(false);
         }
+        
+        // 🆕 게시판 레이아웃 생성 (한 번만 호출)
+        function renderBoardLayout(isAdmin) {
+            return `
+                <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                    <div class="p-6 border-b">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-lg font-bold text-gray-800">
+                                <i class="fas fa-clipboard-list text-teal-600 mr-2"></i>게시판
+                            </h2>
+                            ${isAdmin ? `
+                            <button onclick="openModal('boardCreateModal')" class="px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition font-semibold">
+                                <i class="fas fa-plus mr-2"></i>게시글 등록
+                            </button>
+                            ` : ''}
+                        </div>
+                        
+                        <!-- 검색 및 필터 -->
+                        <div class="flex items-center space-x-3">
+                            <!-- 검색창 -->
+                            <div class="flex-1">
+                                <div class="relative">
+                                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                    <input type="text" 
+                                        id="board-search" 
+                                        placeholder="제목으로 검색..." 
+                                        class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                                </div>
+                            </div>
+                            
+                            <!-- 카테고리 필터 -->
+                            <select id="board-category-filter" 
+                                class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500">
+                                <option value="">전체 카테고리</option>
+                                <option value="오아시스">오아시스</option>
+                                <option value="GMS">GMS</option>
+                                <option value="부동산">부동산</option>
+                                <option value="인프라">인프라</option>
+                                <option value="ERP">ERP</option>
+                                <option value="HR">HR</option>
+                                <option value="기타">기타</option>
+                            </select>
+                            
+                            <!-- 유형 필터 -->
+                            <select id="board-type-filter" 
+                                class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500">
+                                <option value="">전체 유형</option>
+                                <option value="매뉴얼">매뉴얼</option>
+                                <option value="설치파일">설치파일</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- 통합 테이블 -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50 border-b">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">카테고리</th>
+                                    <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">유형</th>
+                                    <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">제목</th>
+                                    <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">등록일</th>
+                                    <th class="px-6 py-3 text-center text-xs font-semibold text-gray-600 uppercase">조회수</th>
+                                    <th class="px-6 py-3 text-center text-xs font-semibold text-gray-600 uppercase">액션</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200" id="board-table-body">
+                                <!-- 테이블 내용이 여기에 동적으로 삽입됨 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>`;
+        }
+        
+        // 🆕 테이블만 업데이트 (입력 필드 건드리지 않음!)
+        function updateBoardTable(isAdmin) {
+            const tbody = document.getElementById('board-table-body');
+            if (!tbody) return;
+            
+            // 🔍 검색 및 필터 적용
+            const searchKeyword = document.getElementById('board-search')?.value.toLowerCase() || '';
+            const categoryFilter = document.getElementById('board-category-filter')?.value || '';
+            const typeFilter = document.getElementById('board-type-filter')?.value || '';
+            
+            let filteredPosts = boardPosts;
+            
+            // 검색어 필터링
+            if (searchKeyword) {
+                filteredPosts = filteredPosts.filter(post => 
+                    post.title.toLowerCase().includes(searchKeyword)
+                );
+            }
+            
+            // 카테고리 필터링
+            if (categoryFilter) {
+                filteredPosts = filteredPosts.filter(post => 
+                    post.mainCategory === categoryFilter
+                );
+            }
+            
+            // 유형 필터링
+            if (typeFilter) {
+                filteredPosts = filteredPosts.filter(post => 
+                    post.type === typeFilter
+                );
+            }
+            
+            let html = '';
+            
+            // 데이터가 없는 경우
+            if (filteredPosts.length === 0) {
+                html = `
+                    <tr>
+                        <td colspan="6" class="px-6 py-12 text-center">
+                            <i class="fas fa-search text-gray-300 text-4xl mb-3"></i>
+                            <p class="text-gray-500">
+                                ${searchKeyword || categoryFilter || typeFilter ? '검색 결과가 없습니다' : '등록된 게시글이 없습니다'}
+                            </p>
+                        </td>
+                    </tr>`;
+            } else {
+                // 카테고리별 색상
+                const categoryColors = {
+                    '오아시스': 'bg-blue-100 text-blue-700',
+                    'GMS': 'bg-green-100 text-green-700',
+                    '부동산': 'bg-orange-100 text-orange-700',
+                    '인프라': 'bg-purple-100 text-purple-700',
+                    'ERP': 'bg-red-100 text-red-700',
+                    'HR': 'bg-pink-100 text-pink-700',
+                    '기타': 'bg-gray-100 text-gray-700'
+                };
+                
+                // 게시글 목록 (최신순 정렬)
+                filteredPosts.sort((a, b) => b.id - a.id).forEach(post => {
+                    html += `
+                        <tr class="hover:bg-gray-50 transition cursor-pointer" onclick="viewBoardPost(${post.id})">
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 text-xs font-semibold rounded-full ${categoryColors[post.mainCategory] || 'bg-gray-100 text-gray-700'}">
+                                    ${post.mainCategory}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 text-xs font-semibold rounded-full ${post.type === '매뉴얼' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}">
+                                    <i class="fas fa-${post.type === '매뉴얼' ? 'book' : 'download'} mr-1"></i>
+                                    ${post.type}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="font-semibold text-gray-800">${post.title}</div>
+                                ${post.files.length > 0 ? `<div class="text-xs text-gray-500 mt-1"><i class="fas fa-paperclip mr-1"></i>${post.files.length}개 파일</div>` : ''}
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-600">${post.createdAt}</td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-600">
+                                <i class="fas fa-eye text-gray-400 mr-1"></i>${post.views}
+                            </td>
+                            <td class="px-6 py-4 text-center" onclick="event.stopPropagation()">
+                                <button onclick="viewBoardPost(${post.id})" class="px-3 py-1 text-sm bg-teal-100 text-teal-700 rounded hover:bg-teal-200 transition mr-2">
+                                    <i class="fas fa-eye mr-1"></i>보기
+                                </button>
+                                ${post.files.length > 0 ? `
+                                <button onclick="downloadAllFiles(${post.id})" class="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition">
+                                    <i class="fas fa-download mr-1"></i>다운
+                                </button>` : ''}
+                                ${isAdmin ? `
+                                <button onclick="deleteBoardPost(${post.id})" class="px-3 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200 transition ml-2">
+                                    <i class="fas fa-trash mr-1"></i>삭제
+                                </button>` : ''}
+                            </td>
+                        </tr>`;
+                });
+            }
+            
+            tbody.innerHTML = html;
+        }
+        
         
         function viewBoardPost(postId) {
             const post = boardPosts.find(p => p.id === postId);
@@ -11284,7 +14106,7 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
             closeModal('boardCreateModal');
             document.getElementById('boardCreateForm').reset();
             alert('✅ 게시글이 등록되었습니다!');
-            renderAdminBoard();
+            updateBoardTable(true); // 테이블만 업데이트
         }
         
         function deleteBoardPost(postId) {
@@ -11293,7 +14115,7 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
             if (index !== -1) {
                 boardPosts.splice(index, 1);
                 alert('✅ 게시글이 삭제되었습니다.');
-                renderAdminBoard();
+                updateBoardTable(true); // 테이블만 업데이트
             }
         }
         
@@ -11393,4 +14215,5 @@ ${feedback ? '\n💬 의견: ' + feedback.substring(0, 50) + (feedback.length > 
         });
     </script>
 </body>
+</html>
 </html>
