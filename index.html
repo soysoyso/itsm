@@ -11,6 +11,115 @@
            Modern Enterprise ITSM Design System
            Linear/Jira/Asana Style for 30-40 Males
            ========================================== */
+
+        /* ==========================================
+           🆕 자산관리 내부 탭 & ERP 배너 스타일
+           ========================================== */
+        .asset-inner-tab-nav {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid #DFE1E6;
+            margin-bottom: 24px;
+            background: #fff;
+            border-radius: 8px 8px 0 0;
+            padding: 0 8px;
+        }
+        .asset-inner-tab {
+            padding: 12px 20px;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            color: #5E6C84;
+            background: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            transition: all 0.15s;
+            margin-bottom: -2px;
+        }
+        .asset-inner-tab:hover { color: #172B4D; }
+        .asset-inner-tab.active {
+            border-bottom-color: #0052CC;
+            color: #0052CC;
+        }
+        .asset-inner-content { display: none; }
+        .asset-inner-content.active { display: block; }
+
+        /* ERP 동기화 배너 */
+        .erp-sync-banner {
+            background: linear-gradient(135deg, #E3F2FD 0%, #EDE7F6 100%);
+            border: 1px solid #BBDEFB;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .erp-sync-banner .sync-info { display: flex; align-items: center; gap: 16px; flex: 1; }
+        .erp-sync-banner .sync-dot { width: 10px; height: 10px; border-radius: 50%; background: #4CAF50; animation: pulse-dot 2s infinite; flex-shrink: 0; }
+        @keyframes pulse-dot { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+        .erp-sync-banner .sync-actions { display: flex; align-items: center; gap: 8px; }
+
+        /* 자산구분(등록출처) 배지 */
+        .source-badge-erp {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 2px 7px; border-radius: 4px;
+            font-size: 11px; font-weight: 700;
+            background: #E3F2FD; color: #1565C0;
+            border: 1px solid #90CAF9;
+        }
+        .source-badge-manual {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 2px 7px; border-radius: 4px;
+            font-size: 11px; font-weight: 700;
+            background: #E8F5E9; color: #2E7D32;
+            border: 1px solid #A5D6A7;
+        }
+        /* 자산계정구분 배지 */
+        .class-badge {
+            display: inline-flex; align-items: center;
+            padding: 2px 7px; border-radius: 4px;
+            font-size: 11px; font-weight: 600;
+        }
+        .class-badge-일반 { background: #F4F5F7; color: #5E6C84; border: 1px solid #DFE1E6; }
+        .class-badge-부외 { background: #FFF3E0; color: #E65100; border: 1px solid #FFCC80; }
+        .class-badge-임대 { background: #F3E5F5; color: #6A1B9A; border: 1px solid #CE93D8; }
+        .class-badge-리스 { background: #E8EAF6; color: #283593; border: 1px solid #9FA8DA; }
+        .class-badge-기증 { background: #E0F2F1; color: #00695C; border: 1px solid #80CBC4; }
+
+        /* 고급 대시보드 카드 */
+        .adv-dash-card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1.5px solid #EBECF0;
+            padding: 20px;
+            box-shadow: 0 1px 4px rgba(9,30,66,0.08);
+        }
+        .adv-dash-card .card-title {
+            font-size: 14px; font-weight: 700; color: #172B4D;
+            margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
+        }
+        .adv-dash-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #F4F5F7; font-size: 13px; }
+        .adv-dash-row:last-child { border-bottom: none; }
+        .adv-dash-val-red { color: #DE350B; font-weight: 700; }
+        .adv-dash-val-orange { color: #FF8B00; font-weight: 700; }
+        .adv-dash-val-green { color: #00875A; font-weight: 700; }
+        .adv-dash-val-blue { color: #0052CC; font-weight: 700; }
+
+        /* 진행률 바 */
+        .progress-bar-wrap { background: #EBECF0; border-radius: 4px; height: 8px; margin-top: 4px; }
+        .progress-bar-fill { height: 8px; border-radius: 4px; background: #0052CC; transition: width 0.4s; }
+        .progress-bar-fill.green { background: #00875A; }
+        .progress-bar-fill.orange { background: #FF8B00; }
+        .progress-bar-fill.red { background: #DE350B; }
+
+        /* ERP 코드 구분 표시 */
+        .erp-code-block { font-size: 12px; }
+        .erp-code-label { color: #1565C0; font-weight: 600; font-size: 10px; background: #E3F2FD; padding: 1px 4px; border-radius: 3px; }
+        .itsm-code-label { color: #2E7D32; font-weight: 600; font-size: 10px; background: #E8F5E9; padding: 1px 4px; border-radius: 3px; }
         
         :root {
             /* Primary Colors */
@@ -429,6 +538,24 @@
         .register-type-btn i, .edit-type-btn i {
             display: block;
         }
+
+        /* 🆕 자산관리 내부 탭 */
+        .asset-inner-tab {
+            cursor: pointer;
+            user-select: none;
+        }
+        .asset-inner-tab:hover {
+            color: #374151;
+        }
+
+        /* 🆕 ERP 연동 상태 바 펄스 애니메이션 */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
         
         /* 🆕 자산 조사 탭 스타일 */
         .audit-tab {
@@ -437,6 +564,62 @@
         
         .audit-tab:hover {
             background-color: #f3f4f6;
+        }
+
+        /* 🆕 신청자 GNB 메뉴 (user-view 내부 레거시 버튼용) */
+        .user-gnb-btn {
+            transition: all 0.2s ease;
+        }
+        .user-gnb-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* 🆕 헤더 통합 GNB 탭 스타일 */
+        .header-gnb-wrap {
+            display: none;
+            align-items: center;
+            border-left: 1px solid #E8EAED;
+            margin-left: 20px;
+            padding-left: 20px;
+            gap: 2px;
+        }
+        .header-gnb-wrap.visible {
+            display: flex;
+        }
+        .header-gnb-tab {
+            display: flex;
+            align-items: center;
+            padding: 7px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #5E6C84;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+        .header-gnb-tab:hover {
+            background: #F4F5F7;
+            color: #172B4D;
+        }
+        .header-gnb-tab.active {
+            background: #0052CC;
+            color: #fff;
+        }
+        .header-gnb-tab .tab-icon {
+            margin-right: 6px;
+            font-size: 13px;
+        }
+
+        /* 🆕 신청자 GNB 콘텐츠 표시/숨김 */
+        .user-gnb-content {
+            display: block;
+        }
+        .user-gnb-content.hidden {
+            display: none;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -539,6 +722,25 @@
                             <i class="fas fa-user-shield mr-2"></i>IT팀
                         </button>
                     </div>
+
+                    <!-- 🆕 신청자 전용 GNB 탭 (헤더 통합) -->
+                    <div class="header-gnb-wrap visible" id="header-gnb-wrap">
+                        <button class="header-gnb-tab active" id="hgnb-home" onclick="switchUserGNB('home')">
+                            <i class="fas fa-home tab-icon"></i>홈
+                        </button>
+                        <button class="header-gnb-tab" id="hgnb-service" onclick="switchUserGNB('service')">
+                            <i class="fas fa-concierge-bell tab-icon"></i>서비스요청
+                        </button>
+                        <button class="header-gnb-tab" id="hgnb-asset" onclick="switchUserGNB('asset')">
+                            <i class="fas fa-laptop tab-icon"></i>자산관리
+                        </button>
+                        <button class="header-gnb-tab" id="hgnb-board" onclick="switchUserGNB('board')">
+                            <i class="fas fa-clipboard-list tab-icon"></i>게시판
+                        </button>
+                        <button class="header-gnb-tab" id="hgnb-seal" onclick="switchUserGNB('seal')">
+                            <i class="fas fa-stamp tab-icon"></i>인감대장
+                        </button>
+                    </div>
                 </div>
                 
                 <div class="flex items-center space-x-4">
@@ -563,259 +765,399 @@
 
     <!-- User View (신청자 화면) -->
     <div id="user-view" class="max-w-[1600px] mx-auto px-6 py-6">
-        <!-- Stats Cards -->
-        <div class="grid grid-cols-5 gap-4 mb-6">
-            <div class="bg-white rounded-xl shadow-sm border p-5">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-sm text-gray-500 mb-1">전체 요청</p>
-                        <p class="text-2xl font-bold text-gray-800" id="user-stat-total">0</p>
-                    </div>
-                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                        <i class="fas fa-clipboard-list text-blue-600"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow-sm border p-5">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-sm text-gray-500 mb-1">접수 대기</p>
-                        <p class="text-2xl font-bold text-yellow-600" id="user-stat-pending">0</p>
-                    </div>
-                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
-                        <i class="fas fa-clock text-yellow-600"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow-sm border p-5">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-sm text-gray-500 mb-1">처리 중</p>
-                        <p class="text-2xl font-bold text-blue-600" id="user-stat-processing">0</p>
-                    </div>
-                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                        <i class="fas fa-spinner text-blue-600"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow-sm border p-5">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-sm text-gray-500 mb-1">완료</p>
-                        <p class="text-2xl font-bold text-green-600" id="user-stat-completed">0</p>
-                    </div>
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                        <i class="fas fa-check-circle text-green-600"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow-sm border p-5">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-sm text-gray-500 mb-1">보류/반려</p>
-                        <p class="text-2xl font-bold text-red-600" id="user-stat-hold">0</p>
-                    </div>
-                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                        <i class="fas fa-pause-circle text-red-600"></i>
-                    </div>
-                </div>
-            </div>
+
+        <!-- 🆕 레거시 GNB 버튼 (hidden - ID 호환용) -->
+        <div id="user-gnb-legacy" style="display:none;">
+            <button id="user-gnb-home"></button>
+            <button id="user-gnb-service"></button>
+            <button id="user-gnb-asset"></button>
+            <button id="user-gnb-seal"></button>
+            <button id="user-gnb-board"></button>
         </div>
 
-        <!-- 서비스 요청 (Service Request Cards) 🆕 -->
-        <div class="mb-8">
-            <div class="flex items-center justify-between mb-4">
-                <h2 class="text-xl font-bold text-gray-800">
-                    <i class="fas fa-th-large text-indigo-500 mr-2"></i>서비스 요청
-                </h2>
-                <p class="text-sm text-gray-600">시스템을 선택하고 요청하세요</p>
+        <!-- 🆕 홈 콘텐츠 -->
+        <div id="user-home-content" class="user-gnb-content">
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-5 gap-4 mb-6">
+                <div class="bg-white rounded-xl shadow-sm border p-5">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">전체 요청</p>
+                            <p class="text-2xl font-bold text-gray-800" id="user-stat-total">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-clipboard-list text-blue-600"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border p-5">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">접수 대기</p>
+                            <p class="text-2xl font-bold text-yellow-600" id="user-stat-pending">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-clock text-yellow-600"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border p-5">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">처리 중</p>
+                            <p class="text-2xl font-bold text-blue-600" id="user-stat-processing">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-spinner text-blue-600"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border p-5">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">완료</p>
+                            <p class="text-2xl font-bold text-green-600" id="user-stat-completed">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-check-circle text-green-600"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border p-5">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">보류/반려</p>
+                            <p class="text-2xl font-bold text-red-600" id="user-stat-hold">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-pause-circle text-red-600"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="grid grid-cols-3 gap-4">
-                <!-- 오아시스 -->
-                <div onclick="openCategoryModal('오아시스')" class="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
-                    <div class="flex items-start justify-between mb-3">
-                        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-water text-white text-xl"></i>
-                        </div>
-                        <i class="fas fa-arrow-right text-blue-400 group-hover:translate-x-1 transition"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-blue-900 mb-2">오아시스</h3>
-                    <p class="text-xs text-blue-700">오아시스 시스템</p>
-                </div>
 
-                <!-- GMS -->
-                <div onclick="openCategoryModal('GMS')" class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
-                    <div class="flex items-start justify-between mb-3">
-                        <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-cogs text-white text-xl"></i>
-                        </div>
-                        <i class="fas fa-arrow-right text-green-400 group-hover:translate-x-1 transition"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-green-900 mb-2">GMS</h3>
-                    <p class="text-xs text-green-700">GMS 시스템</p>
-                </div>
-
-                <!-- 부동산 -->
-                <div onclick="openCategoryModal('부동산')" class="bg-gradient-to-br from-orange-50 to-orange-100 border-2 border-orange-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
-                    <div class="flex items-start justify-between mb-3">
-                        <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-building text-white text-xl"></i>
-                        </div>
-                        <i class="fas fa-arrow-right text-orange-400 group-hover:translate-x-1 transition"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-orange-900 mb-2">부동산</h3>
-                    <p class="text-xs text-orange-700">부동산 시스템</p>
-                </div>
-
-                <!-- 인프라 -->
-                <div onclick="openCategoryModal('인프라')" class="bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
-                    <div class="flex items-start justify-between mb-3">
-                        <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-server text-white text-xl"></i>
-                        </div>
-                        <i class="fas fa-arrow-right text-purple-400 group-hover:translate-x-1 transition"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-purple-900 mb-2">인프라</h3>
-                    <p class="text-xs text-purple-700">인프라 시스템</p>
-                </div>
-
-                <!-- ERP -->
-                <div onclick="openCategoryModal('ERP')" class="bg-gradient-to-br from-red-50 to-red-100 border-2 border-red-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
-                    <div class="flex items-start justify-between mb-3">
-                        <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-chart-line text-white text-xl"></i>
-                        </div>
-                        <i class="fas fa-arrow-right text-red-400 group-hover:translate-x-1 transition"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-red-900 mb-2">ERP</h3>
-                    <p class="text-xs text-red-700">ERP 시스템</p>
-                </div>
-
-                <!-- HR -->
-                <div onclick="openCategoryModal('HR')" class="bg-gradient-to-br from-pink-50 to-pink-100 border-2 border-pink-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
-                    <div class="flex items-start justify-between mb-3">
-                        <div class="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-users text-white text-xl"></i>
-                        </div>
-                        <i class="fas fa-arrow-right text-pink-400 group-hover:translate-x-1 transition"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-pink-900 mb-2">HR</h3>
-                    <p class="text-xs text-pink-700">HR 시스템</p>
-                </div>
-
-                <!-- 기타 -->
-                <div onclick="openCategoryModal('기타')" class="bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
-                    <div class="flex items-start justify-between mb-3">
-                        <div class="w-12 h-12 bg-gray-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-ellipsis-h text-white text-xl"></i>
-                        </div>
-                        <i class="fas fa-arrow-right text-gray-400 group-hover:translate-x-1 transition"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">기타</h3>
-                    <p class="text-xs text-gray-700">기타 서비스</p>
-                </div>
-
-                <!-- 자산 요청 🆕 -->
-                <div onclick="quickAssetRequest()" class="bg-gradient-to-br from-indigo-50 to-indigo-100 border-2 border-indigo-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
-                    <div class="flex items-start justify-between mb-3">
-                        <div class="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-laptop text-white text-xl"></i>
-                        </div>
-                        <i class="fas fa-arrow-right text-indigo-400 group-hover:translate-x-1 transition"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-indigo-900 mb-2">자산 요청</h3>
-                    <p class="text-xs text-indigo-700">HW/SW/클라우드</p>
-                </div>
-                
-                <!-- 게시판 🆕 -->
-                <div onclick="openUserBoardView()" class="bg-gradient-to-br from-teal-50 to-teal-100 border-2 border-teal-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
-                    <div class="flex items-start justify-between mb-3">
-                        <div class="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-clipboard-list text-white text-xl"></i>
-                        </div>
-                        <i class="fas fa-arrow-right text-teal-400 group-hover:translate-x-1 transition"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-teal-900 mb-2">게시판</h3>
-                    <p class="text-xs text-teal-700">매뉴얼/설치파일</p>
-                </div>
-
-                <!-- 인감대장 🆕 NEW! -->
-                <div onclick="openSealManagementSystem()" class="bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group relative">
-                    <div class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg animate-pulse">NEW</div>
-                    <div class="flex items-start justify-between mb-3">
-                        <div class="w-12 h-12 bg-amber-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
-                            <i class="fas fa-stamp text-white text-xl"></i>
-                        </div>
-                        <i class="fas fa-arrow-right text-amber-400 group-hover:translate-x-1 transition"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-amber-900 mb-2">인감대장</h3>
-                    <p class="text-xs text-amber-700">인감 날인 신청/관리</p>
-                </div>
-
-            </div>
-        </div>
-        
-        <!-- 게시판 섹션 🆕 -->
-        <div id="user-board-section" style="display: none;">
-            <div id="user-board-content"></div>
-        </div>
-
-        <!-- 진행 중인 요청 (Active Requests) -->
-        <div id="active-requests-section" class="mb-8" style="display: none;">
-            <div class="flex items-center justify-between mb-4">
-                <h2 class="text-xl font-bold text-gray-800">
-                    <i class="fas fa-running text-blue-500 mr-2"></i>진행 중인 요청
-                </h2>
-            </div>
-            <div id="active-requests-container" class="space-y-3"></div>
-        </div>
-
-        <!-- Ticket List Table -->
-        <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
-            <div class="p-6 border-b bg-gradient-to-r from-gray-50 to-white">
-                <div class="flex items-center justify-between">
-                    <h2 class="text-lg font-bold text-gray-800">
-                        <i class="fas fa-history text-gray-500 mr-2"></i>전체 신청 내역
+            <!-- 진행 중인 요청 (Active Requests) -->
+            <div id="active-requests-section" class="mb-8" style="display: none;">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">
+                        <i class="fas fa-running text-blue-500 mr-2"></i>진행 중인 요청
                     </h2>
-                    <div class="flex items-center space-x-3">
-                        <select class="border border-gray-300 rounded-lg px-4 py-2 text-sm" id="user-status-filter" onchange="renderUserTickets()">
-                            <option value="">전체 상태</option>
-                            <option value="요청">요청</option>
-                            <option value="견적확인">견적확인</option>
-                            <option value="승인대기">승인대기</option>
-                            <option value="접수">접수</option>
-                            <option value="처리중">처리중</option>
-                            <option value="재검수중">재검수중</option>
-                            <option value="검수 대기">검수 대기</option>
-                            <option value="완료">완료</option>
-                            <option value="보류">보류</option>
-                            <option value="반려">반려</option>
-                            <option value="취소">취소</option>
+                </div>
+                <div id="active-requests-container" class="space-y-3"></div>
+            </div>
+
+            <!-- Ticket List Table -->
+            <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                <div class="p-6 border-b bg-gradient-to-r from-gray-50 to-white">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-lg font-bold text-gray-800">
+                            <i class="fas fa-history text-gray-500 mr-2"></i>전체 신청 내역
+                        </h2>
+                        <div class="flex items-center space-x-3">
+                            <select class="border border-gray-300 rounded-lg px-4 py-2 text-sm" id="user-status-filter" onchange="renderUserTickets()">
+                                <option value="">전체 상태</option>
+                                <option value="요청">요청</option>
+                                <option value="견적확인">견적확인</option>
+                                <option value="승인대기">승인대기</option>
+                                <option value="접수">접수</option>
+                                <option value="처리중">처리중</option>
+                                <option value="재검수중">재검수중</option>
+                                <option value="검수 대기">검수 대기</option>
+                                <option value="완료">완료</option>
+                                <option value="보류">보류</option>
+                                <option value="반려">반려</option>
+                                <option value="취소">취소</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 80px;">티켓번호</th>
+                                <th style="width: 100px;">상태</th>
+                                <th style="width: 60px;">우선순위</th>
+                                <th>제목</th>
+                                <th style="width: 120px;">요청일</th>
+                                <th style="width: 120px;">예상완료일</th>
+                                <th style="width: 120px;">담당자</th>
+                                <th style="width: 100px;">진행률</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-ticket-list">
+                            <!-- User tickets will be rendered here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- 홈 콘텐츠 끝 -->
+
+        <!-- 🆕 서비스요청 콘텐츠 -->
+        <div id="user-service-content" class="user-gnb-content hidden">
+            <div class="mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">
+                        <i class="fas fa-th-large text-indigo-500 mr-2"></i>서비스 요청
+                    </h2>
+                    <p class="text-sm text-gray-600">시스템을 선택하고 요청하세요</p>
+                </div>
+                <div class="grid grid-cols-3 gap-4">
+                    <!-- 오아시스 -->
+                    <div onclick="openCategoryModal('오아시스')" class="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
+                                <i class="fas fa-water text-white text-xl"></i>
+                            </div>
+                            <i class="fas fa-arrow-right text-blue-400 group-hover:translate-x-1 transition"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-blue-900 mb-2">오아시스</h3>
+                        <p class="text-xs text-blue-700">오아시스 시스템</p>
+                    </div>
+                    <!-- GMS -->
+                    <div onclick="openCategoryModal('GMS')" class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
+                                <i class="fas fa-cogs text-white text-xl"></i>
+                            </div>
+                            <i class="fas fa-arrow-right text-green-400 group-hover:translate-x-1 transition"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-green-900 mb-2">GMS</h3>
+                        <p class="text-xs text-green-700">GMS 시스템</p>
+                    </div>
+                    <!-- 부동산 -->
+                    <div onclick="openCategoryModal('부동산')" class="bg-gradient-to-br from-orange-50 to-orange-100 border-2 border-orange-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
+                                <i class="fas fa-building text-white text-xl"></i>
+                            </div>
+                            <i class="fas fa-arrow-right text-orange-400 group-hover:translate-x-1 transition"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-orange-900 mb-2">부동산</h3>
+                        <p class="text-xs text-orange-700">부동산 시스템</p>
+                    </div>
+                    <!-- 인프라 -->
+                    <div onclick="openCategoryModal('인프라')" class="bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
+                                <i class="fas fa-server text-white text-xl"></i>
+                            </div>
+                            <i class="fas fa-arrow-right text-purple-400 group-hover:translate-x-1 transition"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-purple-900 mb-2">인프라</h3>
+                        <p class="text-xs text-purple-700">인프라 시스템</p>
+                    </div>
+                    <!-- ERP -->
+                    <div onclick="openCategoryModal('ERP')" class="bg-gradient-to-br from-red-50 to-red-100 border-2 border-red-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
+                                <i class="fas fa-chart-line text-white text-xl"></i>
+                            </div>
+                            <i class="fas fa-arrow-right text-red-400 group-hover:translate-x-1 transition"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-red-900 mb-2">ERP</h3>
+                        <p class="text-xs text-red-700">ERP 시스템</p>
+                    </div>
+                    <!-- HR -->
+                    <div onclick="openCategoryModal('HR')" class="bg-gradient-to-br from-pink-50 to-pink-100 border-2 border-pink-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
+                                <i class="fas fa-users text-white text-xl"></i>
+                            </div>
+                            <i class="fas fa-arrow-right text-pink-400 group-hover:translate-x-1 transition"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-pink-900 mb-2">HR</h3>
+                        <p class="text-xs text-pink-700">HR 시스템</p>
+                    </div>
+                    <!-- 기타 -->
+                    <div onclick="openCategoryModal('기타')" class="bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="w-12 h-12 bg-gray-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
+                                <i class="fas fa-ellipsis-h text-white text-xl"></i>
+                            </div>
+                            <i class="fas fa-arrow-right text-gray-400 group-hover:translate-x-1 transition"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">기타</h3>
+                        <p class="text-xs text-gray-700">기타 서비스</p>
+                    </div>
+                    <!-- 자산 요청 -->
+                    <div onclick="quickAssetRequest()" class="bg-gradient-to-br from-indigo-50 to-indigo-100 border-2 border-indigo-200 rounded-xl p-6 cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-200 group">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
+                                <i class="fas fa-laptop text-white text-xl"></i>
+                            </div>
+                            <i class="fas fa-arrow-right text-indigo-400 group-hover:translate-x-1 transition"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-indigo-900 mb-2">자산 요청</h3>
+                        <p class="text-xs text-indigo-700">HW/SW/클라우드</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 서비스요청 콘텐츠 끝 -->
+
+        <!-- 🆕 게시판 콘텐츠 -->
+        <div id="user-board-content-main" class="user-gnb-content hidden">
+            <!-- renderUserBoardInMain()으로 동적 렌더 -->
+        </div>
+        <!-- 게시판 콘텐츠 끝 -->
+
+        <!-- 🆕 인감대장 콘텐츠 (openSealManagementSystem() 호출) -->
+        <div id="user-seal-content" class="user-gnb-content hidden">
+            <!-- 인감대장 시스템으로 바로 진입 -->
+        </div>
+        <!-- 인감대장 콘텐츠 끝 -->
+
+        <!-- 🆕 신청자 자산관리 콘텐츠 -->
+        <div id="user-asset-content" class="user-gnb-content hidden">
+
+            <!-- 상단 헤더 영역 -->
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h2 class="text-xl font-bold text-gray-800">
+                        <i class="fas fa-laptop text-blue-500 mr-2"></i>자산관리
+                        <span class="text-sm font-normal text-gray-500 ml-2" id="user-asset-dept-label"></span>
+                    </h2>
+                    <p class="text-sm text-gray-500 mt-1">내 부서 자산을 등록하고 점검·수리 이력을 관리할 수 있습니다</p>
+                </div>
+                <button onclick="openUserAssetRegisterModal()"
+                        class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-5 py-2.5 rounded-lg hover:from-blue-700 hover:to-blue-800 transition font-semibold shadow-md text-sm">
+                    <i class="fas fa-plus mr-2"></i>자산 등록
+                </button>
+            </div>
+
+            <!-- 요약 통계 카드 -->
+            <div class="grid grid-cols-4 gap-4 mb-6">
+                <div class="bg-white rounded-xl shadow-sm border p-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-gray-500 mb-1">부서 전체 자산</p>
+                            <p class="text-2xl font-bold text-gray-800" id="user-asset-stat-total">0</p>
+                        </div>
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-laptop text-blue-600 text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border p-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-gray-500 mb-1">사용중</p>
+                            <p class="text-2xl font-bold text-green-600" id="user-asset-stat-active">0</p>
+                        </div>
+                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-check-circle text-green-600 text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border p-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-gray-500 mb-1">수리중 / 고장</p>
+                            <p class="text-2xl font-bold text-red-600" id="user-asset-stat-repair">0</p>
+                        </div>
+                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-tools text-red-600 text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border p-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-gray-500 mb-1">내가 등록한 자산</p>
+                            <p class="text-2xl font-bold text-purple-600" id="user-asset-stat-mine">0</p>
+                        </div>
+                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user-check text-purple-600 text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 필터 + 검색 -->
+            <div class="bg-white rounded-xl shadow-sm border p-4 mb-4">
+                <div class="grid grid-cols-4 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">검색</label>
+                        <input type="text" id="user-asset-search"
+                               placeholder="자산명, 코드, 사용자..."
+                               oninput="renderUserAssetList()"
+                               class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">카테고리</label>
+                        <select id="user-asset-filter-category" onchange="renderUserAssetList()"
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                            <option value="">전체</option>
+                            <option value="하드웨어">하드웨어</option>
+                            <option value="소프트웨어">소프트웨어</option>
+                            <option value="클라우드">클라우드</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">상태</label>
+                        <select id="user-asset-filter-status" onchange="renderUserAssetList()"
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                            <option value="">전체</option>
+                            <option value="사용중">사용중</option>
+                            <option value="대기">대기</option>
+                            <option value="수리중">수리중</option>
+                            <option value="고장">고장</option>
+                            <option value="폐기">폐기</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">보기 범위</label>
+                        <select id="user-asset-filter-scope" onchange="renderUserAssetList()"
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                            <option value="dept">내 부서 전체</option>
+                            <option value="mine">내가 등록한 자산</option>
                         </select>
                     </div>
                 </div>
             </div>
-            <div class="overflow-x-auto">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 80px;">티켓번호</th>
-                            <th style="width: 100px;">상태</th>
-                            <th style="width: 60px;">우선순위</th>
-                            <th>제목</th>
-                            <th style="width: 120px;">요청일</th>
-                            <th style="width: 120px;">예상완료일</th>
-                            <th style="width: 120px;">담당자</th>
-                            <th style="width: 100px;">진행률</th>
-                        </tr>
-                    </thead>
-                    <tbody id="user-ticket-list">
-                        <!-- User tickets will be rendered here -->
-                    </tbody>
-                </table>
+
+            <!-- 자산 목록 테이블 -->
+            <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                <div class="p-4 border-b bg-gradient-to-r from-gray-50 to-white flex items-center justify-between">
+                    <h3 class="font-bold text-gray-700 text-sm">
+                        <i class="fas fa-list text-gray-400 mr-2"></i>자산 목록
+                        <span class="ml-2 text-xs text-gray-400 font-normal" id="user-asset-count-label"></span>
+                    </h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th style="width:120px;">자산코드</th>
+                                <th style="width:80px;">카테고리</th>
+                                <th>자산명</th>
+                                <th style="width:90px;">제조사</th>
+                                <th style="width:70px;">구매년도</th>
+                                <th style="width:90px;">상태</th>
+                                <th style="width:80px;">사용자</th>
+                                <th style="width:80px;">등록자</th>
+                                <th style="width:130px;">관리</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-asset-list-tbody">
+                            <tr>
+                                <td colspan="9" class="text-center py-10 text-gray-400">
+                                    <i class="fas fa-inbox text-3xl mb-2 block"></i>
+                                    자산 데이터를 불러오는 중...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
         </div>
+        <!-- 신청자 자산관리 콘텐츠 끝 -->
+
     </div>
+    <!-- user-view 끝 -->
 
     <!-- Admin View (IT팀 화면) -->
     <div id="admin-view" class="max-w-[1600px] mx-auto px-6 py-6 hidden">
@@ -1842,6 +2184,54 @@
 
         <!-- Assets Management Tab 🆕 -->
         <div id="admin-assets-tab" class="admin-tab-content hidden">
+
+            <!-- 🆕 ERP 동기화 상태 배너 (최상단 항상 표시) -->
+            <div class="erp-sync-banner" id="erp-sync-banner-wrap">
+                <div class="sync-info">
+                    <div class="sync-dot" id="erp-sync-dot"></div>
+                    <div>
+                        <div style="font-weight:700;font-size:13px;color:#172B4D;">
+                            <i class="fas fa-link mr-1" style="color:#1565C0;"></i>ERP 자산 연동
+                        </div>
+                        <div style="font-size:12px;color:#5E6C84;" id="erp-last-sync-text">
+                            최근 동기화: <span id="erp-last-sync-time" style="font-weight:600;color:#1565C0;">아직 동기화하지 않았습니다</span>
+                        </div>
+                    </div>
+                    <div style="font-size:12px;color:#5E6C84;padding-left:16px;border-left:1px solid #BBDEFB;">
+                        ERP 연동 자산: <span id="erp-linked-count" style="font-weight:700;color:#1565C0;">0</span>건 &nbsp;|&nbsp;
+                        직접 등록 자산: <span id="direct-reg-count" style="font-weight:700;color:#2E7D32;">0</span>건
+                    </div>
+                </div>
+                <div class="sync-actions">
+                    <button onclick="openErpImportModal()"
+                            style="padding:8px 18px;background:linear-gradient(135deg,#1565C0,#283593);color:#fff;border-radius:7px;font-weight:700;font-size:13px;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;">
+                        <i class="fas fa-sync-alt"></i> 지금 가져오기
+                    </button>
+                    <button onclick="alert('ERP 동기화 이력 기능은 준비 중입니다.')"
+                            style="padding:8px 14px;background:#fff;color:#5E6C84;border-radius:7px;font-weight:600;font-size:12px;border:1px solid #DFE1E6;cursor:pointer;">
+                        <i class="fas fa-history mr-1"></i>이력
+                    </button>
+                </div>
+            </div>
+
+            <!-- 🆕 자산관리 내부 탭 네비게이션 -->
+            <div class="bg-white rounded-xl shadow-sm border mb-0" style="border-bottom-left-radius:0;border-bottom-right-radius:0;">
+                <nav class="asset-inner-tab-nav" id="assetInnerTabNav">
+                    <button class="asset-inner-tab active" onclick="switchAssetInnerTab('dashboard')" id="atab-dashboard">
+                        <i class="fas fa-chart-pie mr-2 text-purple-500"></i>자산 현황 대시보드
+                    </button>
+                    <button class="asset-inner-tab" onclick="switchAssetInnerTab('advanced')" id="atab-advanced">
+                        <i class="fas fa-brain mr-2 text-orange-500"></i>비용·효율 분석
+                    </button>
+                    <button class="asset-inner-tab" onclick="switchAssetInnerTab('list')" id="atab-list">
+                        <i class="fas fa-list mr-2 text-blue-500"></i>자산 목록
+                    </button>
+                </nav>
+            </div>
+
+            <!-- ===== 내부 탭 콘텐츠: 자산 현황 대시보드 ===== -->
+            <div id="asset-inner-dashboard" class="asset-inner-content active" style="background:#F7F8F9;border-radius:0 0 12px 12px;padding:24px 0 0 0;">
+
             <!-- 🆕 자산 현황 대시보드 -->
             <div class="mb-8">
                 <h2 class="text-2xl font-bold text-gray-800 mb-6">
@@ -2035,6 +2425,21 @@
                     </div>
                 </div>
             </div>
+
+            </div><!-- /asset-inner-dashboard -->
+
+            <!-- ===== 내부 탭 콘텐츠: 비용·효율 고급 분석 대시보드 ===== -->
+            <div id="asset-inner-advanced" class="asset-inner-content" style="background:#F7F8F9;border-radius:0 0 12px 12px;padding:24px 0 0 0;">
+                <div id="advanced-dashboard-container">
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fas fa-spinner fa-spin text-3xl mb-3"></i>
+                        <p>분석 데이터를 불러오는 중...</p>
+                    </div>
+                </div>
+            </div><!-- /asset-inner-advanced -->
+
+            <!-- ===== 내부 탭 콘텐츠: 자산 목록 ===== -->
+            <div id="asset-inner-list" class="asset-inner-content" style="background:#F7F8F9;border-radius:0 0 12px 12px;padding:24px 0 0 0;">
             
             <!-- 기존 자산 관리 섹션 -->
             <div class="mb-6">
@@ -2063,7 +2468,7 @@
 
                 <!-- 필터 & 검색 -->
                 <div class="bg-white rounded-xl shadow-sm border p-4 mb-6">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
                         <!-- 카테고리 필터 -->
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">카테고리</label>
@@ -2088,6 +2493,29 @@
                             </select>
                         </div>
                         
+                        <!-- 🆕 등록구분 필터 (ERP연동/직접등록) -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">등록구분</label>
+                            <select id="asset-filter-source" onchange="filterAssets()" class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                                <option value="">전체</option>
+                                <option value="ERP연동">ERP 연동</option>
+                                <option value="직접등록">직접 등록</option>
+                            </select>
+                        </div>
+
+                        <!-- 🆕 자산구분 필터 (일반/부외/임대/리스) -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">자산구분</label>
+                            <select id="asset-filter-classification" onchange="filterAssets()" class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                                <option value="">전체</option>
+                                <option value="재무자산">재무자산(일반)</option>
+                                <option value="부외자산">부외자산</option>
+                                <option value="임차자산">임차자산</option>
+                                <option value="리스자산">리스자산</option>
+                                <option value="기증자산">기증자산</option>
+                            </select>
+                        </div>
+                        
                         <!-- 검색 -->
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">검색</label>
@@ -2097,14 +2525,17 @@
                     </div>
                 </div>
 
-                <!-- 자산 목록 테이블 -->
+                        <!-- 자산 목록 테이블 -->
                 <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
                     <div class="overflow-x-auto">
                         <table class="data-table">
                             <thead>
                                 <tr>
-                                    <th style="width: 100px;">자산코드</th>
-                                    <th style="width: 70px;">구분</th>
+                                    <th style="width: 100px;">ITSM코드</th>
+                                    <th style="width: 85px;">ERP코드</th>
+                                    <th style="width: 70px;">등록구분</th>
+                                    <th style="width: 80px;">자산구분</th>
+                                    <th style="width: 70px;">취득구분</th>
                                     <th style="width: 80px;">카테고리</th>
                                     <th style="width: 150px;">자산명</th>
                                     <th style="width: 120px;">제조사/개발사</th>
@@ -2121,6 +2552,76 @@
                         </table>
                     </div>
                 </div>
+            </div>
+            </div><!-- /asset-inner-list -->
+        </div><!-- /admin-assets-tab -->
+    </div>
+
+    <!-- 🆕 ERP 데이터 가져오기 모달 -->
+    <div id="erpImportModal" class="modal">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 p-8 animate-slide-in">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-gray-800">
+                    <i class="fas fa-download text-blue-600 mr-2"></i>ERP 자산 데이터 가져오기
+                </h3>
+                <button onclick="closeModal('erpImportModal')" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+                <p class="text-sm text-blue-700">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    지정 기간 내에 ERP에 등록된 신규 자산을 ITSM으로 가져옵니다.<br>
+                    ERP 코드 1건이 여러 대를 포함한 경우, 각각 개별 ITSM 코드로 분리 등록됩니다.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">시작일 *</label>
+                    <input type="date" id="erp-import-start" class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">종료일 *</label>
+                    <input type="date" id="erp-import-end" class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">카테고리 필터</label>
+                <select id="erp-import-category" class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                    <option value="">전체</option>
+                    <option value="하드웨어">하드웨어</option>
+                    <option value="소프트웨어">소프트웨어</option>
+                    <option value="클라우드">클라우드</option>
+                </select>
+            </div>
+
+            <div id="erp-import-preview" class="hidden mb-6">
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                    <h4 class="font-semibold text-gray-700 mb-3">
+                        <i class="fas fa-list text-gray-500 mr-2"></i>가져올 자산 미리보기
+                    </h4>
+                    <div id="erp-import-preview-list" class="space-y-2 max-h-48 overflow-y-auto"></div>
+                </div>
+            </div>
+
+            <div id="erp-import-result" class="hidden mb-4"></div>
+
+            <div class="flex justify-end gap-3">
+                <button type="button" onclick="closeModal('erpImportModal')"
+                        class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                    취소
+                </button>
+                <button onclick="previewErpImport()" id="erp-preview-btn"
+                        class="px-5 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition font-semibold">
+                    <i class="fas fa-eye mr-2"></i>미리보기
+                </button>
+                <button onclick="executeErpImport()" id="erp-execute-btn"
+                        class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold">
+                    <i class="fas fa-download mr-2"></i>가져오기 실행
+                </button>
             </div>
         </div>
     </div>
@@ -4730,6 +5231,28 @@
                                 <option value="렌탈">렌탈</option>
                             </select>
                         </div>
+                        <!-- 🆕 자산 구분 -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">자산 구분 *</label>
+                            <select id="manual-asset-classification" required class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                                <option value="재무자산">재무자산</option>
+                                <option value="부외자산">부외자산</option>
+                                <option value="임차자산">임차자산</option>
+                                <option value="리스자산">리스자산</option>
+                                <option value="기증자산">기증자산</option>
+                                <option value="기타">기타</option>
+                            </select>
+                        </div>
+                        <!-- 🆕 ERP 코드 (선택사항) -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                ERP 코드
+                                <span class="text-xs text-gray-500 font-normal ml-1">(ERP 연동 시 입력)</span>
+                            </label>
+                            <input type="text" id="manual-erp-code"
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-2 font-mono"
+                                   placeholder="예: ERP-NB-2024-001">
+                        </div>
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">카테고리 *</label>
                             <select id="manual-category" required class="w-full border border-gray-300 rounded-lg px-4 py-2">
@@ -5971,6 +6494,10 @@
                 document.getElementById('admin-role-btn').classList.add('active');
                 document.getElementById('user-view').classList.add('hidden');
                 document.getElementById('admin-view').classList.remove('hidden');
+
+                // 🆕 IT팀 모드: 헤더 GNB 숨김
+                const gnbWrap = document.getElementById('header-gnb-wrap');
+                if (gnbWrap) gnbWrap.classList.remove('visible');
                 
                 // Show Account Management tab for master only
                 if (currentRole === 'master') {
@@ -5986,6 +6513,16 @@
                 document.getElementById('user-view').classList.remove('hidden');
                 document.getElementById('admin-view').classList.add('hidden');
                 document.getElementById('accountManagementTab').style.display = 'none';
+
+                // 🆕 신청자 모드: 헤더 GNB 표시, 홈 탭 활성화
+                const gnbWrap = document.getElementById('header-gnb-wrap');
+                if (gnbWrap) gnbWrap.classList.add('visible');
+                document.querySelectorAll('.header-gnb-tab').forEach(btn => btn.classList.remove('active'));
+                const homeTab = document.getElementById('hgnb-home');
+                if (homeTab) homeTab.classList.add('active');
+                document.querySelectorAll('.user-gnb-content').forEach(c => c.classList.add('hidden'));
+                const homeContent = document.getElementById('user-home-content');
+                if (homeContent) homeContent.classList.remove('hidden');
                 
                 renderUserView();
             }
@@ -6603,6 +7140,7 @@
         let boardPosts = []; // 게시판 🆕
         let boardPostIdCounter = 1;
         let assetIdCounter = 1;
+        let lastErpSyncTime = null; // 🆕 ERP 최근 동기화 시간
         
         // 🎯 새로운 카테고리 시스템 데이터 (사용자 메인용)
         const serviceCategories = {
@@ -9528,6 +10066,232 @@
         }
 
         // Switch Role
+        // 🆕 신청자 GNB 메뉴 전환
+        function switchUserGNB(menu) {
+
+            // 헤더 탭 active 동기화
+            document.querySelectorAll('.header-gnb-tab').forEach(btn => btn.classList.remove('active'));
+            const hTab = document.getElementById('hgnb-' + menu);
+            if (hTab) hTab.classList.add('active');
+
+            // 인감대장은 바로 시스템으로 진입
+            if (menu === 'seal') {
+                openSealManagementSystem();
+                return;
+            }
+
+            // 게시판: 콘텐츠 표시 후 렌더
+            if (menu === 'board') {
+                document.querySelectorAll('.user-gnb-content').forEach(c => c.classList.add('hidden'));
+                const boardEl = document.getElementById('user-board-content-main');
+                if (boardEl) boardEl.classList.remove('hidden');
+                renderUserBoardInMain();
+                return;
+            }
+
+            // 🆕 자산관리 탭
+            if (menu === 'asset') {
+                document.querySelectorAll('.user-gnb-content').forEach(c => c.classList.add('hidden'));
+                const assetEl = document.getElementById('user-asset-content');
+                if (assetEl) assetEl.classList.remove('hidden');
+                renderUserAssetList();
+                return;
+            }
+
+            // 모든 콘텐츠 숨기기
+            document.querySelectorAll('.user-gnb-content').forEach(c => c.classList.add('hidden'));
+
+            // 선택된 콘텐츠 표시
+            if (menu === 'home') {
+                const el = document.getElementById('user-home-content');
+                if (el) el.classList.remove('hidden');
+                updateUserStats();
+                renderUserTickets();
+            } else if (menu === 'service') {
+                const el = document.getElementById('user-service-content');
+                if (el) el.classList.remove('hidden');
+            }
+        }
+
+        // =============================================
+        // 🆕 신청자 자산관리 함수
+        // =============================================
+
+        // 신청자 자산 필터링 (부서 기준)
+        function getUserDeptAssets() {
+            const scope = document.getElementById('user-asset-filter-scope')?.value || 'dept';
+            const dept = currentUser.department;
+            const search = (document.getElementById('user-asset-search')?.value || '').toLowerCase();
+            const catFilter = document.getElementById('user-asset-filter-category')?.value || '';
+            const statusFilter = document.getElementById('user-asset-filter-status')?.value || '';
+
+            return assets.filter(asset => {
+                // 범위 필터
+                const inScope = scope === 'mine'
+                    ? (asset.registeredBy === currentUser.name)
+                    : (asset.registeredBy === currentUser.name ||
+                       asset.currentUser === currentUser.name ||
+                       (asset.department === dept));
+
+                if (!inScope) return false;
+
+                // 카테고리
+                if (catFilter && asset.category !== catFilter) return false;
+                // 상태
+                if (statusFilter && asset.status !== statusFilter) return false;
+                // 검색
+                if (search) {
+                    const hit = asset.name.toLowerCase().includes(search) ||
+                                asset.code.toLowerCase().includes(search) ||
+                                (asset.currentUser || '').toLowerCase().includes(search) ||
+                                (asset.manufacturer || '').toLowerCase().includes(search);
+                    if (!hit) return false;
+                }
+                return true;
+            });
+        }
+
+        // 신청자 자산 목록 렌더링
+        function renderUserAssetList() {
+            // 부서 레이블 업데이트
+            const deptLabel = document.getElementById('user-asset-dept-label');
+            if (deptLabel) deptLabel.textContent = `(${currentUser.department})`;
+
+            const filtered = getUserDeptAssets();
+            const allDeptAssets = assets.filter(a =>
+                a.registeredBy === currentUser.name ||
+                a.currentUser === currentUser.name ||
+                a.department === currentUser.department
+            );
+
+            // 통계 업데이트
+            const statTotal = document.getElementById('user-asset-stat-total');
+            const statActive = document.getElementById('user-asset-stat-active');
+            const statRepair = document.getElementById('user-asset-stat-repair');
+            const statMine = document.getElementById('user-asset-stat-mine');
+            if (statTotal) statTotal.textContent = allDeptAssets.length;
+            if (statActive) statActive.textContent = allDeptAssets.filter(a => a.status === '사용중').length;
+            if (statRepair) statRepair.textContent = allDeptAssets.filter(a => a.status === '수리중' || a.status === '고장').length;
+            if (statMine) statMine.textContent = allDeptAssets.filter(a => a.registeredBy === currentUser.name).length;
+
+            const countLabel = document.getElementById('user-asset-count-label');
+            if (countLabel) countLabel.textContent = `총 ${filtered.length}건`;
+
+            const tbody = document.getElementById('user-asset-list-tbody');
+            if (!tbody) return;
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="9" class="text-center py-10 text-gray-400">
+                            <i class="fas fa-inbox text-3xl mb-2 block"></i>
+                            <p>조회된 자산이 없습니다</p>
+                            <button onclick="openUserAssetRegisterModal()"
+                                    class="mt-3 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 transition">
+                                <i class="fas fa-plus mr-1"></i>자산 등록하기
+                            </button>
+                        </td>
+                    </tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(asset => {
+                const statusColor = asset.status === '사용중' ? 'green' :
+                                    asset.status === '대기'   ? 'blue'  :
+                                    asset.status === '고장'   ? 'red'   :
+                                    asset.status === '수리중' ? 'orange': 'gray';
+                const catIcon  = asset.category === '하드웨어' ? 'laptop' :
+                                 asset.category === '소프트웨어' ? 'code' : 'cloud';
+                const catColor = asset.category === '하드웨어' ? 'purple' :
+                                 asset.category === '소프트웨어' ? 'blue' : 'cyan';
+                const year = asset.purchaseDate ? new Date(asset.purchaseDate).getFullYear() :
+                             asset.purchaseYear || '-';
+
+                // 등록자 본인 여부 → 수정/삭제 버튼 표시
+                const isOwner = asset.registeredBy === currentUser.name;
+                const actionBtns = `
+                    <button onclick="openViewAssetModal(${asset.id})"
+                            class="text-purple-600 hover:text-purple-700 text-xs font-semibold">
+                        <i class="fas fa-eye mr-1"></i>보기
+                    </button>
+                    ${isOwner ? `
+                    <button onclick="openUserAssetEditSimple(${asset.id})"
+                            class="text-blue-600 hover:text-blue-700 text-xs font-semibold">
+                        <i class="fas fa-edit mr-1"></i>수정
+                    </button>` : ''}`;
+
+                return `
+                    <tr>
+                        <td class="font-mono text-xs">${asset.code}</td>
+                        <td>
+                            <span class="inline-flex items-center px-2 py-1 bg-${catColor}-100 text-${catColor}-700 text-xs rounded-full font-semibold">
+                                <i class="fas fa-${catIcon} mr-1"></i>${asset.category}
+                            </span>
+                        </td>
+                        <td class="font-semibold text-sm">${asset.name}</td>
+                        <td class="text-gray-600 text-sm">${asset.manufacturer || '-'}</td>
+                        <td class="text-center text-sm">${year}</td>
+                        <td>
+                            <span class="status-badge status-badge-${statusColor}">${asset.status}</span>
+                        </td>
+                        <td class="text-gray-600 text-sm">${asset.currentUser || '-'}</td>
+                        <td class="text-gray-500 text-xs">${asset.registeredBy || '-'}</td>
+                        <td>
+                            <div class="flex items-center space-x-2">${actionBtns}</div>
+                        </td>
+                    </tr>`;
+            }).join('');
+        }
+
+        // 신청자 자산 등록 모달 (기존 assetRegisterModal 재활용, 부서 자동 설정)
+        function openUserAssetRegisterModal() {
+            openModal('assetRegisterModal');
+            selectRegisterType('manual');
+            document.getElementById('manualAssetForm').reset();
+            document.getElementById('search-result').innerHTML = '';
+            loadAssetTypesDropdown();
+            // 사용자 필드에 현재 사용자 자동 입력
+            const userField = document.getElementById('manual-user');
+            if (userField && !userField.value) userField.value = currentUser.name;
+            // 등록 완료 후 신청자 목록 갱신을 위해 콜백 플래그 설정
+            window._userAssetRegisterCallback = true;
+        }
+
+        // 신청자용 간단 자산 수정 (기존 editModal 재활용)
+        function openUserAssetEditSimple(assetId) {
+            openEditAssetModal(assetId);
+        }
+
+        // 🆕 게시판 탭에서 renderUserBoard 연결
+        function renderUserBoardInMain() {
+            const container = document.getElementById('user-board-content-main');
+            if (!container) return;
+
+            // 이미 렌더됐으면 테이블만 업데이트
+            if (container.querySelector('#board-table-body') || document.getElementById('board-table-body')) {
+                updateBoardTable(false);
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="mb-6 flex items-center justify-between">
+                    <h2 class="text-2xl font-bold text-gray-800">
+                        <i class="fas fa-clipboard-list text-teal-500 mr-2"></i>게시판
+                    </h2>
+                </div>
+                ${renderBoardLayout(false)}
+            `;
+
+            const searchInput = document.getElementById('board-search');
+            const categoryFilter = document.getElementById('board-category-filter');
+            const typeFilter = document.getElementById('board-type-filter');
+            if (searchInput) searchInput.addEventListener('input', () => updateBoardTable(false));
+            if (categoryFilter) categoryFilter.addEventListener('change', () => updateBoardTable(false));
+            if (typeFilter) typeFilter.addEventListener('change', () => updateBoardTable(false));
+
+            updateBoardTable(false);
+        }
+
         function switchRole(role) {
             // user 권한만 IT팀 탭 접근 차단 (마스터는 모든 권한)
             if (role === 'admin' && currentUser.role === 'user') {
@@ -9542,6 +10306,16 @@
             document.getElementById('admin-role-btn').classList.toggle('active', role === 'admin');
             document.getElementById('user-view').classList.toggle('hidden', role !== 'user');
             document.getElementById('admin-view').classList.toggle('hidden', role !== 'admin');
+
+            // 🆕 헤더 GNB: 신청자 모드일 때만 표시
+            const gnbWrap = document.getElementById('header-gnb-wrap');
+            if (gnbWrap) {
+                if (role === 'user') {
+                    gnbWrap.classList.add('visible');
+                } else {
+                    gnbWrap.classList.remove('visible');
+                }
+            }
             
             // Update user info
             if (role === 'admin') {
@@ -16178,8 +16952,503 @@ ${grades.map(grade => {
         
         // 자산 관리 렌더링
         function renderAssetManagement() {
+            renderErpSyncBar();
+            updateErpBannerCounts();
             renderAssetDashboard();
             renderAssetsList();
+        }
+
+        // 🆕 자산관리 내부 탭 전환 함수 (새 탭 UI용)
+        function switchAssetInnerTab(tabName) {
+            // 탭 버튼 active 상태 변경
+            document.querySelectorAll('.asset-inner-tab').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById('atab-' + tabName);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            // 콘텐츠 전환 (asset-inner-content CSS 클래스)
+            document.querySelectorAll('.asset-inner-content').forEach(el => el.classList.remove('active'));
+            const activeContent = document.getElementById('asset-inner-' + tabName);
+            if (activeContent) activeContent.classList.add('active');
+
+            // 탭별 렌더링
+            if (tabName === 'advanced') {
+                renderAdvancedDashboard();
+            } else if (tabName === 'list') {
+                renderAssetsList();
+            } else if (tabName === 'dashboard') {
+                renderAssetDashboard();
+            }
+        }
+
+        // 🆕 ERP 배너 카운트 업데이트
+        function updateErpBannerCounts() {
+            const erpCount = assets.filter(a => a.registrationSource === 'ERP연동').length;
+            const directCount = assets.filter(a => !a.registrationSource || a.registrationSource === '직접등록').length;
+            const lastSyncEl = document.getElementById('erp-last-sync-time');
+            const erpLinkedEl = document.getElementById('erp-linked-count');
+            const directRegEl = document.getElementById('direct-reg-count');
+            if (erpLinkedEl) erpLinkedEl.textContent = erpCount;
+            if (directRegEl) directRegEl.textContent = directCount;
+            if (lastSyncEl) {
+                if (lastErpSyncTime) {
+                    const d = new Date(lastErpSyncTime);
+                    lastSyncEl.textContent = d.toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+                    lastSyncEl.style.color = '#2E7D32';
+                } else {
+                    lastSyncEl.textContent = '아직 동기화하지 않았습니다';
+                    lastSyncEl.style.color = '#5E6C84';
+                }
+            }
+        }
+
+        // 🆕 ERP 연동 상태 바 렌더링
+        function renderErpSyncBar() {
+            const el = document.getElementById('erp-last-sync-display');
+            if (!el) return;
+            if (lastErpSyncTime) {
+                const d = new Date(lastErpSyncTime);
+                el.textContent = d.toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+                el.className = 'font-semibold text-green-700 ml-1';
+            } else {
+                el.textContent = '연동 기록 없음';
+                el.className = 'font-semibold text-gray-500 ml-1';
+            }
+        }
+
+        // 🆕 자산 내부 탭 전환
+        function switchAssetTab(tabName) {
+            // 기존 함수 → switchAssetInnerTab으로 위임 (하위 호환)
+            switchAssetInnerTab(tabName);
+        }
+
+        // 🆕 ERP 가져오기 모달 열기
+        function openErpImportModal() {
+            // 기본 날짜: 이번달 1일 ~ 오늘
+            const today = new Date();
+            const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+            document.getElementById('erp-import-start').value = firstDay.toISOString().split('T')[0];
+            document.getElementById('erp-import-end').value = today.toISOString().split('T')[0];
+            document.getElementById('erp-import-preview').classList.add('hidden');
+            document.getElementById('erp-import-result').classList.add('hidden');
+            openModal('erpImportModal');
+        }
+
+        // 🆕 ERP 미리보기
+        function previewErpImport() {
+            const start = document.getElementById('erp-import-start').value;
+            const end = document.getElementById('erp-import-end').value;
+            if (!start || !end) { alert('시작일과 종료일을 입력해주세요.'); return; }
+
+            // 시뮬레이션: ERP 데이터 생성
+            const mockErpData = generateMockErpData(start, end);
+            const previewEl = document.getElementById('erp-import-preview');
+            const listEl = document.getElementById('erp-import-preview-list');
+
+            if (mockErpData.length === 0) {
+                listEl.innerHTML = '<p class="text-sm text-gray-500 text-center py-2">해당 기간에 가져올 신규 자산이 없습니다.</p>';
+            } else {
+                listEl.innerHTML = mockErpData.map(item => `
+                    <div class="flex items-center justify-between bg-white border border-gray-100 rounded-lg px-3 py-2">
+                        <div>
+                            <span class="text-xs font-mono text-blue-600 mr-2">${item.erpCode}</span>
+                            <span class="text-sm font-semibold text-gray-800">${item.name}</span>
+                            <span class="text-xs text-gray-500 ml-2">${item.category}</span>
+                        </div>
+                        <div class="text-xs text-gray-500">
+                            수량: <span class="font-bold text-gray-700">${item.quantity}대</span>
+                            → ITSM <span class="font-bold text-blue-700">${item.quantity}건</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            previewEl.classList.remove('hidden');
+            window._erpImportData = mockErpData;
+        }
+
+        // 🆕 ERP 가져오기 실행
+        function executeErpImport() {
+            const data = window._erpImportData;
+            if (!data || data.length === 0) {
+                alert('먼저 미리보기를 실행하세요.');
+                return;
+            }
+            let importedCount = 0;
+            data.forEach(item => {
+                for (let i = 0; i < item.quantity; i++) {
+                    const newCode = item.category === '하드웨어' ? `HW-${String(assets.length + 1).padStart(3, '0')}` :
+                                    item.category === '소프트웨어' ? `SW-${String(assets.length + 1).padStart(3, '0')}` :
+                                    `CL-${String(assets.length + 1).padStart(3, '0')}`;
+                    assets.push({
+                        id: assets.length + 1,
+                        code: newCode,
+                        category: item.category,
+                        type: item.type || '',
+                        name: item.name + (item.quantity > 1 ? ` (${i + 1}/${item.quantity})` : ''),
+                        manufacturer: item.manufacturer || '',
+                        status: '대기',
+                        acquisitionType: '구매',
+                        purchaseDate: item.registeredDate,
+                        purchasePrice: item.price || 0,
+                        price: item.price || 0,
+                        currentUser: null,
+                        registrationSource: 'ERP연동',
+                        erpCode: item.erpCode,
+                        assetClassification: item.assetClassification || '재무자산',
+                        registeredAt: new Date().toISOString().split('T')[0],
+                        registeredBy: currentUser.name
+                    });
+                    importedCount++;
+                }
+            });
+
+            lastErpSyncTime = new Date().toISOString();
+            renderErpSyncBar();
+            updateErpBannerCounts();
+            renderAssetsList();
+            renderAssetDashboard();
+
+            const resultEl = document.getElementById('erp-import-result');
+            resultEl.innerHTML = `
+                <div class="bg-green-50 border border-green-200 rounded-xl p-4 text-center">
+                    <i class="fas fa-check-circle text-green-500 text-2xl mb-2"></i>
+                    <p class="font-bold text-green-700">가져오기 완료!</p>
+                    <p class="text-sm text-green-600 mt-1">${data.length}개 ERP 코드 → ${importedCount}건 ITSM 자산 등록</p>
+                </div>`;
+            resultEl.classList.remove('hidden');
+            window._erpImportData = null;
+        }
+
+        // 🆕 모의 ERP 데이터 생성
+        function generateMockErpData(startDate, endDate) {
+            const mockItems = [
+                { erpCode: 'ERP-NB-'+new Date().getFullYear()+'-'+String(Math.floor(Math.random()*900)+100), name: '삼성 갤럭시북4 Pro', category: '하드웨어', type: '노트북', manufacturer: '삼성전자', quantity: 3, price: 1850000, assetClassification: '재무자산' },
+                { erpCode: 'ERP-PC-'+new Date().getFullYear()+'-'+String(Math.floor(Math.random()*900)+100), name: 'LG 데스크탑 올인원', category: '하드웨어', type: 'PC', manufacturer: 'LG전자', quantity: 2, price: 1200000, assetClassification: '재무자산' },
+                { erpCode: 'ERP-SW-'+new Date().getFullYear()+'-'+String(Math.floor(Math.random()*900)+100), name: 'Windows 11 Pro', category: '소프트웨어', type: 'OS', manufacturer: 'Microsoft', quantity: 5, price: 250000, assetClassification: '재무자산' },
+            ];
+            return mockItems.map(item => ({ ...item, registeredDate: startDate }));
+        }
+
+        // 🆕 고급 분석 대시보드 렌더링
+        function renderAdvancedDashboard() {
+            const container = document.getElementById('advanced-dashboard-container');
+            if (!container) return;
+
+            const totalAssets = assets.length;
+            const now = new Date();
+
+            // 미사용 자산 (6개월 이상)
+            const unusedAssets = assets.filter(a => {
+                if (a.status !== '대기') return false;
+                if (!a.registeredAt) return true;
+                const reg = new Date(a.registeredAt);
+                return (now - reg) > 180 * 24 * 3600 * 1000;
+            });
+
+            // 저활용 라이센스
+            const lowUtilSw = assets.filter(a => a.category === '소프트웨어' && a.licenseCount && a.usedCount && (a.usedCount / a.licenseCount) < 0.3);
+
+            // 30/60/90일 갱신 예정
+            const renewIn30 = assets.filter(a => checkRenewal(a, 30));
+            const renewIn60 = assets.filter(a => checkRenewal(a, 60) && !checkRenewal(a, 30));
+            const renewIn90 = assets.filter(a => checkRenewal(a, 90) && !checkRenewal(a, 60));
+
+            // 라이센스 만료 7일
+            const expireIn7 = assets.filter(a => checkExpiry(a, 7));
+            // 보증 만료 7일
+            const warrantyIn7 = assets.filter(a => checkWarrantyExpiry(a, 7));
+            // 갱신 필요 30일
+            const renewIn30Alert = assets.filter(a => checkRenewal(a, 30));
+            // 노후 자산
+            const oldAssets = assets.filter(a => {
+                if (!a.purchaseYear) return false;
+                return (now.getFullYear() - a.purchaseYear) >= 5;
+            });
+            // 수리 과다
+            const repairHeavy = assets.filter(a => a.repairHistory && a.repairHistory.length >= 3);
+
+            // 카테고리별 가동률
+            const hwAssets = assets.filter(a => a.category === '하드웨어');
+            const swAssets = assets.filter(a => a.category === '소프트웨어');
+            const cloudAssets = assets.filter(a => a.category === '클라우드');
+            const hwRate = hwAssets.length > 0 ? ((hwAssets.filter(a => a.status === '사용중').length / hwAssets.length) * 100).toFixed(0) : 0;
+            const swRate = swAssets.length > 0 ? ((swAssets.filter(a => a.status === '활성' || a.status === '사용중').length / swAssets.length) * 100).toFixed(0) : 0;
+            const cloudRate = cloudAssets.length > 0 ? ((cloudAssets.filter(a => a.status === '활성' || a.status === '사용중').length / cloudAssets.length) * 100).toFixed(0) : 0;
+            const totalRate = totalAssets > 0 ? ((assets.filter(a => ['사용중','활성'].includes(a.status)).length / totalAssets) * 100).toFixed(0) : 0;
+
+            // 자산 가치 분석
+            const totalAcq = assets.reduce((s, a) => s + (a.purchasePrice || a.price || 0), 0);
+            let totalDepreciation = 0;
+            assets.forEach(a => {
+                if (a.depreciationYears && a.purchaseYear && (a.purchasePrice || a.price)) {
+                    const elapsed = Math.min(now.getFullYear() - a.purchaseYear, a.depreciationYears);
+                    totalDepreciation += ((a.purchasePrice || a.price) / a.depreciationYears) * elapsed;
+                }
+            });
+            const totalBookValue = Math.max(0, totalAcq - totalDepreciation);
+
+            // 연도별 교체 권장 (향후 3년)
+            const replaceByYear = {};
+            for (let y = now.getFullYear(); y <= now.getFullYear() + 2; y++) {
+                replaceByYear[y] = assets.filter(a => {
+                    if (!a.purchaseYear || !a.depreciationYears) return false;
+                    return (a.purchaseYear + a.depreciationYears) === y;
+                });
+            }
+
+            // 평균 TCO
+            const hwTotal = hwAssets.reduce((s, a) => s + (a.purchasePrice || a.price || 0), 0);
+            const rentalTotal = assets.filter(a => a.acquisitionType === '렌탈').reduce((s, a) => s + (a.rentalMonthly || 0) * 36, 0);
+            const avgTCO3yr = hwAssets.length > 0 ? Math.round((hwTotal + rentalTotal * 0.3) / Math.max(hwAssets.length, 1)) : 0;
+
+            container.innerHTML = `
+            <div class="grid grid-cols-2 gap-6 mb-6">
+                <!-- 비용 최적화 기회 -->
+                <div class="bg-white rounded-xl border-2 border-orange-200 shadow-sm p-5">
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <span class="text-xl">🍔</span><span class="text-lg">💰</span>
+                        비용 최적화 기회
+                    </h3>
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-search text-orange-400"></i>
+                            <span class="font-semibold text-gray-700 text-sm">숨은 비용</span>
+                        </div>
+                        <div class="space-y-2 ml-5">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-gray-600">미사용 자산 (6개월+)</span>
+                                <span class="font-bold ${unusedAssets.length > 0 ? 'text-red-600' : 'text-gray-500'}">${unusedAssets.length}건 <span class="text-xs text-gray-400">(₩0)</span></span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-gray-600">저활용 라이센스 (&lt;30%)</span>
+                                <span class="font-bold ${lowUtilSw.length > 0 ? 'text-orange-600' : 'text-gray-500'}">${lowUtilSw.length}건 <span class="text-xs text-gray-400">(₩0/년)</span></span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-gray-600">중복 구독 서비스</span>
+                                <span class="font-bold text-gray-500">0건 <span class="text-xs text-gray-400">(₩0/년)</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-100 pt-3">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-calendar-alt text-blue-400"></i>
+                            <span class="font-semibold text-gray-700 text-sm">예정 비용 (라이센스 갱신)</span>
+                        </div>
+                        <div class="space-y-2 ml-5">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">30일 내 갱신</span>
+                                <span class="font-bold ${renewIn30.length > 0 ? 'text-red-600' : 'text-gray-800'}">₩${calcRenewalCost(renewIn30).toLocaleString()}</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">60일 내 갱신</span>
+                                <span class="font-bold text-gray-800">₩${calcRenewalCost(renewIn60).toLocaleString()}</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">90일 내 갱신</span>
+                                <span class="font-bold text-gray-800">₩${calcRenewalCost(renewIn90).toLocaleString()}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 주의 필요 자산 -->
+                <div class="bg-white rounded-xl border-2 border-red-200 shadow-sm p-5">
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <span class="text-xl">⚠️</span><span class="text-lg">🔔</span>
+                        주의 필요 자산
+                    </h3>
+                    <!-- 긴급 -->
+                    <div class="mb-3">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                            <span class="font-semibold text-red-700 text-sm">긴급 (7일 이내)</span>
+                        </div>
+                        <div class="space-y-1.5 ml-5">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">라이센스 만료</span>
+                                <span class="font-bold ${expireIn7.length > 0 ? 'text-red-600' : 'text-gray-500'}">${expireIn7.length} <span class="text-xs text-gray-400">건</span></span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">보증 기간 만료</span>
+                                <span class="font-bold ${warrantyIn7.length > 0 ? 'text-red-600' : 'text-gray-500'}">${warrantyIn7.length} <span class="text-xs text-gray-400">건</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 경고 -->
+                    <div class="mb-3">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-orange-400"></div>
+                            <span class="font-semibold text-orange-700 text-sm">경고 (30일 이내)</span>
+                        </div>
+                        <div class="space-y-1.5 ml-5">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">라이센스 갱신 필요</span>
+                                <span class="font-bold ${renewIn30Alert.length > 0 ? 'text-orange-600' : 'text-gray-500'}">${renewIn30Alert.length} <span class="text-xs text-gray-400">건</span></span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">노후 자산 (5년+)</span>
+                                <span class="font-bold ${oldAssets.length > 0 ? 'text-orange-600' : 'text-gray-500'}">${oldAssets.length} <span class="text-xs text-gray-400">건</span></span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">수리 이력 과다 (3회+)</span>
+                                <span class="font-bold ${repairHeavy.length > 0 ? 'text-orange-600' : 'text-gray-500'}">${repairHeavy.length} <span class="text-xs text-gray-400">건</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 주의 -->
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
+                            <span class="font-semibold text-gray-600 text-sm">주의 사항</span>
+                        </div>
+                        <div class="ml-5">
+                            <div class="flex justify-between text-sm items-center">
+                                <span class="text-gray-600">ERP 미연동 자산</span>
+                                <span class="font-bold text-gray-700">${assets.filter(a => !a.erpCode).length}건</span>
+                                <button onclick="switchAssetTab('list'); setTimeout(() => { document.getElementById('asset-filter-source').value='직접등록'; filterAssets(); }, 100);" 
+                                        class="text-xs text-blue-600 hover:underline ml-2">동기화</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-6">
+                <!-- 자산 효율성 지표 -->
+                <div class="bg-white rounded-xl border-2 border-green-200 shadow-sm p-5">
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <i class="fas fa-chart-line text-green-500 text-lg"></i>
+                        <i class="fas fa-chart-bar text-blue-500 text-base"></i>
+                        자산 효율성 지표
+                    </h3>
+                    <div class="mb-4">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-sm text-gray-700 font-semibold">전체 가동률</span>
+                            <span class="font-bold text-lg ${totalRate >= 70 ? 'text-green-600' : totalRate >= 40 ? 'text-yellow-600' : 'text-red-600'}">${totalRate}%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-3">
+                            <div class="h-2.5 rounded-full ${totalRate >= 70 ? 'bg-green-500' : totalRate >= 40 ? 'bg-yellow-500' : 'bg-red-500'}" style="width: ${totalRate}%"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">하드웨어</span>
+                                <span class="font-semibold">${hwRate}% (${hwAssets.filter(a => a.status === '사용중').length}/${hwAssets.length})</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                <div class="bg-blue-500 h-1.5 rounded-full" style="width: ${hwRate}%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">소프트웨어</span>
+                                <span class="font-semibold">${swRate}% (${swAssets.filter(a => ['활성','사용중'].includes(a.status)).length}/${swAssets.length})</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                <div class="bg-purple-500 h-1.5 rounded-full" style="width: ${swRate}%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">클라우드</span>
+                                <span class="font-semibold">${cloudRate}% (${cloudAssets.filter(a => ['활성','사용중'].includes(a.status)).length}/${cloudAssets.length})</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                <div class="bg-cyan-500 h-1.5 rounded-full" style="width: ${cloudRate}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <p class="text-xs font-semibold text-gray-600 mb-2">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-1"></i>개선 기회
+                        </p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            ${unusedAssets.length > 0 ? `<p>• 미사용 대기 자산 ${unusedAssets.length}건 재배치 검토</p>` : '<p class="text-green-600">• 미사용 자산 없음 ✓</p>'}
+                            ${lowUtilSw.length > 0 ? `<p>• 저활용 라이센스 ${lowUtilSw.length}건 재검토</p>` : '<p class="text-green-600">• 라이센스 효율 양호 ✓</p>'}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 자산 가치 분석 & 교체 계획 -->
+                <div class="bg-white rounded-xl border-2 border-purple-200 shadow-sm p-5">
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <i class="fas fa-chart-area text-purple-500 text-lg"></i>
+                        <i class="fas fa-recycle text-orange-400 text-base"></i>
+                        자산 가치 분석 &amp; 교체 계획
+                    </h3>
+                    <div class="grid grid-cols-3 gap-3 mb-4">
+                        <div class="text-center bg-blue-50 rounded-lg p-3">
+                            <div class="text-xs text-gray-500 mb-1">총 취득가</div>
+                            <div class="font-bold text-blue-700 text-sm">₩${totalAcq.toLocaleString()}</div>
+                        </div>
+                        <div class="text-center bg-red-50 rounded-lg p-3">
+                            <div class="text-xs text-gray-500 mb-1">감가상각 누적</div>
+                            <div class="font-bold text-red-600 text-sm">₩${Math.round(totalDepreciation).toLocaleString()}</div>
+                        </div>
+                        <div class="text-center bg-green-50 rounded-lg p-3">
+                            <div class="text-xs text-gray-500 mb-1">현재 장부가</div>
+                            <div class="font-bold text-green-700 text-sm">₩${Math.round(totalBookValue).toLocaleString()}</div>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 text-center mb-4">
+                        감가상각률: ${totalAcq > 0 ? ((totalDepreciation / totalAcq) * 100).toFixed(0) : 0}%
+                    </div>
+
+                    <div class="border-t border-gray-100 pt-3 mb-3">
+                        <p class="text-xs font-semibold text-gray-600 mb-2">
+                            <i class="fas fa-calendar-check text-indigo-500 mr-1"></i>연도별 교체 권장
+                        </p>
+                        ${Object.entries(replaceByYear).map(([year, list]) => `
+                            <div class="flex justify-between text-sm py-1">
+                                <span class="text-gray-600">${year}년</span>
+                                <span class="font-bold text-gray-800">${list.length}건 <span class="text-xs text-gray-400">(₩${list.reduce((s, a) => s + (a.purchasePrice || a.price || 0), 0).toLocaleString()})</span></span>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="border-t border-gray-100 pt-3">
+                        <p class="text-xs font-semibold text-gray-600 mb-2">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-1"></i>TCO 분석 (3년 기준)
+                        </p>
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 text-xs text-gray-700">
+                            <p>노트북 평균 TCO <strong>₩${avgTCO3yr.toLocaleString()}</strong></p>
+                            <p class="text-green-600 mt-1">→ 렌탈 전환 시 <strong>20% 절감 가능</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        // 🆕 갱신 체크 헬퍼
+        function checkRenewal(asset, days) {
+            const dateStr = asset.expiryDate || asset.subscriptionEnd || (asset.extendedFields && asset.extendedFields.expiryDate);
+            if (!dateStr) return false;
+            const d = new Date(dateStr);
+            const diff = (d - new Date()) / (1000 * 60 * 60 * 24);
+            return diff >= 0 && diff <= days;
+        }
+
+        // 🆕 만료 체크 헬퍼
+        function checkExpiry(asset, days) {
+            const dateStr = asset.expiryDate || (asset.extendedFields && asset.extendedFields.expiryDate);
+            if (!dateStr) return false;
+            const d = new Date(dateStr);
+            const diff = (d - new Date()) / (1000 * 60 * 60 * 24);
+            return diff >= 0 && diff <= days;
+        }
+
+        // 🆕 보증 만료 체크 헬퍼
+        function checkWarrantyExpiry(asset, days) {
+            const dateStr = asset.warrantyEnd || (asset.extendedFields && asset.extendedFields.warrantyEnd);
+            if (!dateStr) return false;
+            const d = new Date(dateStr);
+            const diff = (d - new Date()) / (1000 * 60 * 60 * 24);
+            return diff >= 0 && diff <= days;
+        }
+
+        // 🆕 갱신 비용 계산 헬퍼
+        function calcRenewalCost(assetList) {
+            return assetList.reduce((s, a) => s + (a.monthlyFee ? a.monthlyFee * 12 : a.price || a.purchasePrice || 0), 0);
         }
         
         // 자산 목록 렌더링
@@ -16290,7 +17559,27 @@ ${grades.map(grade => {
                 
                 return `
                     <tr>
-                        <td>${assetCodeDisplay}</td>
+                        <td>
+                            ${assetCodeDisplay}
+                            ${asset.erpCode ? `<div class="text-xs text-blue-600 mt-1 font-mono"><i class="fas fa-link mr-1"></i>ERP: ${asset.erpCode}</div>` : ''}
+                        </td>
+                        <td>
+                            ${asset.registrationSource === 'ERP연동'
+                                ? `<span class="inline-flex items-center px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-semibold whitespace-nowrap"><i class="fas fa-link mr-1"></i>ERP</span>`
+                                : `<span class="inline-flex items-center px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full font-semibold whitespace-nowrap"><i class="fas fa-keyboard mr-1"></i>직접</span>`
+                            }
+                        </td>
+                        <td>
+                            <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold
+                                ${asset.assetClassification === '재무자산' ? 'bg-green-100 text-green-700' :
+                                  asset.assetClassification === '부외자산' ? 'bg-orange-100 text-orange-700' :
+                                  asset.assetClassification === '임차자산' ? 'bg-purple-100 text-purple-700' :
+                                  asset.assetClassification === '리스자산' ? 'bg-yellow-100 text-yellow-700' :
+                                  asset.assetClassification === '기증자산' ? 'bg-pink-100 text-pink-700' :
+                                  'bg-gray-100 text-gray-600'}">
+                                ${asset.assetClassification || '재무자산'}
+                            </span>
+                        </td>
                         <td>
                             <span class="inline-flex items-center px-2 py-1 bg-${acquisitionColor}-100 text-${acquisitionColor}-700 text-xs rounded-full font-semibold">
                                 ${asset.acquisitionType || '구매'}
@@ -16410,18 +17699,23 @@ ${grades.map(grade => {
         function getFilteredAssets() {
             const categoryFilter = document.getElementById('asset-filter-category')?.value || '';
             const statusFilter = document.getElementById('asset-filter-status')?.value || '';
+            const sourceFilter = document.getElementById('asset-filter-source')?.value || '';
+            const classificationFilter = document.getElementById('asset-filter-classification')?.value || '';
             const searchTerm = document.getElementById('asset-search')?.value.toLowerCase() || '';
             
             return assets.filter(asset => {
                 const matchesCategory = !categoryFilter || asset.category === categoryFilter;
                 const matchesStatus = !statusFilter || asset.status === statusFilter;
+                const matchesSource = !sourceFilter || (asset.registrationSource || '직접등록') === sourceFilter;
+                const matchesClassification = !classificationFilter || (asset.assetClassification || '재무자산') === classificationFilter;
                 const matchesSearch = !searchTerm || 
                     asset.name.toLowerCase().includes(searchTerm) ||
                     asset.code.toLowerCase().includes(searchTerm) ||
+                    (asset.erpCode && asset.erpCode.toLowerCase().includes(searchTerm)) ||
                     (asset.currentUser && asset.currentUser.toLowerCase().includes(searchTerm)) ||
                     (asset.manufacturer && asset.manufacturer.toLowerCase().includes(searchTerm));
                 
-                return matchesCategory && matchesStatus && matchesSearch;
+                return matchesCategory && matchesStatus && matchesSource && matchesClassification && matchesSearch;
             });
         }
         
@@ -16430,6 +17724,14 @@ ${grades.map(grade => {
             renderAssetsList();
         }
         
+        // 🆕 ERP 코드 필드 표시/숨김 토글
+        function toggleErpCodeField() {
+            // manual-erp-code는 항상 표시, 등록구분 안내만 변경
+            const erpCodeInput = document.getElementById('manual-erp-code');
+            if (!erpCodeInput) return;
+            // ERP 코드 필드는 항상 보이되 placeholder로 안내
+        }
+
         // 자산 등록 모달 열기
         function openAddAssetModal() {
             openModal('assetRegisterModal'); // ✅ 수정
@@ -16640,6 +17942,8 @@ ${grades.map(grade => {
             const assetCode = document.getElementById('manual-asset-code').value.trim();
             const typeCode = document.getElementById('manual-type-code').value.trim();
             const acquisitionType = document.getElementById('manual-acquisition-type').value;
+            const assetClassification = document.getElementById('manual-asset-classification')?.value || '재무자산';
+            const erpCode = document.getElementById('manual-erp-code')?.value.trim() || null;
             const category = document.getElementById('manual-category').value;
             const assetName = document.getElementById('manual-asset-name').value.trim();
             const manufacturer = document.getElementById('manual-manufacturer').value.trim();
@@ -16688,7 +17992,10 @@ ${grades.map(grade => {
                 note: note,
                 extendedFields: extendedFields,
                 registeredAt: new Date().toISOString().split('T')[0],
-                registeredBy: currentUser.name
+                registeredBy: currentUser.name,
+                registrationSource: erpCode ? 'ERP연동' : '직접등록',
+                erpCode: erpCode || null,
+                assetClassification: assetClassification || '재무자산'
             };
             
             // 자산 추가
@@ -16700,6 +18007,12 @@ ${grades.map(grade => {
             closeModal('assetRegisterModal');
             renderAssetsList();
             renderAssetDashboard();
+
+            // 🆕 신청자 탭에서 등록한 경우 신청자 자산 목록도 갱신
+            if (window._userAssetRegisterCallback) {
+                window._userAssetRegisterCallback = false;
+                renderUserAssetList();
+            }
             
             return false; // 폼 제출 완전 차단
         }
@@ -17353,6 +18666,10 @@ ${grades.map(grade => {
             // 자산 상세 다시 열기
             openViewAssetModal(assetId);
             
+            // 🆕 신청자 자산관리 탭이 열려있으면 목록 갱신
+            const userAssetEl = document.getElementById('user-asset-content');
+            if (userAssetEl && !userAssetEl.classList.contains('hidden')) renderUserAssetList();
+
             alert('점검 이력이 추가되었습니다.');
             return false;
         }
@@ -17370,6 +18687,10 @@ ${grades.map(grade => {
                 
                 // 자산 상세 다시 열기
                 openViewAssetModal(assetId);
+
+                // 🆕 신청자 자산관리 탭이 열려있으면 목록 갱신
+                const userAssetEl = document.getElementById('user-asset-content');
+                if (userAssetEl && !userAssetEl.classList.contains('hidden')) renderUserAssetList();
                 
                 alert('점검 이력이 삭제되었습니다.');
             }
@@ -17421,6 +18742,10 @@ ${grades.map(grade => {
             
             // 자산 상세 다시 열기
             openViewAssetModal(assetId);
+
+            // 🆕 신청자 자산관리 탭이 열려있으면 목록 갱신
+            const userAssetElR = document.getElementById('user-asset-content');
+            if (userAssetElR && !userAssetElR.classList.contains('hidden')) renderUserAssetList();
             
             alert('수리 이력이 추가되었습니다.');
             return false;
@@ -17439,6 +18764,10 @@ ${grades.map(grade => {
                 
                 // 자산 상세 다시 열기
                 openViewAssetModal(assetId);
+
+                // 🆕 신청자 자산관리 탭이 열려있으면 목록 갱신
+                const userAssetElD = document.getElementById('user-asset-content');
+                if (userAssetElD && !userAssetElD.classList.contains('hidden')) renderUserAssetList();
                 
                 alert('수리 이력이 삭제되었습니다.');
             }
